@@ -48,10 +48,68 @@ then
 fi
 #-------------------------------------
 
-#------ Update content data from redmine git repository 
+#------ Update wibarab data from GitHub repository 
 echo updating wibarab-data
 if [ ! -d wibarab-data/.git ]; then echo "wibarab-data does not exist or is not a git repository"; fi
 pushd wibarab-data
+ret=$?
+if [ $ret != "0" ]; then exit $ret; fi
+if [ "$onlytags"x = 'truex' ]
+then
+git reset --hard
+git pull
+dataversion=$(git describe --tags --abbrev=0)
+else
+git pull
+dataversion=$(git describe --tags --always)
+fi
+echo checking out data ${dataversion}
+git -c advice.detachedHead=false checkout ${dataversion}
+who=$(git show -s --format='%cN')
+when=$(git show -s --format='%as')
+message=$(git show -s --format='%B')
+revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+<revisionDesc>
+  <change n="$dataversion" who="$who" when="$when">
+$message
+   </change>
+</revisionDesc>
+EOF
+)
+
+#------ Update corpus data from GitHub repository 
+echo updating corpus-data
+if [ ! -d corpus-data/.git ]; then git clone https://github.com/wibarab/corpus-data.git; fi
+pushd corpus-data
+ret=$?
+if [ $ret != "0" ]; then exit $ret; fi
+if [ "$onlytags"x = 'truex' ]
+then
+git reset --hard
+git pull
+dataversion=$(git describe --tags --abbrev=0)
+else
+git pull
+dataversion=$(git describe --tags --always)
+fi
+echo checking out data ${dataversion}
+git -c advice.detachedHead=false checkout ${dataversion}
+who=$(git show -s --format='%cN')
+when=$(git show -s --format='%as')
+message=$(git show -s --format='%B')
+revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+<revisionDesc>
+  <change n="$dataversion" who="$who" when="$when">
+$message
+   </change>
+</revisionDesc>
+EOF
+)
+
+#------ Update feature DB from GitHub repository
+echo updating featuredb
+if [ ! -d featuredb/.git ]; then git clone https://github.com/wibarab/featuredb.git; fi
+pushd corpus-data
 ret=$?
 if [ $ret != "0" ]; then exit $ret; fi
 if [ "$onlytags"x = 'truex' ]
