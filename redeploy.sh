@@ -77,6 +77,18 @@ $message
 EOF
 )
 
+#------- copy all images into the "images" directory in the web application directory
+echo "copying image files from wibarab-data to vicav-webapp"
+for d in $(ls -d vicav_*)
+do echo "Directory $d:"
+   find "$d" -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec cp -v {} ${BUILD_DIR:-../webapp/vicav-app}/images \;
+   if [ "$onlytags"x = 'truex' ]
+   then
+     find "$d" -type f -and -name '*.xml' -exec sed -i "s~\(</teiHeader>\)~$revisionDesc\\n\1~g" {} \;
+   fi
+done
+popd
+
 #------ Update corpus data from GitHub repository 
 echo updating corpus-data
 if [ ! -d corpus-data/.git ]; then git clone https://github.com/wibarab/corpus-data.git; fi
@@ -105,6 +117,7 @@ $message
 </revisionDesc>
 EOF
 )
+popd
 
 #------ Update feature DB from GitHub repository
 echo updating featuredb
@@ -134,18 +147,8 @@ $message
 </revisionDesc>
 EOF
 )
-
-#------- copy all images into the "images" directory in the web application directory
-echo "copying image files from wibarab-data to vicav-webapp"
-for d in $(ls -d vicav_*)
-do echo "Directory $d:"
-   find "$d" -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec cp -v {} ${BUILD_DIR:-../webapp/vicav-app}/images \;
-   if [ "$onlytags"x = 'truex' ]
-   then
-     find "$d" -type f -and -name '*.xml' -exec sed -i "s~\(</teiHeader>\)~$revisionDesc\\n\1~g" {} \;
-   fi
-done
 popd
+
 pushd ${BUILD_DIR:-webapp/vicav-app}
 find ./ -type f -and \( -name '*.js' -or -name '*.html' \) -not \( -path './node_modules/*' -or -path './cypress/*' \) -exec sed -i "s~\@data-version@~$dataversion~g" {} \;
 popd
