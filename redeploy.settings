@@ -1,0 +1,3 @@
+onlytags=false # enable for production
+local_username=admin
+local_password='admin'
