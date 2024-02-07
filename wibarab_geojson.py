@@ -55,9 +55,10 @@ def get_geo_info(unique_places, geo_doc):
                 )
                 if geo_el is not None:
                     coordinates = re.split(r"[\s,]+", geo_doc.create_plain_text(geo_el))
-                    lat_lng = [float(coord) for coord in coordinates if coord]
+                    # Reverse coordinates from lat-long to long-lat for GeoJSON
+                    lng_lat = [float(coord) for coord in reversed(coordinates) if coord]
                 else:
-                    lat_lng = []
+                    lng_lat = []
                 name = " / ".join(
                     geo_doc.any_xpath(
                         f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()'
@@ -67,7 +68,7 @@ def get_geo_info(unique_places, geo_doc):
                 feature = {
                     "type": "Feature",
                     "id": place_id,
-                    "geometry": {"type": "Point", "coordinates": lat_lng},
+                    "geometry": {"type": "Point", "coordinates": lng_lat},
                     "properties": {"name": name},
                 }
                 geo_features.append(feature)
