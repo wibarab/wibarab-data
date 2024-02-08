@@ -1,4 +1,5 @@
 from acdh_tei_pyutils.tei import TeiReader
+from pathlib import Path
 import os
 import json
 import re
@@ -14,14 +15,14 @@ def process_files(directory):
     """
     Process all TEI files in directory while excluding folders and templates.
     """
-    processed_data = []
+    processed_data = {}
     errors = set()
     for file_name in os.listdir(directory):
-        file_path = os.path.join(directory, file_name)
-        if os.path.isfile(file_path) and "template" not in file_name:
+        file_path = Path(directory, file_name)
+        if file_path.is_file() and "template" not in file_name:
             try:
-                doc = TeiReader(file_path)
-                processed_data.append(doc)
+                doc = TeiReader(file_path.as_posix())
+                processed_data.update({file_path.as_posix(): doc})
             except (SyntaxError, OSError) as e:
                 errors.add(f"Error processing file {file_name}: {e}")
     return processed_data, errors
@@ -32,7 +33,7 @@ def get_place_list(documents):
     Extract a unique list of places from the feature files.
     """
     unique_places = set()
-    for doc in documents:
+    for doc in documents.values():
         place_names = doc.any_xpath("//tei:placeName/@ref")
         unique_places.update(place_names)
     return unique_places
@@ -141,12 +142,12 @@ def get_feature_data(geo_features, documents):
 
 def write_geojson(output_file, geojson_data):
     with open(output_file, "w") as geojson_file:
-        json.dump(geojson_data, geojson_file, indent=2)
+        json.dump(geojson_data, geojson_file, indent=2, sort_keys=True)
 
 
 def main():
     # Path to the featuredb, adjust if necessary
-    data_home = "featuredb"
+    data_home = "../featuredb"
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
