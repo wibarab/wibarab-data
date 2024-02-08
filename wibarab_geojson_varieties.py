@@ -1,4 +1,5 @@
 from acdh_tei_pyutils.tei import TeiReader
+from pathlib import Path
 import os
 import json
 import re
@@ -14,14 +15,14 @@ def process_files(directory):
     """
     Process all TEI files in directory while excluding folders and templates.
     """
-    processed_data = []
+    processed_data = {}
     errors = set()
     for file_name in os.listdir(directory):
-        file_path = os.path.join(directory, file_name)
-        if os.path.isfile(file_path) and "template" not in file_name:
+        file_path = Path(directory, file_name)
+        if file_path.is_file() and "template" not in file_name:
             try:
-                doc = TeiReader(file_path)
-                processed_data.append(doc)
+                doc = TeiReader(file_path.as_posix())
+                processed_data.update({file_path.as_posix(): doc})
             except (SyntaxError, OSError) as e:
                 errors.add(f"Error processing file {file_name}: {e}")
     return processed_data, errors
@@ -33,7 +34,7 @@ def get_place_variety_combinations(documents):
     """
     place_variety_combinations = set()
 
-    for doc in documents:
+    for doc in documents.values():
         place_names = doc.any_xpath("//tei:placeName/@ref")
         for place_id in place_names:
             if place_id:
@@ -97,29 +98,32 @@ def get_feature_data(geo_features, documents):
     """
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
-        documented_features = []
-        for doc in documents:
+        documented_features = {}
+        for doc in documents.values():
             # Match the place_id and variety_id, considering that some places may have no associated variety
             if doc.any_xpath(
                 f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]'
             ):
                 title = doc.any_xpath(".//tei:titleStmt/tei:title")[0]
                 feature_name = doc.create_plain_text(title)
-                fv_list = []
+                fv_dict = documented_features[feature_name] if feature_name in documented_features else {}
                 for fvo in doc.tree.xpath(
                     f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]]',
                     namespaces=nsmap,
                 ):
                     # Get & add mandatory information for fvos first (based on ODD)
-                    fv_name = fvo.find("./tei:name", namespaces=nsmap).get("ref")
+                    fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
+                    fv_name = fv_name_tag.get("ref")
+                    if fv_name == "":
+                        fv_name = fv_name_tag.get("text()")
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
                     sources = [x.get("corresp") for x in sources]
-                    feature_value = {"name": fv_name, "sources": sources}
+                    feature_value = {fv_name: {"sources": sources}}
                     # Get & add other optional elements (based on ODD)
                     # Person group
                     pers_group = fvo.findall("./tei:personGrp", namespaces=nsmap)
                     if pers_group:
-                        feature_value["person_groups"] = [
+                        feature_value[fv_name]["person_groups"] = [
                             {x.get("role"): x.get("corresp")} for x in pers_group
                         ]
                     # Source representation
@@ -128,7 +132,7 @@ def get_feature_data(geo_features, documents):
                         namespaces=nsmap,
                     )
                     if src_reps:
-                        feature_value["source_representations"] = [
+                        feature_value[fv_name]["source_representations"] = [
                             x.text for x in src_reps
                         ]
                     # Examples
@@ -136,30 +140,32 @@ def get_feature_data(geo_features, documents):
                         './tei:cit[@type="example"]/tei:quote', namespaces=nsmap
                     )
                     if examples:
-                        feature_value["examples"] = [x.text for x in examples]
+                        feature_value[fv_name]["examples"] = [x.text for x in examples]
                     # Notes
                     notes = fvo.findall(
                         './tei:cit[@type="note"]/tei:quote', namespaces=nsmap
                     )
                     if notes:
-                        feature_value["notes"] = [x.text for x in notes]
-                    fv_list.append(feature_value)
-                if fv_list:
-                    documented_features.append(
-                        {"name": feature_name, "documented_values": fv_list}
+                        feature_value[fv_name]["notes"] = [x.text for x in notes]
+                    if fv_name in fv_dict:
+                        feature_value[fv_name] = feature_value[fv_name] | fv_dict[fv_name]
+                    fv_dict.update(feature_value)
+                if fv_dict:
+                    documented_features.update(
+                        {feature_name: fv_dict}
                     )
-                feature["properties"]["documented_features"] = documented_features
+                feature["properties"] = documented_features
     return geo_features
 
 
 def write_geojson(output_file, geojson_data):
     with open(output_file, "w") as geojson_file:
-        json.dump(geojson_data, geojson_file, indent=2)
+        json.dump(geojson_data, geojson_file, indent=2, sort_keys=True)
 
 
 def main():
     # Path to the featuredb, adjust if necessary
-    data_home = "featuredb"
+    data_home = "../featuredb"
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
