@@ -98,24 +98,32 @@ def get_feature_data(geo_features, documents):
     """
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
+        if variety_id:
+            # Match both place and variety
+            feature_xpath = f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]'
+            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]]'
+        else:
+            # Match place without variety
+            feature_xpath = (
+                f'//tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)'
+            )
+            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)]'
         documented_features = {}
         for doc in documents.values():
             # Match the place_id and variety_id, considering that some places may have no associated variety
-            if doc.any_xpath(
-                f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]'
-            ):
+            if doc.any_xpath(feature_xpath):
                 title = doc.any_xpath(".//tei:titleStmt/tei:title")[0]
                 feature_name = doc.create_plain_text(title)
-                fv_dict = documented_features[feature_name] if feature_name in documented_features else {}
-                for fvo in doc.tree.xpath(
-                    f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]]',
-                    namespaces=nsmap,
-                ):
+                fv_dict = (
+                    documented_features[feature_name]
+                    if feature_name in documented_features
+                    else {}
+                )
+                for fvo in doc.tree.xpath(fvo_xpath, namespaces=nsmap):
                     # Get & add mandatory information for fvos first (based on ODD)
-                    fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
-                    fv_name = fv_name_tag.get("ref")
+                    fv_name = fvo.find("./tei:name", namespaces=nsmap).get("ref")
                     if fv_name == "":
-                        fv_name = fv_name_tag.get("text()")
+                        fv_name = "missing"
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
                     sources = [x.get("corresp") for x in sources]
                     feature_value = {fv_name: {"sources": sources}}
@@ -148,13 +156,13 @@ def get_feature_data(geo_features, documents):
                     if notes:
                         feature_value[fv_name]["notes"] = [x.text for x in notes]
                     if fv_name in fv_dict:
-                        feature_value[fv_name] = feature_value[fv_name] | fv_dict[fv_name]
+                        feature_value[fv_name] = (
+                            feature_value[fv_name] | fv_dict[fv_name]
+                        )
                     fv_dict.update(feature_value)
                 if fv_dict:
-                    documented_features.update(
-                        {feature_name: fv_dict}
-                    )
-                feature["properties"] = documented_features
+                    documented_features.update({feature_name: fv_dict})
+                feature["properties"].update(documented_features)
     return geo_features
 
 
@@ -165,7 +173,8 @@ def write_geojson(output_file, geojson_data):
 
 def main():
     # Path to the featuredb, adjust if necessary
-    data_home = "../featuredb"
+    data_home = os.path.join(".", "featuredb")
+
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
