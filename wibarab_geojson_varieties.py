@@ -96,6 +96,7 @@ def get_feature_data(geo_features, documents):
     """
     Get all linguistic feature data for each place from the XML documents.
     """
+    f_names_count = {}
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
         documented_features = {}
@@ -115,7 +116,7 @@ def get_feature_data(geo_features, documents):
                     fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
                     fv_name = fv_name_tag.get("ref")
                     if fv_name == "":
-                        fv_name = fv_name_tag.get("text()")
+                        fv_name = "Missing Feature Value name"
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
                     sources = [x.get("corresp") for x in sources]
                     feature_value = {fv_name: {"sources": sources}}
@@ -148,14 +149,18 @@ def get_feature_data(geo_features, documents):
                     if notes:
                         feature_value[fv_name]["notes"] = [x.text for x in notes]
                     if fv_name in fv_dict:
-                        feature_value[fv_name] = feature_value[fv_name] | fv_dict[fv_name]
+                        feature_value[fv_name] |= fv_dict[fv_name]
                     fv_dict.update(feature_value)
                 if fv_dict:
-                    documented_features.update(
-                        {feature_name: fv_dict}
-                    )
-                feature["properties"] = documented_features
-    return geo_features
+                    if feature_name in documented_features:
+                        documented_features[feature_name] |= fv_dict
+                    else:
+                        documented_features.update(
+                            {feature_name: fv_dict}
+                        )
+                        f_names_count.update({feature_name: (f_names_count[feature_name] + 1) if feature_name in f_names_count else 1})
+                feature["properties"] |= documented_features
+    return geo_features, f_names_count
 
 
 def write_geojson(output_file, geojson_data):
@@ -182,12 +187,18 @@ def main():
     geo_features = get_geo_info(place_variety, geo_doc)
 
     # Add linguistic feature data to geo data
-    enriched_features = get_feature_data(geo_features, documents)
+    enriched_features, f_names_count = get_feature_data(geo_features, documents)
+
+    # We want to sort column headings by the number of feature entries in the DB
+    column_headings = ["name", "variety"] + [name_count[0] for name_count in sorted(f_names_count.items(), key=lambda name_count: name_count[1], reverse=True)]
 
     # Write everything to GeoJSON file
     geojson_data = {
         "type": "FeatureCollection",
-        "properties": {"description": "GEOJSON for the WIBARAB Feature DB"},
+        "properties": {
+            "description": "GEOJSON for the WIBARAB Feature DB",
+            "column_headings": column_headings
+        },
         "features": enriched_features,
     }
     write_geojson("wibarab_varieties.geojson", geojson_data)
