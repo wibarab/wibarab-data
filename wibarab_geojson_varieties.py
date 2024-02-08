@@ -97,19 +97,24 @@ def get_feature_data(geo_features, documents):
     """
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
+        if variety_id:
+            # Match both place and variety
+            feature_xpath = f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]'
+            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]]'
+        else:
+            # Match place without variety
+            feature_xpath = (
+                f'//tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)'
+            )
+            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)]'
+
         documented_features = []
         for doc in documents:
-            # Match the place_id and variety_id, considering that some places may have no associated variety
-            if doc.any_xpath(
-                f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]'
-            ):
+            if doc.any_xpath(feature_xpath):
                 title = doc.any_xpath(".//tei:titleStmt/tei:title")[0]
                 feature_name = doc.create_plain_text(title)
                 fv_list = []
-                for fvo in doc.tree.xpath(
-                    f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]]',
-                    namespaces=nsmap,
-                ):
+                for fvo in doc.tree.xpath(fvo_xpath, namespaces=nsmap):
                     # Get & add mandatory information for fvos first (based on ODD)
                     fv_name = fvo.find("./tei:name", namespaces=nsmap).get("ref")
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
