@@ -88,7 +88,7 @@ def get_geo_info(place_variety_combinations, geo_doc):
                     "properties": {"name": name, "variety": variety},
                 }
                 geo_features.append(feature)
-
+    geo_features.sort(key = lambda feature: feature["id"])
     return geo_features
 
 
