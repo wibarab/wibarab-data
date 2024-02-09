@@ -107,7 +107,9 @@ def get_feature_data(geo_features, documents):
             ):
                 title = doc.any_xpath(".//tei:titleStmt/tei:title")[0]
                 feature_name = doc.create_plain_text(title)
-                fv_dict = documented_features[feature_name] if feature_name in documented_features else {}
+                fv_dict = {}
+                if feature_name in documented_features:
+                    fv_dict = documented_features[feature_name] 
                 for fvo in doc.tree.xpath(
                     f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml" or not(tei:lang)]]',
                     namespaces=nsmap,
@@ -117,48 +119,55 @@ def get_feature_data(geo_features, documents):
                     fv_name = fv_name_tag.get("ref")
                     if fv_name == "":
                         fv_name = "Missing Feature Value name"
+                    feature_value = {fv_name: {}}
+                    if fv_name in fv_dict:
+                        feature_value = fv_dict
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
                     sources = [x.get("corresp") for x in sources]
-                    feature_value = {fv_name: {"sources": sources}}
+                    if not "sources" in feature_value[fv_name]: feature_value[fv_name]["sources"] = []
+                    feature_value[fv_name]["sources"] = list((set(feature_value[fv_name]["sources"] + sources)))
                     # Get & add other optional elements (based on ODD)
                     # Person group
                     pers_group = fvo.findall("./tei:personGrp", namespaces=nsmap)
                     if pers_group:
-                        feature_value[fv_name]["person_groups"] = [
-                            {x.get("role"): x.get("corresp")} for x in pers_group
+                        current_pg = []
+                        new_pg = [
+                            (x.get("role"), x.get("corresp")) for x in pers_group
                         ]
+                        if "person_groups" in feature_value[fv_name]:
+                            current_pg = [(k, v) for d in feature_value[fv_name]["person_groups"] for k, v in d.items()]
+                        feature_value[fv_name]["person_groups"] = [dict([t]) for t in list(set(current_pg + new_pg))]
                     # Source representation
                     src_reps = fvo.findall(
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
                         namespaces=nsmap,
                     )
                     if src_reps:
-                        feature_value[fv_name]["source_representations"] = [
+                        if not "source_representations" in feature_value[fv_name]: feature_value[fv_name]["source_representations"] = []
+                        feature_value[fv_name]["source_representations"] = list(set(feature_value[fv_name]["source_representations"] + [
                             x.text for x in src_reps
-                        ]
+                        ]))
                     # Examples
                     examples = fvo.findall(
                         './tei:cit[@type="example"]/tei:quote', namespaces=nsmap
                     )
                     if examples:
-                        feature_value[fv_name]["examples"] = [x.text for x in examples]
+                        if not "examples" in feature_value[fv_name]: feature_value[fv_name]["examples"] = []
+                        feature_value[fv_name]["examples"] = list(set(feature_value[fv_name]["examples"] + [x.text for x in examples]))
                     # Notes
                     notes = fvo.findall(
                         './tei:cit[@type="note"]/tei:quote', namespaces=nsmap
                     )
                     if notes:
-                        feature_value[fv_name]["notes"] = [x.text for x in notes]
-                    if fv_name in fv_dict:
-                        feature_value[fv_name] |= fv_dict[fv_name]
-                    fv_dict.update(feature_value)
+                        if not "notes" in feature_value[fv_name]: feature_value[fv_name]["notes"] = []
+                        feature_value[fv_name]["notes"] = list(set(feature_value[fv_name]["notes"] +  [x.text for x in notes]))
+                    fv_dict |= feature_value
                 if fv_dict:
-                    if feature_name in documented_features:
-                        documented_features[feature_name] |= fv_dict
-                    else:
-                        documented_features.update(
-                            {feature_name: fv_dict}
-                        )
+                    if not feature_name in documented_features:
                         f_names_count.update({feature_name: (f_names_count[feature_name] + 1) if feature_name in f_names_count else 1})
+                    documented_features.update(
+                        {feature_name: fv_dict}
+                    )
                 feature["properties"] |= documented_features
     return geo_features, f_names_count
 
