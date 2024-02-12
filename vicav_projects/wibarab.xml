@@ -32,10 +32,10 @@
 	</menu>
 	<styleSettings>
 		<colors>
-			<nav>#088000</nav>
-			<subNav>#58ad52</subNav>
-			<primary>hsla(116, 100%, 25%, 1)</primary>
-			<secondary>hsla(116, 36%, 50%, 1)</secondary>
+			<nav>#712b01</nav>
+			<subNav>#a57b64</subNav>
+			<primary>hsla(23, 98%, 22%, 1)</primary>
+			<secondary>hsla(21, 27%, 52%, 1)</secondary>
 		</colors>
 	</styleSettings>
 	<noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
