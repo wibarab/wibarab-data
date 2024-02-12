@@ -1,0 +1,56 @@
+<?xml-model href="../../../vicav-content/tools/802_tei_odd/out/vicav_paratexts.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../vicav-content/tools/802_tei_odd/out/vicav_paratexts.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>News</title>
+            <author>
+            	<name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+	<publicationStmt>
+            <publisher>
+	            <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+          <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+         <listPrefixDef/>
+      </encodingDesc>
+      <revisionDesc status="draft">
+		 <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+         <div xml:id="wibarab.paratexts.news">
+            <head>News</head>
+            <div type="newsItem">
+               <head><date when="2024-02-20">20.02.2024</date>: WIBARAB prototype is online!</head>
+               <p>As of today, the first prototype of the WIBARAB application is published providing a preview to the data and functionalities developed by the project. The implementation is based on a completely rewrite of the VICAV frontend which was developed in parallel to the WIBARAB application. <ref target="texts:aboutTheProject">Here</ref> you can find a description o the project.</p>
+            </div>
+            
+         </div>
+      </body>
+   </text>
+</TEI>
