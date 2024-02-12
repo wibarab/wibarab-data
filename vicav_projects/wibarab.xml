@@ -33,9 +33,9 @@
 	<styleSettings>
 		<colors>
 			<nav>#088000</nav>
-			<subNav>#11FF00</subNav>
+			<subNav>#58ad52</subNav>
 			<primary>hsla(116, 100%, 25%, 1)</primary>
-			<secondary>hsla(116, 100%, 50%, 1)</secondary>
+			<secondary>hsla(116, 36%, 50%, 1)</secondary>
 		</colors>
 	</styleSettings>
 	<noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
