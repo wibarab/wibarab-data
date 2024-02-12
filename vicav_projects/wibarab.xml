@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectConfig id="vicav_config_tunocent">
+	<title>WIBARAB</title>
+	<logo>WIBARAB</logo>
+	<icon>wibarab/marker-icon.png</icon>
+	<map>
+		<zoom>6</zoom>
+		<center><lat>36.25313319699069</lat><lng>37.56820810215787</lng></center>
+	</map>
+	<frontpage method="samples"></frontpage>
+	<menu>
+		<main>
+			<dropdown xml:id="dropdown01" title="About">
+				<item xml:id="wibarabAbout" target="shawi.paratexts.about" type="vicavTexts">About</item>
+				<item xml:id="wibarabNews" target="shawi.paratexts.news" type="vicavTexts">News</item>
+			</dropdown>
+            <dropdown xml:id="dropdown02" title="Variety features">            
+				<item xml:id="liFeatureExplanation" target="wibarabExplanationFeatures" type="vicavTexts">Explanation</item>
+                <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="vicavTexts">Variety data</item>
+            </dropdown>
+			<dropdown xml:id="dropdown03" title="Profiles">
+				<item xml:id="liProfilesExplanation" target="wibarabExplanationProfiles" type="vicavTexts">Explanation</item>
+		        <item xml:id="liProfilesList">List all Language Profiles</item>
+			</dropdown>			
+	      	<dropdown xml:id="dropdown04" title="Corpus">   
+		        <item xml:id="allCorpusTexts" target="shawi.corpusTexts" type="vicavTexts">List all entries</item>
+                <item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
+                <item xml:id="corpusText" type="CorpusText">Read corpus texts</item>
+			</dropdown>
+		</main>
+		<subnav/>
+	</menu>
+	<styleSettings>
+		<colors>
+			<nav>#7C633F</nav>
+			<subNav>#FFA500</subNav>
+			<primary>hsla(35, 33%, 37%, 1)</primary>
+			<secondary>hsla(39, 100%, 50%, 1)</secondary>
+		</colors>
+	</styleSettings>
+	<noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
+	<style>
+	</style>
+</projectConfig>
