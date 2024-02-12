@@ -113,8 +113,7 @@ def get_feature_data(geo_features, documents):
         for doc in documents.values():
             # Match the place_id and variety_id, considering that some places may have no associated variety
             if doc.any_xpath(feature_xpath):
-                title = doc.any_xpath(".//tei:titleStmt/tei:title")[0]
-                feature_name = doc.create_plain_text(title)
+                feature_name = doc.tree.getroot().get('{http://www.w3.org/XML/1998/namespace}id')
                 fv_dict = {}
                 if feature_name in documented_features:
                     fv_dict = documented_features[feature_name]
