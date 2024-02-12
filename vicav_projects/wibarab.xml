@@ -11,19 +11,19 @@
 	<menu>
 		<main>
 			<dropdown xml:id="dropdown01" title="About">
-				<item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="vicavTexts">About</item>
-				<item xml:id="wibarabNews" target="wibarab.paratexts.news" type="vicavTexts">News</item>
+				<item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Texts">About</item>
+				<item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Texts">News</item>
 			</dropdown>
             <dropdown xml:id="dropdown02" title="Variety features">            
-				<item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="vicavTexts">Explanation</item>
-                <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="vicavTexts">Variety data</item>
+				<item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Texts">Explanation</item>
+                <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Variety data</item>
             </dropdown>
 			<dropdown xml:id="dropdown03" title="Profiles">
-				<item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="vicavTexts">Explanation</item>
+				<item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="Texts">Explanation</item>
 		        <item xml:id="liProfilesList">List all Language Profiles</item>
 			</dropdown>			
 	      	<dropdown xml:id="dropdown04" title="Corpus">   
-		        <item xml:id="allCorpusTexts" target="shawi.corpusTexts" type="vicavTexts">List all entries</item>
+		        <item xml:id="allCorpusTexts" target="shawi.corpusTexts" type="Texts">List all entries</item>
                 <item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
                 <item xml:id="corpusText" type="CorpusText">Read corpus texts</item>
 			</dropdown>
