@@ -3,7 +3,7 @@
         <create-db name='vicav_corpus'>../corpus-data/103_tei_w</create-db>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'>../featuredb/010_manannot/profiles</create-db>
-        <!-- create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db -->
+        <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
         <create-db name='vicav_biblio'>../featuredb/010_manannot/vicav_biblio_tei_zotero.xml</create-db>
         <!-- set option='ftindex'>true</set>
         <set option='attrinclude'>age,sex</set>
