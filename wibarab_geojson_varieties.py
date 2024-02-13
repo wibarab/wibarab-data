@@ -97,6 +97,7 @@ def get_feature_data(geo_features, documents):
     Get all linguistic feature data for each place from the XML documents.
     """
     f_names_count = {}
+    feature_name_dict = {}
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
         if variety_id:
@@ -114,6 +115,9 @@ def get_feature_data(geo_features, documents):
             # Match the place_id and variety_id, considering that some places may have no associated variety
             if doc.any_xpath(feature_xpath):
                 feature_name = doc.tree.getroot().get('{http://www.w3.org/XML/1998/namespace}id')
+                title = doc.create_plain_text(doc.any_xpath(".//tei:titleStmt/tei:title")[0])
+                if feature_name not in feature_name_dict:
+                    feature_name_dict[feature_name] = title
                 fv_dict = {}
                 if feature_name in documented_features:
                     fv_dict = documented_features[feature_name]
@@ -205,7 +209,9 @@ def get_feature_data(geo_features, documents):
                         )
                     documented_features.update({feature_name: fv_dict})
                 feature["properties"] |= documented_features
-    return geo_features, f_names_count
+        # We want to sort the feature column headings by the number of feature entries in the DB
+        sorted_titles = {key: feature_name_dict[key] for key in sorted(feature_name_dict, key=lambda x: f_names_count.get(x, 0), reverse=True)}
+    return geo_features, sorted_titles
 
 
 def write_geojson(output_file, geojson_data):
@@ -232,15 +238,10 @@ def main():
     geo_features = get_geo_info(place_variety, geo_doc)
 
     # Add linguistic feature data to geo data
-    enriched_features, f_names_count = get_feature_data(geo_features, documents)
-
-    # We want to sort column headings by the number of feature entries in the DB
-    column_headings = ["name", "variety"] + [
-        name_count[0]
-        for name_count in sorted(
-            f_names_count.items(), key=lambda name_count: name_count[1], reverse=True
-        )
-    ]
+    enriched_features, sorted_titles = get_feature_data(geo_features, documents)
+    
+    # Create list of all column headings (name, variety and all features)
+    column_headings = [{"name": "Name"} , {"variety": "Variety"}] + [{key: value} for key, value in sorted_titles.items()]
 
     # Write everything to GeoJSON file
     geojson_data = {
