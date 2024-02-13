@@ -45,7 +45,7 @@ def get_place_variety_combinations(documents):
                 # Check if there are no varieties associated with the place
                 if not varieties:
                     # Add a placeholder value to represent the absence of a variety
-                    place_variety_combinations.add((place_id, None))
+                    place_variety_combinations.add((place_id, "no_variety"))
                 else:
                     for variety in varieties:
                         # Remove unnecessary parts from the variety id
@@ -100,16 +100,14 @@ def get_feature_data(geo_features, documents):
     feature_name_dict = {}
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
-        if variety_id:
+        if variety_id != "no_variety":
             # Match both place and variety
             feature_xpath = f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]'
             fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]]'
         else:
             # Match place without variety
-            feature_xpath = (
-                f'//tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)'
-            )
-            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/not(following-sibling::tei:lang)]'
+            feature_xpath = f'//tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]'
+            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]]'
         documented_features = {}
         for doc in documents.values():
             # Match the place_id and variety_id, considering that some places may have no associated variety
@@ -166,7 +164,7 @@ def get_feature_data(geo_features, documents):
                         feature_value[fv_name]["source_representations"] = list(
                             set(
                                 feature_value[fv_name]["source_representations"]
-                                + [x.text for x in src_reps]
+                                + [x.text for x in src_reps if x.text is not None]
                             )
                         )
                     # Examples
@@ -179,7 +177,7 @@ def get_feature_data(geo_features, documents):
                         feature_value[fv_name]["examples"] = list(
                             set(
                                 feature_value[fv_name]["examples"]
-                                + [x.text for x in examples]
+                                + [x.text for x in examples if x.text is not None]
                             )
                         )
                     # Notes
@@ -192,7 +190,7 @@ def get_feature_data(geo_features, documents):
                         feature_value[fv_name]["notes"] = list(
                             set(
                                 feature_value[fv_name]["notes"]
-                                + [x.text for x in notes]
+                                + [x.text for x in notes if x.text is not None]
                             )
                         )
                     fv_dict |= feature_value
