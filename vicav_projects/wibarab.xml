@@ -1,7 +1,7 @@
 <projectConfig id="vicav_config_tunocent">
 	<title>WIBARAB</title>
 	<logo>WIBARAB</logo>
-	<icon>wibarab/marker-icon.png</icon>
+	<icon>/wibarab/marker-icon.png</icon>
 	<map>
 		<zoom>4</zoom>
 		<center>
