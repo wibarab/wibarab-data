@@ -97,7 +97,7 @@ def get_feature_data(geo_features, documents):
     Get all linguistic feature data for each place from the XML documents.
     """
     f_names_count = {}
-    feature_name_dict = {}
+    ft_name_dict = {}
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
         if variety_id != "no_variety":
@@ -108,21 +108,23 @@ def get_feature_data(geo_features, documents):
             # Match place without variety
             feature_xpath = f'//tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]'
             fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]]'
+        # Create dictionary to store the features and their values documented for the current place
         documented_features = {}
         for doc in documents.values():
             # Match the place_id and variety_id, considering that some places may have no associated variety
             if doc.any_xpath(feature_xpath):
-                feature_name = doc.tree.getroot().get(
+                ft_id = doc.tree.getroot().get(
                     "{http://www.w3.org/XML/1998/namespace}id"
                 )
-                title = doc.create_plain_text(
-                    doc.any_xpath(".//tei:titleStmt/tei:title")[0]
-                )
-                if feature_name not in feature_name_dict:
-                    feature_name_dict[feature_name] = title
+                if ft_id not in ft_name_dict:
+                    # Get the feature name from the document
+                    ft_name_dict[ft_id] = doc.create_plain_text(
+                        doc.any_xpath(".//tei:titleStmt/tei:title")[0]
+                    )
                 fv_dict = {}
-                if feature_name in documented_features:
-                    fv_dict = documented_features[feature_name]
+                ## this shouldn't be necessary if all features have different xml:ids
+                if ft_id in documented_features:
+                    print(ft_id + ": duplicate feature id")
                 for fvo in doc.tree.xpath(
                     fvo_xpath,
                     namespaces=nsmap,
@@ -131,17 +133,17 @@ def get_feature_data(geo_features, documents):
                     fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
                     fv_name = fv_name_tag.get("ref")
                     if fv_name == "":
-                        fv_name = "Missing Feature Value name"
-                    feature_value = {fv_name: {}}
+                        fv_name = "Missing"
+                    fv_data = {fv_name: {}}
                     if fv_name in fv_dict:
-                        feature_value = fv_dict
+                        fv_data = fv_dict
                     sources = fvo.findall("./tei:bibl", namespaces=nsmap)
                     sources = [x.get("corresp") for x in sources]
-                    feature_value[fv_name].setdefault("sources", [])
-                    if not "sources" in feature_value[fv_name]:
-                        feature_value[fv_name]["sources"] = []
-                    feature_value[fv_name]["sources"] = list(
-                        (set(feature_value[fv_name]["sources"] + sources))
+                    fv_data[fv_name].setdefault("sources", [])
+                    if not "sources" in fv_data[fv_name]:
+                        fv_data[fv_name]["sources"] = []
+                    fv_data[fv_name]["sources"] = list(
+                        (set(fv_data[fv_name]["sources"] + sources))
                     )
                     # Get & add other optional elements (based on ODD)
                     # Person group
@@ -150,10 +152,10 @@ def get_feature_data(geo_features, documents):
                         new_pg = {(x.get("role"), x.get("corresp")) for x in pers_group}
                         current_pg = {
                             (k, v)
-                            for d in feature_value[fv_name].get("person_groups", [])
+                            for d in fv_data[fv_name].get("person_groups", [])
                             for k, v in d.items()
                         }
-                        feature_value[fv_name]["person_groups"] = [
+                        fv_data[fv_name]["person_groups"] = [
                             dict([t]) for t in list(current_pg | new_pg)
                         ]
                     # Source representation
@@ -161,13 +163,17 @@ def get_feature_data(geo_features, documents):
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
                         namespaces=nsmap,
                     )
-                    valid_src_reps = [x.text for x in src_reps if x.text is not None and len(x.text) > 0]
+                    valid_src_reps = [
+                        x.text
+                        for x in src_reps
+                        if x.text is not None and len(x.text) > 0
+                    ]
                     if valid_src_reps:
-                        existing_scr_reps = feature_value[fv_name].setdefault(
+                        existing_scr_reps = fv_data[fv_name].setdefault(
                             "source_representations", []
                         )
                         existing_scr_reps.extend(valid_src_reps)
-                        feature_value[fv_name]["source_representations"] = list(
+                        fv_data[fv_name]["source_representations"] = list(
                             set(existing_scr_reps)
                         )
 
@@ -175,46 +181,43 @@ def get_feature_data(geo_features, documents):
                     examples = fvo.findall(
                         './tei:cit[@type="example"]/tei:quote', namespaces=nsmap
                     )
-                    valid_examples = [x.text for x in examples if x.text is not None and len(x.text) > 0]
+                    valid_examples = [
+                        x.text
+                        for x in examples
+                        if x.text is not None and len(x.text) > 0
+                    ]
                     if valid_examples:
-                        existing_examples = feature_value[fv_name].setdefault(
-                            "examples", []
-                        )
+                        existing_examples = fv_data[fv_name].setdefault("examples", [])
                         existing_examples.extend(valid_examples)
                         # Remove duplicates
-                        feature_value[fv_name]["examples"] = list(
-                            set(existing_examples)
-                        )
+                        fv_data[fv_name]["examples"] = list(set(existing_examples))
                     # Notes
                     notes = fvo.findall(
                         './tei:cit[@type="note"]/tei:quote', namespaces=nsmap
                     )
-                    valid_notes = [x.text for x in notes if x.text is not None and len(x.text) > 0]
+                    valid_notes = [
+                        x.text for x in notes if x.text is not None and len(x.text) > 0
+                    ]
                     if valid_notes:
-                        existing_notes = feature_value[fv_name].setdefault("notes", [])
+                        existing_notes = fv_data[fv_name].setdefault("notes", [])
                         existing_notes.extend(valid_notes)
-                        feature_value[fv_name]["notes"] = list(set(existing_notes))
-                    fv_dict |= feature_value
-                if fv_dict:
-                    if not feature_name in documented_features:
-                        f_names_count.update(
-                            {
-                                feature_name: (
-                                    (f_names_count[feature_name] + 1)
-                                    if feature_name in f_names_count
-                                    else 1
-                                )
-                            }
-                        )
-                    documented_features.update({feature_name: fv_dict})
-                feature["properties"] |= documented_features
-        # We want to sort the feature column headings by the number of feature entries in the DB
-        sorted_titles = {
-            key: feature_name_dict[key]
-            for key in sorted(
-                feature_name_dict, key=lambda x: f_names_count.get(x, 0), reverse=True
-            )
-        }
+                        fv_data[fv_name]["notes"] = list(set(existing_notes))
+
+                    fv_dict.update(fv_data)
+                    f_names_count[ft_id] = f_names_count.get(ft_id, 0) + 1
+
+                # documented_features.update({ft_id: fv_dict})
+                documented_features[ft_id] = fv_dict
+        feature["properties"].update(documented_features)
+
+    # We want to sort the feature column headings by the number of feature entries in the DB
+    sorted_titles = {
+        key: ft_name_dict[key]
+        for key in sorted(
+            ft_name_dict, key=lambda x: f_names_count.get(x, 0), reverse=True
+        )
+    }
+
     return geo_features, sorted_titles
 
 
