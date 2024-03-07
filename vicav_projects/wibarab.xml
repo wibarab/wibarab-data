@@ -44,5 +44,6 @@
 	<style/>
 	<static__data>
 		<geo><insert_variety_data/></geo>
+		<table><insert_featurelist/></table>
 	</static__data>
 </projectConfig>
