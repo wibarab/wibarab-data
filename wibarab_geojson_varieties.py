@@ -222,8 +222,8 @@ def get_feature_data(geo_features, documents):
 
 
 def write_geojson(output_file, geojson_data):
-    with open(output_file, "w") as geojson_file:
-        json.dump(geojson_data, geojson_file, indent=2, sort_keys=True)
+    with open(output_file, "w", encoding='utf-8') as geojson_file:
+        json.dump(geojson_data, geojson_file, ensure_ascii = False, indent=2, sort_keys=True)
 
 
 def main():
