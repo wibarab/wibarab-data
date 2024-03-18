@@ -210,15 +210,9 @@ def get_feature_data(geo_features, documents):
                 documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
-    # We want to sort the feature column headings by the number of feature entries in the DB
-    sorted_titles = {
-        key: ft_name_dict[key]
-        for key in sorted(
-            ft_name_dict, key=lambda x: f_names_count.get(x, 0), reverse=True
-        )
-    }
 
-    return geo_features, sorted_titles
+
+    return geo_features, ft_name_dict, f_names_count
 
 
 def write_geojson(output_file, geojson_data):
@@ -245,11 +239,18 @@ def main():
     geo_features = get_geo_info(place_variety, geo_doc)
 
     # Add linguistic feature data to geo data
-    enriched_features, sorted_titles = get_feature_data(geo_features, documents)
+    enriched_features, ft_name_dict, f_names_count = get_feature_data(geo_features, documents)
 
+    # We want to sort the feature column headings by the number of feature entries in the DB
+    sorted_titles = {
+        key: ft_name_dict[key]
+        for key in sorted(
+            ft_name_dict, key=lambda x: f_names_count.get(x, 0), reverse=True
+        )
+    }
     # Create list of all column headings (name, variety and all features)
     column_headings = [{"name": "Name"}, {"variety": "Variety"}] + [
-        {key: value} for key, value in sorted_titles.items()
+        {key: value, "count": f_names_count[key]} for key, value in sorted_titles.items()
     ]
 
     # Write everything to GeoJSON file
