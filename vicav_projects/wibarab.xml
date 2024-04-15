@@ -42,8 +42,8 @@
 	</styleSettings>
 	<noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
 	<style/>
-	<static__data>
+	<staticData>
 		<geo><insert_variety_data/></geo>
 		<table><insert_featurelist/></table>
-	</static__data>
+	</staticData>
 </projectConfig>
