@@ -22,10 +22,24 @@
 			</dropdown>
 			<dropdown xml:id="dropdown03" title="Profiles">
 				<item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="Text">Explanation</item>
-				<item xml:id="liProfilesList">List all Language Profiles</item>
+				<item xml:id="liProfilesList" targetType="DataList" target="vicav_profiles">
+					List all Language Profiles
+					<params>
+						<dataTypes>
+							<_>Profile</_>
+						</dataTypes>
+					</params>
+				</item>
 			</dropdown>			
 			<dropdown xml:id="dropdown04" title="Corpus">   
-				<item xml:id="allCorpusTexts" target="shawi.corpusTexts" type="Text">List all entries</item>
+				<item xml:id="allCorpusTexts" target="vicav_corpus" type="DataList">
+					List all entries
+					<params>
+						<dataTypes>
+							<_>CorpusText</_>
+						</dataTypes>
+					</params>
+				</item>
 				<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
 				<item xml:id="corpusText" type="CorpusText">Read corpus texts</item>
 			</dropdown>
@@ -44,6 +58,10 @@
 	<style/>
 	<staticData>
 		<geo><insert_variety_data/></geo>
-		<table><insert_featurelist/></table>
+		<table>
+			<insert_featurelist/>
+			<insert_vicav_profiles/>
+			<insert_vicav_corpus/>
+		</table>
 	</staticData>
 </projectConfig>
