@@ -1,4 +1,4 @@
-<projectConfig id="vicav_config_tunocent">
+<projectConfig id="vicav_config_wibarab">
 	<title>WIBARAB</title>
 	<logo>WIBARAB</logo>
 	<icon>/wibarab/marker-icon.png</icon>
@@ -46,6 +46,7 @@
 		</main>
 		<subnav/>
 	</menu>
+	<insert_list_of_corpus_characters/>
 	<styleSettings>
 		<colors>
 			<nav>#712b01</nav>
