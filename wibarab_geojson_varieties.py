@@ -28,13 +28,28 @@ def process_files(directory):
     return processed_data, errors
 
 
-def get_place_variety_combinations(documents):
+def first_pass_features(documents):
     """
+    First pass through the feature files.
     Extract unique combinations of places and associated varieties from the feature files.
+    Get the feature name and parent category for each feature.
     """
     place_variety_combinations = set()
-
+    ft_name_dict = {}
+    parent_categories = {}
     for doc in documents.values():
+        ft_id = doc.tree.getroot().get("{http://www.w3.org/XML/1998/namespace}id")
+        # Get the feature name from the document
+        ft_name_dict[ft_id] = doc.create_plain_text(
+            doc.any_xpath(".//tei:titleStmt/tei:title")[0]
+        )
+        category = doc.any_xpath(".//tei:profileDesc/tei:textClass/tei:catRef/@target")
+        if category and category[0].startswith("dmp:"):
+            category = category[0].replace("dmp:", "")
+        else:
+            print("Wrong prefix or missing parent category for ", ft_id)
+            category = "Missing"
+        parent_categories[ft_id] = category
         place_names = doc.any_xpath("//tei:placeName/@ref")
         for place_id in place_names:
             if place_id:
@@ -53,7 +68,7 @@ def get_place_variety_combinations(documents):
                             variety.split("\\")[-1].split("_")[-1].replace(".xml", "")
                         )
                         place_variety_combinations.add((place_id, variety))
-    return place_variety_combinations
+    return place_variety_combinations, ft_name_dict, parent_categories
 
 
 def get_geo_info(place_variety_combinations, geo_doc):
@@ -92,12 +107,43 @@ def get_geo_info(place_variety_combinations, geo_doc):
     return geo_features
 
 
-def get_feature_data(geo_features, documents):
+def get_bibl_data(bibl_doc):
+    """
+    Get id, short citation and cert for each source
+    """
+    bibl_data = {}
+    for source in bibl_doc.any_xpath("//tei:biblStruct"):
+        source_id = source.get("{http://www.w3.org/XML/1998/namespace}id")
+        short_cit = source.get("n")
+        decade_dc = source.xpath(
+            ".//tei:note[@type='dataCollection']/tei:date/text()", namespaces=nsmap
+        )
+        if len(decade_dc) > 1:
+            print("Multiple data collection dates found for source", source_id)
+        cert = source.xpath(
+            ".//tei:note[@type='dataCollection']/tei:date/@cert", namespaces=nsmap
+        )
+        link = source.get("corresp")
+        bibl_data[source_id] = {
+            "short_cit": short_cit,
+            "link": link,
+            "decade_dc": (
+                {
+                    decade: cert if cert else "N/A"
+                    for decade, cert in zip(decade_dc, cert)
+                }
+                if decade_dc
+                else {"N/A": "N/A"}
+            ),
+        }
+    return bibl_data
+
+
+def get_feature_data(geo_features, documents, bibl_data):
     """
     Get all linguistic feature data for each place from the XML documents.
     """
     f_names_count = {}
-    ft_name_dict = {}
     for feature in geo_features:
         place_id, variety_id = feature["id"].split("+")
         if variety_id != "no_variety":
@@ -116,11 +162,6 @@ def get_feature_data(geo_features, documents):
                 ft_id = doc.tree.getroot().get(
                     "{http://www.w3.org/XML/1998/namespace}id"
                 )
-                if ft_id not in ft_name_dict:
-                    # Get the feature name from the document
-                    ft_name_dict[ft_id] = doc.create_plain_text(
-                        doc.any_xpath(".//tei:titleStmt/tei:title")[0]
-                    )
                 fv_dict = {}
                 ## this shouldn't be necessary if all features have different xml:ids
                 if ft_id in documented_features:
@@ -131,20 +172,54 @@ def get_feature_data(geo_features, documents):
                 ):
                     # Get & add mandatory information for fvos first (based on ODD)
                     fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
-                    fv_name = fv_name_tag.get("ref")
-                    if fv_name == "":
+                    fv_ref = fv_name_tag.get("ref")
+                    if fv_ref == "":
                         fv_name = "Missing"
+                    else:
+                        fv_ref = fv_ref.lstrip("#")
+                        label_element = doc.tree.xpath(
+                            f"//tei:item[@xml:id='{fv_ref}']/tei:label",
+                            namespaces=nsmap,
+                        )
+                        if label_element:
+                            fv_name = label_element[0].text
+                        else:
+                            fv_name = "Missing"
                     fv_data = {fv_name: {}}
                     if fv_name in fv_dict:
                         fv_data = fv_dict
-                    sources = fvo.findall("./tei:bibl", namespaces=nsmap)
-                    sources = [x.get("corresp") for x in sources]
-                    fv_data[fv_name].setdefault("sources", [])
-                    if not "sources" in fv_data[fv_name]:
-                        fv_data[fv_name]["sources"] = []
-                    fv_data[fv_name]["sources"] = list(
-                        (set(fv_data[fv_name]["sources"] + sources))
-                    )
+                    source_refs = [
+                        x.get("corresp")
+                        for x in fvo.findall("./tei:bibl", namespaces=nsmap)
+                    ]
+                    fv_data[fv_name].setdefault("sources", {})
+                    for ref in source_refs:
+                        if ref:
+                            if ref.startswith("zot:"):
+                                bibl_id = ref.replace("zot:", "")
+                                if bibl_id:
+                                    if bibl_id in bibl_data:
+                                        fv_data[fv_name]["sources"][bibl_id] = (
+                                            bibl_data[bibl_id]
+                                        )
+                                    else:
+                                        print(
+                                            "Missing source data for",
+                                            bibl_id,
+                                            source_refs,
+                                        )
+                            elif ref.startswith("src:"):
+                                bibl_id = ref.replace("src:", "")
+                                # WATCHME - placeholder for sources not in Zotero
+                                fv_data[fv_name]["sources"][bibl_id] = {
+                                    "short_cit": bibl_id,
+                                    "link": "",
+                                    "decade_dc": {"2020s": "high"},
+                                }
+                            else:
+                                print("Unknown source reference format:", ref)
+                                continue
+
                     # Get & add other optional elements (based on ODD)
                     # Person group
                     pers_group = fvo.findall("./tei:personGrp", namespaces=nsmap)
@@ -210,14 +285,14 @@ def get_feature_data(geo_features, documents):
                 documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
-
-
-    return geo_features, ft_name_dict, f_names_count
+    return geo_features, f_names_count
 
 
 def write_geojson(output_file, geojson_data):
-    with open(output_file, "w", encoding='utf-8') as geojson_file:
-        json.dump(geojson_data, geojson_file, ensure_ascii = False, indent=2, sort_keys=True)
+    with open(output_file, "w", encoding="utf-8") as geojson_file:
+        json.dump(
+            geojson_data, geojson_file, ensure_ascii=False, indent=2, sort_keys=True
+        )
 
 
 def main():
@@ -226,11 +301,12 @@ def main():
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
+    bibl_data = os.path.join(data_home, "010_manannot", "vicav_biblio_tei_zotero.xml")
 
     # Process feature xml files
     documents, processing_errors = process_files(features_path)
-    # Extract unique combinations of place and variety
-    place_variety = get_place_variety_combinations(documents)
+    # Extract unique combinations of place and variety, get feature names and parent categories
+    place_variety, ft_name_dict, parent_categories = first_pass_features(documents)
 
     # Read geo data
     geo_doc = TeiReader(geo_data)
@@ -238,8 +314,16 @@ def main():
     # Get basic geo data
     geo_features = get_geo_info(place_variety, geo_doc)
 
+    # Read bibl data
+    bibl_doc = TeiReader(bibl_data)
+
+    # Get basic bibl data
+    bibl_data = get_bibl_data(bibl_doc)
+
     # Add linguistic feature data to geo data
-    enriched_features, ft_name_dict, f_names_count = get_feature_data(geo_features, documents)
+    enriched_features, f_names_count = get_feature_data(
+        geo_features, documents, bibl_data
+    )
 
     # We want to sort the feature column headings by the number of feature entries in the DB
     sorted_titles = {
@@ -250,7 +334,8 @@ def main():
     }
     # Create list of all column headings (name, variety and all features)
     column_headings = [{"name": "Name"}, {"variety": "Variety"}] + [
-        {key: value, "count": f_names_count[key]} for key, value in sorted_titles.items()
+        {key: value, "count": f_names_count[key], "category": parent_categories[key]}
+        for key, value in sorted_titles.items()
     ]
 
     # Write everything to GeoJSON file
