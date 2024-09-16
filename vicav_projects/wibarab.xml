@@ -61,6 +61,7 @@
 		<geo><insert_variety_data/></geo>
 		<table>
 			<insert_featurelist/>
+			<insert_taxonomy/>
 			<insert_vicav_profiles/>
 			<insert_vicav_corpus/>
 		</table>
