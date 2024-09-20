@@ -48,47 +48,6 @@ then
 fi
 #-------------------------------------
 
-#------ Update wibarab data from GitHub repository 
-echo updating wibarab-data
-if [ ! -d wibarab-data/.git ]; then echo "wibarab-data does not exist or is not a git repository"; fi
-pushd wibarab-data
-ret=$?
-if [ $ret != "0" ]; then exit $ret; fi
-if [ "$onlytags"x = 'truex' ]
-then
-git reset --hard
-git pull
-dataversion=$(git describe --tags --abbrev=0)
-else
-git pull
-dataversion=$(git describe --tags --always)
-fi
-echo checking out data ${dataversion}
-git -c advice.detachedHead=false checkout ${dataversion}
-who=$(git show -s --format='%cN')
-when=$(git show -s --format='%as')
-message=$(git show -s --format='%B')
-revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
-<revisionDesc>
-  <change n="$dataversion" who="$who" when="$when">
-$message
-   </change>
-</revisionDesc>
-EOF
-)
-
-#------- copy all images into the "images" directory in the web application directory
-echo "copying image files from wibarab-data to vicav-webapp"
-for d in $(ls -d vicav_*)
-do echo "Directory $d:"
-   find "$d" -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec cp -v {} ${BUILD_DIR:-../webapp/vicav-app}/images \;
-   if [ "$onlytags"x = 'truex' ]
-   then
-     find "$d" -type f -and -name '*.xml' -exec sed -i "s~\(</teiHeader>\)~$revisionDesc\\n\1~g" {} \;
-   fi
-done
-popd
-
 #------ Update corpus data from GitHub repository 
 echo updating corpus-data
 if [ ! -d corpus-data/.git ]; then git clone https://github.com/wibarab/corpus-data.git; fi
@@ -118,11 +77,11 @@ $message
 EOF
 )
 popd
-
+alldataversions=$dataversion
 #------ Update feature DB from GitHub repository
 echo updating featuredb
 if [ ! -d featuredb/.git ]; then git clone https://github.com/wibarab/featuredb.git; fi
-pushd corpus-data
+pushd featuredb
 ret=$?
 if [ $ret != "0" ]; then exit $ret; fi
 if [ "$onlytags"x = 'truex' ]
@@ -148,9 +107,63 @@ $message
 EOF
 )
 popd
+alldataversions=$alldataversions,$dataversion
+#------ Update wibarab data from GitHub repository 
+echo updating wibarab-data
+if [ ! -d wibarab-data/.git ]; then echo "wibarab-data does not exist or is not a git repository"; fi
+pushd wibarab-data
+ret=$?
+if [ $ret != "0" ]; then exit $ret; fi
+if [ "$onlytags"x = 'truex' ]
+then
+git reset --hard
+git pull
+dataversion=$(git describe --tags --abbrev=0)
+else
+git pull
+dataversion=$(git describe --tags --always)
+fi
+echo checking out data ${dataversion}
+git -c advice.detachedHead=false checkout ${dataversion}
+who=$(git show -s --format='%cN')
+when=$(git show -s --format='%as')
+message=$(git show -s --format='%B')
+revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+<revisionDesc>
+  <change n="$dataversion" who="$who" when="$when">
+$message
+   </change>
+</revisionDesc>
+EOF
+)
+alldataversions=$alldataversions,$dataversion
+#------- copy all images into the "images" directory in the web application directory
+echo "copying image files from wibarab-data to vicav-webapp"
+for d in $(ls -d vicav_*)
+do echo "Directory $d:"
+   cd "$d"
+   mkdir -p $(dirname "" $(find . -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec echo ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;))
+   find . -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec mv -v {} ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;
+   if [ "$onlytags"x = 'truex' ]
+   then
+     find . -type f -and -name '*.xml' -exec sed -i "s~\(</teiHeader>\)~$revisionDesc\\n\1~g" {} \;
+   fi
+   cd ..
+done
+if [ "$CI"x == "truex" ]; then echo "CI: removing .git"; rm -rf .git; fi
+versionInfo=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+  <version>
+    <backend>$uiversion</backend>
+    <data>$alldataversions</data>
+  </version>
+EOF
+)
+sed -i "s~\(</projectConfig>\)~$versionInfo\\n\1~g" vicav_projects/wibarab.xml
+popd
 
 pushd ${BUILD_DIR:-webapp/vicav-app}
 find ./ -type f -and \( -name '*.js' -or -name '*.html' \) -not \( -path './node_modules/*' -or -path './cypress/*' \) -exec sed -i "s~\@data-version@~$dataversion~g" {} \;
+if [ "$CI"x == "truex" ]; then echo "CI: removing .git"; rm -rf .git; fi 
 popd
 sed -i "s~webapp/vicav-app/~${BUILD_DIR:-webapp/vicav-app}/~g" deploy-wibarab-content.bxs
 ./execute-basex-batch.sh deploy-wibarab-content $1
@@ -158,3 +171,4 @@ sed -i "s~../webapp/vicav-app/~${BUILD_DIR:-../webapp/vicav-app}/~g" refresh-pro
 ./execute-basex-batch.sh refresh-project-config.xqtl $1 >/dev/null
 pushd wibarab-data
 popd
+if [ "$CI"x == "truex" ]; then echo "CI: removing content repo"; rm -rf wibarab-data; rm -rf corpus-data; rm -rf featuredb; fi 
