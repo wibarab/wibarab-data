@@ -1,6 +1,8 @@
 <commands>
         <set option='CHOP'>false</set>
-        <create-db name='vicav_corpus'>../corpus-data/103_tei_w</create-db>
+        <create-db name='vicav_corpus'/>
+        <add path="/wibarab">../corpus-data/103_tei_w</add>
+        <optimize-all/>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'>../featuredb/010_manannot/profiles</create-db>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
