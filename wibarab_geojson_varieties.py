@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 import json
 import re
+import csv
 
 nsmap = {
     "tei": "http://www.tei-c.org/ns/1.0",
@@ -138,8 +139,22 @@ def get_bibl_data(bibl_doc):
         }
     return bibl_data
 
+def get_pers_data(pers_doc):
+    pers_data= {}
+    for pers_list in pers_doc.any_xpath("//tei:listPerson"):
+        for group in pers_list.findall("./tei:personGrp", namespaces=nsmap):
+            group_id = group.get("{http://www.w3.org/XML/1998/namespace}id")
+            group_role = group.get("role")
+            if group_role == "firstlanguage":
+                pass
+            else:
+                group_name = group.xpath("./tei:name/text()", namespaces=nsmap)[0]
+                pers_data.setdefault(group_role, {})
+                pers_data[group_role].update({group_id : group_name})
+    return pers_data
 
-def get_feature_data(geo_features, documents, bibl_data):
+def get_feature_data(geo_features, documents, bibl_data, pers_data):
+    duplicate_fvos = set()
     """
     Get all linguistic feature data for each place from the XML documents.
     """
@@ -171,6 +186,7 @@ def get_feature_data(geo_features, documents, bibl_data):
                     namespaces=nsmap,
                 ):
                     # Get & add mandatory information for fvos first (based on ODD)
+                    fvo_id = fvo.get("{http://www.w3.org/XML/1998/namespace}id")
                     fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
                     fv_ref = fv_name_tag.get("ref")
                     if fv_ref == "":
@@ -188,6 +204,7 @@ def get_feature_data(geo_features, documents, bibl_data):
                     fv_data = {fv_name: {}}
                     if fv_name in fv_dict:
                         fv_data = fv_dict
+                    # WATCHME - handling of sources
                     source_refs = [
                         x.get("corresp")
                         for x in fvo.findall("./tei:bibl", namespaces=nsmap)
@@ -199,6 +216,13 @@ def get_feature_data(geo_features, documents, bibl_data):
                                 bibl_id = ref.replace("zot:", "")
                                 if bibl_id:
                                     if bibl_id in bibl_data:
+                                        if fv_data[fv_name]["sources"]:
+                                            try:  
+                                                if fv_data[fv_name]["sources"][bibl_id]:
+                                                    duplicate_fvos.add(fvo_id)
+                                            except KeyError:
+                                                # for cases with multiple sources
+                                                print (fvo_id, bibl_id, fv_data[fv_name]["sources"].keys())
                                         fv_data[fv_name]["sources"][bibl_id] = (
                                             bibl_data[bibl_id]
                                         )
@@ -224,15 +248,25 @@ def get_feature_data(geo_features, documents, bibl_data):
                     # Person group
                     pers_group = fvo.findall("./tei:personGrp", namespaces=nsmap)
                     if pers_group:
-                        new_pg = {(x.get("role"), x.get("corresp")) for x in pers_group}
-                        current_pg = {
-                            (k, v)
-                            for d in fv_data[fv_name].get("person_groups", [])
-                            for k, v in d.items()
-                        }
-                        fv_data[fv_name]["person_groups"] = [
-                            dict([t]) for t in list(current_pg | new_pg)
-                        ]
+                        for x in pers_group:
+                            role = x.get("role")
+                            corresp = x.get("corresp")
+                            if role and corresp:
+                                if role == "firstLanguage":
+                                    pers_group_name = corresp
+                                elif corresp.startswith("pgr:"):
+                                    corresp = corresp.replace("pgr:", "")
+                                    pers_group_name = pers_data.get(role, {}).get(corresp)
+                                    if pers_group_name is None:
+                                        print(
+                                            "Couldn't find matching data for",
+                                            role,
+                                            corresp,
+                                        )
+                                else:
+                                    print("Unknown person group reference format:", corresp, role)
+                                    pers_group_name = ""
+                                fv_data[fv_name].setdefault(role, []).append(pers_group_name)
                     # Source representation
                     src_reps = fvo.findall(
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
@@ -285,6 +319,11 @@ def get_feature_data(geo_features, documents, bibl_data):
                 documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
+    duplicate_fvos = sorted(duplicate_fvos)
+    with open('duplicate_fvos.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        for fvo_id in duplicate_fvos:
+            writer.writerow([fvo_id])
     return geo_features, f_names_count
 
 
@@ -302,6 +341,7 @@ def main():
     features_path = os.path.join(data_home, "010_manannot", "features")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
     bibl_data = os.path.join(data_home, "010_manannot", "vicav_biblio_tei_zotero.xml")
+    pers_data = os.path.join(data_home, "010_manannot", "wibarab_PersonGroup.xml")
 
     # Process feature xml files
     documents, processing_errors = process_files(features_path)
@@ -320,9 +360,15 @@ def main():
     # Get basic bibl data
     bibl_data = get_bibl_data(bibl_doc)
 
+    # Read person data
+    pers_doc = TeiReader(pers_data)
+
+    # Get basic person data
+    pers_data = get_pers_data(pers_doc)
+
     # Add linguistic feature data to geo data
     enriched_features, f_names_count = get_feature_data(
-        geo_features, documents, bibl_data
+        geo_features, documents, bibl_data, pers_data
     )
 
     # We want to sort the feature column headings by the number of feature entries in the DB
@@ -354,6 +400,7 @@ def main():
         print("Processing errors:")
         for error in processing_errors:
             print(error)
+
 
 
 if __name__ == "__main__":
