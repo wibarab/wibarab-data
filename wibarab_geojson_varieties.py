@@ -32,10 +32,11 @@ def process_files(directory):
 def first_pass_features(documents):
     """
     First pass through the feature files.
-    Extract unique combinations of places and associated varieties from the feature files.
+    Extract unique combinations of places (and associated varieties) from the feature files.
     Get the feature name and parent category for each feature.
     """
-    place_variety_combinations = set()
+    # place_variety_combinations = set()
+    mentioned_places = set()
     ft_name_dict = {}
     parent_categories = {}
     for doc in documents.values():
@@ -54,58 +55,60 @@ def first_pass_features(documents):
         place_names = doc.any_xpath("//tei:placeName/@ref")
         for place_id in place_names:
             if place_id:
-                # Extract varieties associated with the current place from the document
-                varieties = doc.any_xpath(
-                    f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang/@corresp'
-                )
-                # Check if there are no varieties associated with the place
-                if not varieties:
-                    # Add a placeholder value to represent the absence of a variety
-                    place_variety_combinations.add((place_id, "no_variety"))
-                else:
-                    for variety in varieties:
-                        # Remove unnecessary parts from the variety id
-                        variety = (
-                            variety.split("\\")[-1].split("_")[-1].replace(".xml", "")
-                        )
-                        place_variety_combinations.add((place_id, variety))
-    return place_variety_combinations, ft_name_dict, parent_categories
+                # Add the place_id to the set of mentioned places
+                mentioned_places.add(place_id)
+
+    return mentioned_places, ft_name_dict, parent_categories
 
 
-def get_geo_info(place_variety_combinations, geo_doc):
+def get_geo_info(places, geo_doc):
     """
-    Get basic geographical information for each place-variety combination from the geo data XML file.
+    Get basic geographical information for each mentioned place from the geo data XML file.
     """
     geo_features = []
-    for place_id, variety in place_variety_combinations:
-        if place_id:
-            geo_xml_id = place_id.split(":")[1]
-            location_el = geo_doc.any_xpath(
-                f'//tei:place[@xml:id="{geo_xml_id}"]/tei:location'
-            )
-            if location_el:
-                geo_el = location_el[0].find('tei:geo[@decls="#dd"]', namespaces=nsmap)
-                if geo_el is not None:
-                    coordinates = re.split(r"[\s,]+", geo_doc.create_plain_text(geo_el))
-                    # Reverse coordinates from lat-long to long-lat for GeoJSON
-                    lng_lat = [float(coord) for coord in reversed(coordinates) if coord]
-                else:
-                    lng_lat = []
-                name = " / ".join(
-                    geo_doc.any_xpath(
-                        f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()'
-                    )
+    # for place_id, variety in place_variety_combinations:
+    # if place_id:
+    for place_id in places:
+        geo_xml_id = place_id.split(":")[1]
+        location_el = geo_doc.any_xpath(
+            f'//tei:place[@xml:id="{geo_xml_id}"]/tei:location'
+        )
+        if location_el:
+            geo_el = location_el[0].find('tei:geo[@decls="#dd"]', namespaces=nsmap)
+            if geo_el is not None:
+                coordinates = re.split(r"[\s,]+", geo_doc.create_plain_text(geo_el))
+                # Reverse coordinates from lat-long to long-lat for GeoJSON
+                lng_lat = [float(coord) for coord in reversed(coordinates) if coord]
+            else:
+                lng_lat = []
+            name = " / ".join(
+                geo_doc.any_xpath(
+                    f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()'
                 )
-                # Create feature with place_id, variety, and name
-                feature = {
-                    "type": "Feature",
-                    "id": f"{place_id}+{variety}",
-                    "geometry": {"type": "Point", "coordinates": lng_lat},
-                    "properties": {"name": name, "variety": variety},
-                }
-                geo_features.append(feature)
+            )
+            # Create feature with place_id and name
+            feature = {
+                "type": "Feature",
+                "id": f"{place_id}",
+                "geometry": {"type": "Point", "coordinates": lng_lat},
+                "properties": {"name": name},
+            }
+            geo_features.append(feature)
     geo_features.sort(key=lambda feature: feature["id"])
     return geo_features
+
+
+def get_variety_titles(profiles):
+    variety_title = {}
+    for variety_id, doc in profiles.items():
+        # Remove unnecessary parts from the variety id
+        variety_id = variety_id.split("\\")[-1].split("_")[-1].replace(".xml", "")
+        # Get the title from the document
+        title = doc.create_plain_text(doc.any_xpath(".//tei:titleStmt/tei:title")[0])
+        title = title.replace("A machine-readable profile of", "").strip()
+        # Update the dictionary with the short id and title
+        variety_title.update({variety_id: title})
+    return variety_title
 
 
 def get_bibl_data(bibl_doc):
@@ -139,8 +142,9 @@ def get_bibl_data(bibl_doc):
         }
     return bibl_data
 
+
 def get_pers_data(pers_doc):
-    pers_data= {}
+    pers_data = {}
     for pers_list in pers_doc.any_xpath("//tei:listPerson"):
         for group in pers_list.findall("./tei:personGrp", namespaces=nsmap):
             group_id = group.get("{http://www.w3.org/XML/1998/namespace}id")
@@ -150,29 +154,23 @@ def get_pers_data(pers_doc):
             else:
                 group_name = group.xpath("./tei:name/text()", namespaces=nsmap)[0]
                 pers_data.setdefault(group_role, {})
-                pers_data[group_role].update({group_id : group_name})
+                pers_data[group_role].update({group_id: group_name})
     return pers_data
 
-def get_feature_data(geo_features, documents, bibl_data, pers_data):
-    duplicate_fvos = set()
+
+def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title):
     """
     Get all linguistic feature data for each place from the XML documents.
     """
     f_names_count = {}
     for feature in geo_features:
-        place_id, variety_id = feature["id"].split("+")
-        if variety_id != "no_variety":
-            # Match both place and variety
-            feature_xpath = f'//tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]'
-            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]/following-sibling::tei:lang[@corresp="..\\profiles\\vicav_profile_{variety_id}.xml"]]'
-        else:
-            # Match place without variety
-            feature_xpath = f'//tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]'
-            fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}" and not(following-sibling::tei:lang)]]'
+        place_id = feature["id"]
+        feature_xpath = f'//tei:placeName[@ref="{place_id}"]'
+        fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]]'
         # Create dictionary to store the features and their values documented for the current place
         documented_features = {}
         for doc in documents.values():
-            # Match the place_id and variety_id, considering that some places may have no associated variety
+            # Match the place_id
             if doc.any_xpath(feature_xpath):
                 ft_id = doc.tree.getroot().get(
                     "{http://www.w3.org/XML/1998/namespace}id"
@@ -216,13 +214,13 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data):
                                 bibl_id = ref.replace("zot:", "")
                                 if bibl_id:
                                     if bibl_id in bibl_data:
-                                        if fv_data[fv_name]["sources"]:
-                                            try:  
-                                                if fv_data[fv_name]["sources"][bibl_id]:
-                                                    duplicate_fvos.add(fvo_id)
-                                            except KeyError:
-                                                # for cases with multiple sources
-                                                print (fvo_id, bibl_id, fv_data[fv_name]["sources"].keys())
+                                        # if fv_data[fv_name]["sources"]:
+                                        #     try:
+                                        #         if fv_data[fv_name]["sources"][bibl_id]:
+                                        #             duplicate_fvos.add(fvo_id)
+                                        #     except KeyError:
+                                        #         # for cases with multiple sources
+                                        #         print (fvo_id, bibl_id, fv_data[fv_name]["sources"].keys())
                                         fv_data[fv_name]["sources"][bibl_id] = (
                                             bibl_data[bibl_id]
                                         )
@@ -243,6 +241,29 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data):
                             else:
                                 print("Unknown source reference format:", ref)
                                 continue
+                    # Add the variety (assumption is that there is only one variety per feature value observation)
+                    varieties = fvo.findall("./tei:lang", namespaces=nsmap)
+                    if varieties:
+                        if len(varieties) > 1:
+                            print(
+                                f"Multiple varieties found for {fvo_id} in {ft_id}:",
+                                [x.get("corresp") for x in varieties],
+                            )
+                        variety_ids = [
+                            x.get("corresp")
+                            .split("\\")[-1]
+                            .split("_")[-1]
+                            .replace(".xml", "")
+                            for x in varieties
+                            if x.get("corresp") is not None
+                        ]
+                        if variety_ids:
+                            try:
+                                variety_name = variety_title[variety_ids[0]]
+                                fv_data[fv_name]["variety"] = variety_name
+                            except KeyError:
+                                print("Missing title for variety", variety_ids[0])
+                                fv_data[fv_name]["variety"] = "Missing"
 
                     # Get & add other optional elements (based on ODD)
                     # Person group
@@ -253,10 +274,14 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data):
                             corresp = x.get("corresp")
                             if role and corresp:
                                 if role == "firstLanguage":
+                                    # Directly assign the value of corresp
                                     pers_group_name = corresp
                                 elif corresp.startswith("pgr:"):
+                                    # Handle cases where corresp starts with "pgr:"
                                     corresp = corresp.replace("pgr:", "")
-                                    pers_group_name = pers_data.get(role, {}).get(corresp)
+                                    pers_group_name = pers_data.get(role, {}).get(
+                                        corresp
+                                    )
                                     if pers_group_name is None:
                                         print(
                                             "Couldn't find matching data for",
@@ -264,9 +289,18 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data):
                                             corresp,
                                         )
                                 else:
-                                    print("Unknown person group reference format:", corresp, role)
+                                    # Handle unknown formats
+                                    print(
+                                        "Unknown person group reference format:",
+                                        corresp,
+                                        role,
+                                    )
                                     pers_group_name = ""
-                                fv_data[fv_name].setdefault(role, []).append(pers_group_name)
+
+                                fv_data[fv_name].setdefault(role, []).append(
+                                    pers_group_name
+                                )
+
                     # Source representation
                     src_reps = fvo.findall(
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
@@ -319,11 +353,6 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data):
                 documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
-    duplicate_fvos = sorted(duplicate_fvos)
-    with open('duplicate_fvos.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        for fvo_id in duplicate_fvos:
-            writer.writerow([fvo_id])
     return geo_features, f_names_count
 
 
@@ -339,20 +368,25 @@ def main():
     data_home = os.path.join(".", "featuredb")
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
+    profiles_path = os.path.join(data_home, "010_manannot", "profiles")
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
     bibl_data = os.path.join(data_home, "010_manannot", "vicav_biblio_tei_zotero.xml")
     pers_data = os.path.join(data_home, "010_manannot", "wibarab_PersonGroup.xml")
 
     # Process feature xml files
     documents, processing_errors = process_files(features_path)
-    # Extract unique combinations of place and variety, get feature names and parent categories
-    place_variety, ft_name_dict, parent_categories = first_pass_features(documents)
+    # Process profile xml files
+    profiles, processing_errors = process_files(profiles_path)
+    variety_title = get_variety_titles(profiles)
+
+    # Extract unique places, get feature names and parent categories
+    places, ft_name_dict, parent_categories = first_pass_features(documents)
 
     # Read geo data
     geo_doc = TeiReader(geo_data)
 
     # Get basic geo data
-    geo_features = get_geo_info(place_variety, geo_doc)
+    geo_features = get_geo_info(places, geo_doc)
 
     # Read bibl data
     bibl_doc = TeiReader(bibl_data)
@@ -368,7 +402,7 @@ def main():
 
     # Add linguistic feature data to geo data
     enriched_features, f_names_count = get_feature_data(
-        geo_features, documents, bibl_data, pers_data
+        geo_features, documents, bibl_data, pers_data, variety_title
     )
 
     # We want to sort the feature column headings by the number of feature entries in the DB
@@ -379,7 +413,7 @@ def main():
         )
     }
     # Create list of all column headings (name, variety and all features)
-    column_headings = [{"name": "Name"}, {"variety": "Variety"}] + [
+    column_headings = [{"name": "Name"}] + [
         {key: value, "count": f_names_count[key], "category": parent_categories[key]}
         for key, value in sorted_titles.items()
     ]
@@ -400,7 +434,6 @@ def main():
         print("Processing errors:")
         for error in processing_errors:
             print(error)
-
 
 
 if __name__ == "__main__":
