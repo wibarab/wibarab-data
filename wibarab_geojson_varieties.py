@@ -334,28 +334,74 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         existing_examples.extend(valid_examples)
                         # Remove duplicates
                         fv_data[fv_name]["examples"] = list(set(existing_examples))
-                    # Notes
-                    notes = fvo.findall(
-                        './tei:cit[@type="note"]/tei:quote', namespaces=nsmap
+                    # Translations
+                    translations = fvo.findall(
+                        './tei:cit[@type="translation"]/tei:quote', namespaces=nsmap
                     )
-                    valid_notes = [
-                        x.text for x in notes if x.text is not None and len(x.text) > 0
+                    valid_translations = [
+                        x.text
+                        for x in translations
+                        if x.text is not None and len(x.text) > 0
                     ]
-                    if valid_notes:
-                        existing_notes = fv_data[fv_name].setdefault("notes", [])
-                        existing_notes.extend(valid_notes)
-                        fv_data[fv_name]["notes"] = list(set(existing_notes))
-
-                    if fv_name in fv_dict:
-                        print(
-                            f"Duplicate fvo for place {place_id}, feature {ft_id}, value '{fv_name}'."
-                            f" Previous: {fv_dict[fv_name]}, New: {fv_data[fv_name]}"
+                    if valid_translations:
+                        existing_translations = fv_data[fv_name].setdefault(
+                            "translations", []
                         )
+                        existing_translations.extend(valid_translations)
+                        # Remove duplicates
+                        fv_data[fv_name]["translations"] = list(
+                            set(existing_translations)
+                        )
+                    # Notes (they can have the type "general", "constraintNote" or "exceptionNote")
+                    remarks = fvo.findall(
+                        './tei:note[@type="general"]', namespaces=nsmap
+                    )
+                    valid_remarks = [
+                        x.text
+                        for x in remarks
+                        if x.text is not None and len(x.text) > 0
+                    ]
+                    if valid_remarks:
+                        existing_remarks = fv_data[fv_name].setdefault("remarks", [])
+                        existing_remarks.extend(valid_remarks)
+                        fv_data[fv_name]["remarks"] = list(set(existing_remarks))
+
+                    constraints = fvo.findall(
+                        './tei:note[@type="constraintNote"]', namespaces=nsmap
+                    )
+                    valid_constraints = [
+                        x.text
+                        for x in constraints
+                        if x.text is not None and len(x.text) > 0
+                    ]
+                    if valid_constraints:
+                        existing_constraints = fv_data[fv_name].setdefault(
+                            "constraints", []
+                        )
+                        existing_constraints.extend(valid_constraints)
+                        fv_data[fv_name]["constraints"] = list(
+                            set(existing_constraints)
+                        )
+                    exceptions = fvo.findall(
+                        './tei:note[@type="exceptionNote"]', namespaces=nsmap
+                    )
+                    valid_exceptions = [
+                        x.text
+                        for x in exceptions
+                        if x.text is not None and len(x.text) > 0
+                    ]
+                    if valid_exceptions:
+                        existing_exceptions = fv_data[fv_name].setdefault(
+                            "exceptions", []
+                        )
+                        existing_exceptions.extend(valid_exceptions)
+                        fv_data[fv_name]["exceptions"] = list(set(existing_exceptions))
+
                     fv_dict.update(fv_data)
                     f_names_count[ft_id] = f_names_count.get(ft_id, 0) + 1
 
-                # documented_features.update({ft_id: fv_dict})
-                documented_features[ft_id] = fv_dict
+                documented_features.update({ft_id: fv_dict})
+                # documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
     return geo_features, f_names_count
