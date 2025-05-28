@@ -346,6 +346,11 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         existing_notes.extend(valid_notes)
                         fv_data[fv_name]["notes"] = list(set(existing_notes))
 
+                    if fv_name in fv_dict:
+                        print(
+                            f"Duplicate fvo for place {place_id}, feature {ft_id}, value '{fv_name}'."
+                            f" Previous: {fv_dict[fv_name]}, New: {fv_data[fv_name]}"
+                        )
                     fv_dict.update(fv_data)
                     f_names_count[ft_id] = f_names_count.get(ft_id, 0) + 1
 
