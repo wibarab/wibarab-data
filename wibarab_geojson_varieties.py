@@ -149,13 +149,11 @@ def get_pers_data(pers_doc):
         for group in pers_list.findall("./tei:personGrp", namespaces=nsmap):
             group_id = group.get("{http://www.w3.org/XML/1998/namespace}id")
             group_role = group.get("role")
-            if group_role == "firstlanguage":
-                pass
-            else:
-                group_name = group.xpath("./tei:name/text()", namespaces=nsmap)[0]
-                pers_data.setdefault(group_role, {})
-                pers_data[group_role].update({group_id: group_name})
+            group_name = group.xpath("./tei:name/text()", namespaces=nsmap)[0]
+            pers_data.setdefault(group_role, {})
+            pers_data[group_role].update({group_id: group_name})
     return pers_data
+
 
 def extract_notes(fvo, note_type, fv_entry, key):
     notes = fvo.findall(f'./tei:note[@type="{note_type}"]', namespaces=nsmap)
@@ -163,7 +161,8 @@ def extract_notes(fvo, note_type, fv_entry, key):
     if valid_notes:
         fv_entry[key] = valid_notes
 
-def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title):
+
+def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title, team_data):
     """
     Get all linguistic feature data for each place from the XML documents.
     """
@@ -188,8 +187,13 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                     fvo_xpath,
                     namespaces=nsmap,
                 ):
+                    # Skip everythin unless status is "done"
+                    if fvo.get("status") != "done":
+                        continue
+
                     # Get & add mandatory information for fvos first (based on ODD)
                     fvo_id = fvo.get("{http://www.w3.org/XML/1998/namespace}id")
+
                     fv_name_tag = fvo.find("./tei:name", namespaces=nsmap)
                     fv_ref = fv_name_tag.get("ref")
                     if fv_ref == "":
@@ -205,6 +209,18 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         else:
                             fv_name = "Missing"
                     fv_entry = {}
+                    # get the responsible person
+                    resp = fvo.get("resp")
+                    if resp and resp.startswith("dmp:"):
+                        resp = resp.replace("dmp:", "")
+                        if resp in team_data:
+                            resp = team_data[resp]
+                        else:
+                            print("Missing data for resp", resp)
+                    else:
+                        print("Unknown resp format:", resp)
+                    fv_entry["resp"] = resp if resp else "Unknown"
+
                     # handling of sources
                     fv_entry["source"] = {}
                     source_elems = fvo.findall("./tei:bibl", namespaces=nsmap)
@@ -221,9 +237,7 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                                 if bibl_id:
                                     if bibl_id in bibl_data:
                                         # WATCHME maybe iclude the biblid, but we don't need it rn
-                                        fv_entry["source"] = bibl_data[
-                                            bibl_id
-                                        ]
+                                        fv_entry["source"] = bibl_data[bibl_id]
                                     else:
                                         print(
                                             "Missing source data for",
@@ -272,10 +286,7 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                             role = x.get("role")
                             corresp = x.get("corresp")
                             if role and corresp:
-                                if role == "firstLanguage":
-                                    # Directly assign the value of corresp
-                                    pers_group_name = corresp
-                                elif corresp.startswith("pgr:"):
+                                if corresp.startswith("pgr:"):
                                     # Handle cases where corresp starts with "pgr:"
                                     corresp = corresp.replace("pgr:", "")
                                     pers_group_name = pers_data.get(role, {}).get(
@@ -303,7 +314,9 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
                         namespaces=nsmap,
                     )
-                    valid_src_reps = [x.text for x in src_reps if x.text and x.text.strip()]
+                    valid_src_reps = [
+                        x.text for x in src_reps if x.text and x.text.strip()
+                    ]
                     if valid_src_reps:
                         fv_entry["source_representations"] = valid_src_reps
 
@@ -338,11 +351,13 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
 
                     fv_dict.setdefault(fv_name, []).append(fv_entry)
                     f_names_count[ft_id] = f_names_count.get(ft_id, 0) + 1
-                if len(fv_dict[fv_name]) > 1:
-                    print(
-                        f"Multiple feature value observations for {fv_name} in {place_id}:",
-                    )
-                documented_features.update({ft_id: fv_dict})
+                # if fv_name in fv_dict and len(fv_dict[fv_name]) > 1:
+                #     print(
+                #         f"Multiple feature value observations for {fv_name} in {place_id}:",
+                #     )
+                if fv_dict:
+                    documented_features.update({ft_id: fv_dict})
+
         feature["properties"].update(documented_features)
 
     return geo_features, f_names_count
@@ -364,12 +379,26 @@ def main():
     geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
     bibl_data = os.path.join(data_home, "010_manannot", "vicav_biblio_tei_zotero.xml")
     pers_data = os.path.join(data_home, "010_manannot", "wibarab_PersonGroup.xml")
+    team_data = os.path.join(data_home, "010_manannot", "wibarab_dmp.xml")
 
     # Process feature xml files
     documents, processing_errors = process_files(features_path)
     # Process profile xml files
     profiles, processing_errors = process_files(profiles_path)
     variety_title = get_variety_titles(profiles)
+
+    # Process team data
+    team_doc = TeiReader(team_data)
+    team_data = {}
+    team_list  =  team_doc.any_xpath("//tei:listPerson[@xml:id='projectTeam']")[0]
+    for person in team_list.findall("./tei:person", namespaces=nsmap):
+        pers_id = person.get('{http://www.w3.org/XML/1998/namespace}id')
+        pers_name_el = person.find("./tei:persName", namespaces=nsmap)
+        if pers_name_el is not None:
+            forename = pers_name_el.findtext("tei:forename", default="", namespaces=nsmap)
+            surname = pers_name_el.findtext("tei:surname", default="", namespaces=nsmap)
+            full_name = f"{forename} {surname}".strip()
+            team_data[pers_id] = full_name
 
     # Extract unique places, get feature names and parent categories
     places, ft_name_dict, parent_categories = first_pass_features(documents)
@@ -394,7 +423,7 @@ def main():
 
     # Add linguistic feature data to geo data
     enriched_features, f_names_count = get_feature_data(
-        geo_features, documents, bibl_data, pers_data, variety_title
+        geo_features, documents, bibl_data, pers_data, variety_title, team_data
     )
 
     # We want to sort the feature column headings by the number of feature entries in the DB
