@@ -157,6 +157,11 @@ def get_pers_data(pers_doc):
                 pers_data[group_role].update({group_id: group_name})
     return pers_data
 
+def extract_notes(fvo, note_type, fv_entry, key):
+    notes = fvo.findall(f'./tei:note[@type="{note_type}"]', namespaces=nsmap)
+    valid_notes = [x.text for x in notes if x.text and x.text.strip()]
+    if valid_notes:
+        fv_entry[key] = valid_notes
 
 def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title):
     """
@@ -165,13 +170,13 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
     f_names_count = {}
     for feature in geo_features:
         place_id = feature["id"]
-        feature_xpath = f'//tei:placeName[@ref="{place_id}"]'
+        place_xpath = f'//tei:placeName[@ref="{place_id}"]'
         fvo_xpath = f'//wib:featureValueObservation[tei:placeName[@ref="{place_id}"]]'
         # Create dictionary to store the features and their values documented for the current place
         documented_features = {}
         for doc in documents.values():
             # Match the place_id
-            if doc.any_xpath(feature_xpath):
+            if doc.any_xpath(place_xpath):
                 ft_id = doc.tree.getroot().get(
                     "{http://www.w3.org/XML/1998/namespace}id"
                 )
@@ -199,49 +204,43 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                             fv_name = label_element[0].text
                         else:
                             fv_name = "Missing"
-                    fv_data = {fv_name: {}}
-                    if fv_name in fv_dict:
-                        fv_data = fv_dict
-                    # WATCHME - handling of sources
-                    source_refs = [
-                        x.get("corresp")
-                        for x in fvo.findall("./tei:bibl", namespaces=nsmap)
-                    ]
-                    fv_data[fv_name].setdefault("sources", {})
-                    for ref in source_refs:
+                    fv_entry = {}
+                    # handling of sources
+                    fv_entry["source"] = {}
+                    source_elems = fvo.findall("./tei:bibl", namespaces=nsmap)
+                    if source_elems:
+                        # there should be only one source per feature value observation
+                        if len(source_elems) > 1:
+                            print(
+                                f"More than one source in featureValueObservation {fvo_id} in {ft_id}"
+                            )
+                        ref = source_elems[0].get("corresp")
                         if ref:
                             if ref.startswith("zot:"):
                                 bibl_id = ref.replace("zot:", "")
                                 if bibl_id:
                                     if bibl_id in bibl_data:
-                                        # if fv_data[fv_name]["sources"]:
-                                        #     try:
-                                        #         if fv_data[fv_name]["sources"][bibl_id]:
-                                        #             duplicate_fvos.add(fvo_id)
-                                        #     except KeyError:
-                                        #         # for cases with multiple sources
-                                        #         print (fvo_id, bibl_id, fv_data[fv_name]["sources"].keys())
-                                        fv_data[fv_name]["sources"][bibl_id] = (
-                                            bibl_data[bibl_id]
-                                        )
+                                        # WATCHME maybe iclude the biblid, but we don't need it rn
+                                        fv_entry["source"] = bibl_data[
+                                            bibl_id
+                                        ]
                                     else:
                                         print(
                                             "Missing source data for",
                                             bibl_id,
-                                            source_refs,
+                                            ref,
                                         )
                             elif ref.startswith("src:"):
                                 bibl_id = ref.replace("src:", "")
-                                # WATCHME - placeholder for sources not in Zotero
-                                fv_data[fv_name]["sources"][bibl_id] = {
+                                # Placeholder for sources not in Zotero
+                                fv_entry["source"] = {
                                     "short_cit": bibl_id,
                                     "link": "",
                                     "decade_dc": {"2020s": "high"},
                                 }
                             else:
                                 print("Unknown source reference format:", ref)
-                                continue
-                    # Add the variety (assumption is that there is only one variety per feature value observation)
+                    # Add the variety (ODD only allows one variety per feature value observation)
                     varieties = fvo.findall("./tei:lang", namespaces=nsmap)
                     if varieties:
                         if len(varieties) > 1:
@@ -260,10 +259,10 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         if variety_ids:
                             try:
                                 variety_name = variety_title[variety_ids[0]]
-                                fv_data[fv_name]["variety"] = variety_name
+                                fv_entry["variety"] = variety_name
                             except KeyError:
                                 print("Missing title for variety", variety_ids[0])
-                                fv_data[fv_name]["variety"] = "Missing"
+                                fv_entry["variety"] = "Missing"
 
                     # Get & add other optional elements (based on ODD)
                     # Person group
@@ -297,111 +296,53 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                                     )
                                     pers_group_name = ""
 
-                                fv_data[fv_name].setdefault(role, []).append(
-                                    pers_group_name
-                                )
+                                fv_entry.setdefault(role, []).append(pers_group_name)
 
                     # Source representation
                     src_reps = fvo.findall(
                         './tei:cit[@type="sourceRepresentation"]/tei:quote',
                         namespaces=nsmap,
                     )
-                    valid_src_reps = [
-                        x.text
-                        for x in src_reps
-                        if x.text is not None and len(x.text) > 0
-                    ]
+                    valid_src_reps = [x.text for x in src_reps if x.text and x.text.strip()]
                     if valid_src_reps:
-                        existing_scr_reps = fv_data[fv_name].setdefault(
-                            "source_representations", []
-                        )
-                        existing_scr_reps.extend(valid_src_reps)
-                        fv_data[fv_name]["source_representations"] = list(
-                            set(existing_scr_reps)
-                        )
+                        fv_entry["source_representations"] = valid_src_reps
 
-                    # Examples
-                    examples = fvo.findall(
-                        './tei:cit[@type="example"]/tei:quote', namespaces=nsmap
+                    # Examples and their translations
+                    example_cits = fvo.findall(
+                        './tei:cit[@type="example"]', namespaces=nsmap
                     )
-                    valid_examples = [
-                        x.text
-                        for x in examples
-                        if x.text is not None and len(x.text) > 0
-                    ]
-                    if valid_examples:
-                        existing_examples = fv_data[fv_name].setdefault("examples", [])
-                        existing_examples.extend(valid_examples)
-                        # Remove duplicates
-                        fv_data[fv_name]["examples"] = list(set(existing_examples))
-                    # Translations
-                    translations = fvo.findall(
-                        './tei:cit[@type="translation"]/tei:quote', namespaces=nsmap
-                    )
-                    valid_translations = [
-                        x.text
-                        for x in translations
-                        if x.text is not None and len(x.text) > 0
-                    ]
-                    if valid_translations:
-                        existing_translations = fv_data[fv_name].setdefault(
-                            "translations", []
-                        )
-                        existing_translations.extend(valid_translations)
-                        # Remove duplicates
-                        fv_data[fv_name]["translations"] = list(
-                            set(existing_translations)
-                        )
+                    for cit in example_cits:
+                        example_text, translation_text = "", ""
+                        quote = cit.find("./tei:quote", namespaces=nsmap)
+                        if quote is not None and quote.text and quote.text.strip():
+                            example_text = quote.text.strip()
+                        for transl in cit.findall(
+                            './tei:cit[@type="translation"]', namespaces=nsmap
+                        ):
+                            trans_quote = transl.find("./tei:quote", namespaces=nsmap)
+                            if (
+                                trans_quote is not None
+                                and trans_quote.text
+                                and trans_quote.text.strip()
+                            ):
+                                translation_text = trans_quote.text.strip()
+                        if example_text:
+                            fv_entry.setdefault("examples", []).append(
+                                {example_text: translation_text}
+                            )
                     # Notes (they can have the type "general", "constraintNote" or "exceptionNote")
-                    remarks = fvo.findall(
-                        './tei:note[@type="general"]', namespaces=nsmap
-                    )
-                    valid_remarks = [
-                        x.text
-                        for x in remarks
-                        if x.text is not None and len(x.text) > 0
-                    ]
-                    if valid_remarks:
-                        existing_remarks = fv_data[fv_name].setdefault("remarks", [])
-                        existing_remarks.extend(valid_remarks)
-                        fv_data[fv_name]["remarks"] = list(set(existing_remarks))
+                    types = ["general", "constraintNote", "exceptionNote"]
+                    keys = ["remarks", "constraints", "exceptions"]
+                    for note_type, key in zip(types, keys):
+                        extract_notes(fvo, note_type, fv_entry, key)
 
-                    constraints = fvo.findall(
-                        './tei:note[@type="constraintNote"]', namespaces=nsmap
-                    )
-                    valid_constraints = [
-                        x.text
-                        for x in constraints
-                        if x.text is not None and len(x.text) > 0
-                    ]
-                    if valid_constraints:
-                        existing_constraints = fv_data[fv_name].setdefault(
-                            "constraints", []
-                        )
-                        existing_constraints.extend(valid_constraints)
-                        fv_data[fv_name]["constraints"] = list(
-                            set(existing_constraints)
-                        )
-                    exceptions = fvo.findall(
-                        './tei:note[@type="exceptionNote"]', namespaces=nsmap
-                    )
-                    valid_exceptions = [
-                        x.text
-                        for x in exceptions
-                        if x.text is not None and len(x.text) > 0
-                    ]
-                    if valid_exceptions:
-                        existing_exceptions = fv_data[fv_name].setdefault(
-                            "exceptions", []
-                        )
-                        existing_exceptions.extend(valid_exceptions)
-                        fv_data[fv_name]["exceptions"] = list(set(existing_exceptions))
-
-                    fv_dict.update(fv_data)
+                    fv_dict.setdefault(fv_name, []).append(fv_entry)
                     f_names_count[ft_id] = f_names_count.get(ft_id, 0) + 1
-
+                if len(fv_dict[fv_name]) > 1:
+                    print(
+                        f"Multiple feature value observations for {fv_name} in {place_id}:",
+                    )
                 documented_features.update({ft_id: fv_dict})
-                # documented_features[ft_id] = fv_dict
         feature["properties"].update(documented_features)
 
     return geo_features, f_names_count
