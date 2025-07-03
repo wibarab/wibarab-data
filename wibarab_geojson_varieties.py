@@ -341,6 +341,8 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                                 translation_text = trans_quote.text.strip()
                         if example_text:
                             fv_entry.setdefault("examples", []).append(
+                                # TODO: The BaseX version 9 we use at the moment has a bug that will render double quotes (")
+                                # in the example text part wrong and so produces invalid JSON. Replace with something ?
                                 {example_text: translation_text}
                             )
                     # Notes (they can have the type "general", "constraintNote" or "exceptionNote")
