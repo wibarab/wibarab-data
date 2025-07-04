@@ -161,6 +161,17 @@ def extract_notes(fvo, note_type, fv_entry, key):
     if valid_notes:
         fv_entry[key] = valid_notes
 
+def replace_double_quotes(text):
+    # Replace straight double quotes with typographic quotes, alternating between opening and closing
+    result = []
+    open_quote = True
+    for char in text:
+        if char == '"':
+            result.append('“' if open_quote else '”')
+            open_quote = not open_quote
+        else:
+            result.append(char)
+    return ''.join(result)
 
 def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title, team_data):
     """
@@ -329,6 +340,7 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         quote = cit.find("./tei:quote", namespaces=nsmap)
                         if quote is not None and quote.text and quote.text.strip():
                             example_text = quote.text.strip()
+                            example_text= replace_double_quotes(example_text)
                         for transl in cit.findall(
                             './tei:cit[@type="translation"]', namespaces=nsmap
                         ):
@@ -341,8 +353,6 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                                 translation_text = trans_quote.text.strip()
                         if example_text:
                             fv_entry.setdefault("examples", []).append(
-                                # TODO: The BaseX version 9 we use at the moment has a bug that will render double quotes (")
-                                # in the example text part wrong and so produces invalid JSON. Replace with something ?
                                 {example_text: translation_text}
                             )
                     # Notes (they can have the type "general", "constraintNote" or "exceptionNote")
