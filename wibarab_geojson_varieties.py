@@ -156,7 +156,12 @@ def get_pers_data(pers_doc):
 
 def extract_notes(fvo, note_type, fv_entry, key):
     notes = fvo.findall(f'./tei:note[@type="{note_type}"]', namespaces=nsmap)
-    valid_notes = [x.text for x in notes if x.text and x.text.strip()]
+    valid_notes = []
+    for note in notes:
+        if note.text and note.text.strip():
+            processed_text = replace_double_quotes(note.text.strip())
+            processed_text = ' '.join(processed_text.split())
+            valid_notes.append(processed_text)
     if valid_notes:
         fv_entry[key] = valid_notes
 
