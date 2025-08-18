@@ -66,8 +66,6 @@ def get_geo_info(places, geo_doc):
     Get basic geographical information for each mentioned place from the geo data XML file.
     """
     geo_features = []
-    # for place_id, variety in place_variety_combinations:
-    # if place_id:
     for place_id in places:
         geo_xml_id = place_id.split(":")[1]
         location_el = geo_doc.any_xpath(
@@ -81,6 +79,7 @@ def get_geo_info(places, geo_doc):
                 lng_lat = [float(coord) for coord in reversed(coordinates) if coord]
             else:
                 lng_lat = []
+            country = geo_doc.create_plain_text(location_el[0].find('tei:country', namespaces=nsmap))
             name = " / ".join(
                 geo_doc.any_xpath(
                     f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()'
@@ -91,7 +90,7 @@ def get_geo_info(places, geo_doc):
                 "type": "Feature",
                 "id": f"{place_id}",
                 "geometry": {"type": "Point", "coordinates": lng_lat},
-                "properties": {"name": name},
+                "properties": {"name": name, "country": country},
             }
             geo_features.append(feature)
     geo_features.sort(key=lambda feature: feature["id"])
