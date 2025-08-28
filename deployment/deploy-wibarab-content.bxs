@@ -6,7 +6,9 @@
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'>../featuredb/010_manannot/profiles</create-db>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
-        <add path="/wibarab/featuredb.expanded.odd">../featuredb/802_tei_odd/featuredb.expanded.odd</add>
+        <add path="/wibarab/featuredb.odd">../featuredb/802_tei_odd/featuredb.odd</add>
+        <add path="/wibarab/featuredb.html">../featuredb/802_tei_odd/featuredb.html</add>
+        <xquery>delete node collection('vicav_texts')//*:schemaSpec//(*:desc, *:remarks, *:gloss, *:exemplum)[not(@xml:lang = ('en'))]</xquery>
         <create-db name='vicav_biblio'>../featuredb/010_manannot/vicav_biblio_tei_zotero.xml</create-db>
         <!-- set option='ftindex'>true</set>
         <set option='attrinclude'>age,sex</set>
