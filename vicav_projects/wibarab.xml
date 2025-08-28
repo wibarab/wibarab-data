@@ -9,6 +9,32 @@
       <lng>24.544</lng>
     </center>
 	</map>
+	<editors>
+		<editor>
+			<given>Stephan</given>
+			<family>Procházka</family>
+		</editor>
+		<editor>
+			<given>Karlheinz</given>
+			<family>Mörth</family>
+		</editor>
+	</editors>
+	<pubDate>
+		<year>2026</year>
+		<month>9</month>
+		<day>1</day>
+	</pubDate>
+	<funder>
+		<logoID>ERC</logoID>
+		<text>This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No. [101020127- WIRARAB])</text>
+		<funderLink>https://cordis.europa.eu/project/id/101020127</funderLink>
+	</funder>
+	<partner>
+		<logoID>UniVie</logoID>
+		<text>Institut für Orientalistik der Universität Wien</text>
+		<partnerLink>https://ucrisportal.univie.ac.at/de/projects/tunesiens-linguistische-terra-incognita</partnerLink>
+	</partner>
+	
 	<frontpage method="samples"/>
 	<menu>
 		<main>
@@ -41,8 +67,8 @@
 						</dataTypes>
 					</params>
 				</item>
-				<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
-				<item xml:id="corpusText" type="CorpusText">Read corpus texts</item>
+				<!--<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
+				<item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
 			</dropdown>
 		</main>
 		<subnav/>
