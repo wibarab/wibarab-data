@@ -18,6 +18,7 @@
 			</dropdown>
 			<dropdown xml:id="dropdown02" title="Variety features">            
 				<item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
+				<item xml:id="liFeatureDetailedExplanation" target="wibarab.featuredb.odd" type="Text">Functional Requirements and Data Specification</item>
 				<item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Variety data</item>
 			</dropdown>
 			<dropdown xml:id="dropdown03" title="Profiles">
