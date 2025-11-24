@@ -80,11 +80,7 @@ def get_geo_info(places, geo_doc):
             else:
                 lng_lat = []
             country = geo_doc.create_plain_text(location_el[0].find('tei:country', namespaces=nsmap))
-            name = " / ".join(
-                geo_doc.any_xpath(
-                    f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()'
-                )
-            )
+            name = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()')[0]
             # Create feature with place_id and name
             feature = {
                 "type": "Feature",
