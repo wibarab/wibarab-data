@@ -455,7 +455,7 @@ def main():
         )
     }
     # Create list of all column headings (name, variety and all features)
-    column_headings = [{"name": "Name"}, {"country": "Country"}] + [
+    column_headings = [{"name": "Name"}, {"country": "Country"}, {"alternateNames": "Alternate Names"}] + [
         {key: value, "count": f_names_count[key], "category": parent_categories[key]}
         for key, value in sorted_titles.items()
     ]
