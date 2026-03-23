@@ -80,13 +80,22 @@ def get_geo_info(places, geo_doc):
             else:
                 lng_lat = []
             country = geo_doc.create_plain_text(location_el[0].find('tei:country', namespaces=nsmap))
-            name = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName/text()')[0]
+            name = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type="prefLabel"]/text()')[0]
+            alt_name_els = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type!="prefLabel"]')
+            alternate_names = []
+            for el in alt_name_els:
+                if el.text and el.text.strip():
+                    entry = {"name": el.text.strip()}
+                    lang = el.get("{http://www.w3.org/XML/1998/namespace}lang")
+                    if lang:
+                        entry["lang"] = lang
+                    alternate_names.append(entry)
             # Create feature with place_id and name
             feature = {
                 "type": "Feature",
                 "id": f"{place_id}",
                 "geometry": {"type": "Point", "coordinates": lng_lat},
-                "properties": {"name": name, "country": country},
+                "properties": {"name": name, "country": country, "alternateNames": alternate_names},
             }
             geo_features.append(feature)
     geo_features.sort(key=lambda feature: feature["id"])
@@ -388,8 +397,8 @@ def main():
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     profiles_path = os.path.join(data_home, "010_manannot", "profiles")
-    geo_data = os.path.join(data_home, "010_manannot", "vicav_geodata.xml")
-    bibl_data = os.path.join(data_home, "010_manannot", "vicav_biblio_tei_zotero.xml")
+    geo_data = os.path.join(data_home, "vicav-library", "vicav_geo", "vicav_geodata.xml")
+    bibl_data = os.path.join(data_home, "vicav-library","vicav_biblio", "vicav_biblio_tei_zotero.xml")
     pers_data = os.path.join(data_home, "010_manannot", "wibarab_PersonGroup.xml")
     team_data = os.path.join(data_home, "010_manannot", "wibarab_dmp.xml")
 
@@ -446,7 +455,7 @@ def main():
         )
     }
     # Create list of all column headings (name, variety and all features)
-    column_headings = [{"name": "Name"}] + [
+    column_headings = [{"name": "Name"}, {"country": "Country"}] + [
         {key: value, "count": f_names_count[key], "category": parent_categories[key]}
         for key, value in sorted_titles.items()
     ]
