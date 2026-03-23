@@ -4,7 +4,9 @@
         <add path="/wibarab">../corpus-data/103_tei_w</add>
         <optimize-all/>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
-        <create-db name='vicav_profiles'>../featuredb/010_manannot/profiles</create-db>
+        <create-db name='vicav_profiles'/>
+        <add path="/wibarab">../featuredb/010_manannot/profiles</add>        
+        <optimize-all/>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
         <add path="/wibarab/featuredb.odd">../featuredb/802_tei_odd/featuredb.odd</add>
         <add path="/wibarab/featuredb.html">../featuredb/802_tei_odd/featuredb.html</add>
