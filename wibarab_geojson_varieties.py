@@ -20,7 +20,11 @@ def process_files(directory):
     errors = set()
     for file_name in os.listdir(directory):
         file_path = Path(directory, file_name)
-        if file_path.is_file() and "template" not in file_name:
+        if (
+            file_path.is_file()
+            and "template" not in file_name
+            and file_name.endswith(".xml")
+        ):
             try:
                 doc = TeiReader(file_path.as_posix())
                 processed_data.update({file_path.as_posix(): doc})
@@ -78,10 +82,18 @@ def get_geo_info(places, geo_doc):
                 # Reverse coordinates from lat-long to long-lat for GeoJSON
                 lng_lat = [float(coord) for coord in reversed(coordinates) if coord]
             else:
-                lng_lat = []
-            country = geo_doc.create_plain_text(location_el[0].find('tei:country', namespaces=nsmap))
-            name = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type="prefLabel"]/text()')[0]
-            alt_name_els = geo_doc.any_xpath(f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type!="prefLabel"]')
+                # Skip places without coordinate
+                print(f"Warning: Skipping place {place_id} - no coordinates found")
+                continue
+            country = geo_doc.create_plain_text(
+                location_el[0].find("tei:country", namespaces=nsmap)
+            )
+            name = geo_doc.any_xpath(
+                f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type="prefLabel"]/text()'
+            )[0]
+            alt_name_els = geo_doc.any_xpath(
+                f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type!="prefLabel"]'
+            )
             alternate_names = []
             for el in alt_name_els:
                 if el.text and el.text.strip():
@@ -95,7 +107,11 @@ def get_geo_info(places, geo_doc):
                 "type": "Feature",
                 "id": f"{place_id}",
                 "geometry": {"type": "Point", "coordinates": lng_lat},
-                "properties": {"name": name, "country": country, "alternateNames": alternate_names},
+                "properties": {
+                    "name": name,
+                    "country": country,
+                    "alternateNames": alternate_names,
+                },
             }
             geo_features.append(feature)
     geo_features.sort(key=lambda feature: feature["id"])
@@ -165,10 +181,11 @@ def extract_notes(fvo, note_type, fv_entry, key):
     for note in notes:
         if note.text and note.text.strip():
             processed_text = replace_double_quotes(note.text.strip())
-            processed_text = ' '.join(processed_text.split())
+            processed_text = " ".join(processed_text.split())
             valid_notes.append(processed_text)
     if valid_notes:
         fv_entry[key] = valid_notes
+
 
 def replace_double_quotes(text):
     # Replace straight double quotes with typographic quotes, alternating between opening and closing
@@ -176,13 +193,16 @@ def replace_double_quotes(text):
     open_quote = True
     for char in text:
         if char == '"':
-            result.append('“' if open_quote else '”')
+            result.append("“" if open_quote else "”")
             open_quote = not open_quote
         else:
             result.append(char)
-    return ''.join(result)
+    return "".join(result)
 
-def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_title, team_data):
+
+def get_feature_data(
+    geo_features, documents, bibl_data, pers_data, variety_title, team_data
+):
     """
     Get all linguistic feature data for each place from the XML documents.
     """
@@ -295,12 +315,18 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                                 variety_name = variety_title[variety_ids[0]]
                                 fv_entry["variety"] = variety_name
                             except KeyError:
-                                print("Missing title for variety", variety_ids[0])
+                                print(
+                                    "Missing title for variety",
+                                    variety_ids[0],
+                                    "in featureValueObservation",
+                                    fvo_id,
+                                )
                                 fv_entry["variety"] = "Missing"
 
                     # Get & add other optional elements (based on ODD)
                     # Person group
                     pers_group = fvo.findall("./tei:personGrp", namespaces=nsmap)
+                    # TODO for tribes: include the metatribe in the list, waiting for data
                     if pers_group:
                         for x in pers_group:
                             role = x.get("role")
@@ -349,7 +375,7 @@ def get_feature_data(geo_features, documents, bibl_data, pers_data, variety_titl
                         quote = cit.find("./tei:quote", namespaces=nsmap)
                         if quote is not None and quote.text and quote.text.strip():
                             example_text = quote.text.strip()
-                            example_text= replace_double_quotes(example_text)
+                            example_text = replace_double_quotes(example_text)
                         for transl in cit.findall(
                             './tei:cit[@type="translation"]', namespaces=nsmap
                         ):
@@ -397,8 +423,12 @@ def main():
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     profiles_path = os.path.join(data_home, "010_manannot", "profiles")
-    geo_data = os.path.join(data_home, "vicav-library", "vicav_geo", "vicav_geodata.xml")
-    bibl_data = os.path.join(data_home, "vicav-library","vicav_biblio", "vicav_biblio_tei_zotero.xml")
+    geo_data = os.path.join(
+        data_home, "vicav-library", "vicav_geo", "vicav_geodata.xml"
+    )
+    bibl_data = os.path.join(
+        data_home, "vicav-library", "vicav_biblio", "vicav_biblio_tei_zotero.xml"
+    )
     pers_data = os.path.join(data_home, "010_manannot", "wibarab_PersonGroup.xml")
     team_data = os.path.join(data_home, "010_manannot", "wibarab_dmp.xml")
 
@@ -411,12 +441,14 @@ def main():
     # Process team data
     team_doc = TeiReader(team_data)
     team_data = {}
-    team_list  =  team_doc.any_xpath("//tei:listPerson[@xml:id='projectTeam']")[0]
+    team_list = team_doc.any_xpath("//tei:listPerson[@xml:id='projectTeam']")[0]
     for person in team_list.findall("./tei:person", namespaces=nsmap):
-        pers_id = person.get('{http://www.w3.org/XML/1998/namespace}id')
+        pers_id = person.get("{http://www.w3.org/XML/1998/namespace}id")
         pers_name_el = person.find("./tei:persName", namespaces=nsmap)
         if pers_name_el is not None:
-            forename = pers_name_el.findtext("tei:forename", default="", namespaces=nsmap)
+            forename = pers_name_el.findtext(
+                "tei:forename", default="", namespaces=nsmap
+            )
             surname = pers_name_el.findtext("tei:surname", default="", namespaces=nsmap)
             full_name = f"{forename} {surname}".strip()
             team_data[pers_id] = full_name
@@ -455,7 +487,11 @@ def main():
         )
     }
     # Create list of all column headings (name, variety and all features)
-    column_headings = [{"name": "Name"}, {"country": "Country"}, {"alternateNames": "Alternate Names"}] + [
+    column_headings = [
+        {"name": "Name"},
+        {"country": "Country"},
+        {"alternateNames": "Alternate Names"},
+    ] + [
         {key: value, "count": f_names_count[key], "category": parent_categories[key]}
         for key, value in sorted_titles.items()
     ]
