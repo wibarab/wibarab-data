@@ -44,9 +44,7 @@
 				<item xml:id="wibarabResults" target="BiblNewQuery" title="Project Results" targetType="BiblioEntries" label="Project Results">
 					Project Results 
 					<params>
-						<queryString>
-							<_>out:WIBARAB</_>
-						</queryString>
+						<queryString>out:WIBARAB</queryString>
 					</params>
 				</item>
 			</dropdown>
