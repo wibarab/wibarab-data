@@ -41,8 +41,8 @@
 			<dropdown xml:id="dropdown01" title="About">
 				<item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
 				<item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
-				<item xml:id="wibarabResults" target="BiblNewQuery" title="Project Results" targetType="BiblioEntries" label="Project Results">
-					Project Results 
+				<item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">
+					Project Results
 					<params>
 						<queryString>out:WIBARAB</queryString>
 					</params>
