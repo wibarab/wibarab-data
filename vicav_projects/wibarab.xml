@@ -47,6 +47,12 @@
 						<queryString>out:WIBARAB</queryString>
 					</params>
 				</item>
+				<item xml:id="wibarabPresentations" target="BiblNewQuery" targetType="BiblioEntries">
+					Talks and Presentations
+					<params>
+						<queryString>prs:WIBARAB</queryString>
+					</params>
+				</item>
 			</dropdown>
 			<dropdown xml:id="dropdown02" title="Variety features">            
 				<item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
