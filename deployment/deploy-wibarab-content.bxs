@@ -5,13 +5,15 @@
         <optimize-all/>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'/>
-        <add path="/wibarab">../featuredb/010_manannot/profiles</add>        
+        <add path="/wibarab">../featuredb/010_manannot/profiles</add>
         <optimize-all/>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
         <add path="/wibarab/featuredb.odd">../featuredb/802_tei_odd/featuredb.odd</add>
         <add path="/wibarab/featuredb.html">../featuredb/802_tei_odd/featuredb.html</add>
         <xquery>delete node collection('vicav_texts')//*:schemaSpec//(*:desc, *:remarks, *:gloss, *:exemplum)[not(@xml:lang = ('en'))]</xquery>
-        <create-db name='vicav_biblio'>../featuredb/vicav-library/vicav_biblio/vicav_biblio_tei_zotero.xml</create-db>
+        <create-db name='vicav_biblio'/>
+        <add path="/wibarab">../featuredb/vicav-library/vicav_biblio/vicav_biblio_tei_zotero.xml</add>
+        <optimize-all/>
         <!-- set option='ftindex'>true</set>
         <set option='attrinclude'>age,sex</set>
         <set option='textinclude'>person,region,country,name</set>
