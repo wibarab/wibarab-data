@@ -45,12 +45,14 @@
 					Project Results
 					<params>
 						<queryString>out:WIBARAB</queryString>
+            <xslt>biblio_tei_01.xslt</xslt>
 					</params>
 				</item>
 				<item xml:id="wibarabPresentations" target="BiblNewQuery" targetType="BiblioEntries">
 					Talks and Presentations
 					<params>
 						<queryString>prs:WIBARAB</queryString>
+            <xslt>biblio_tei_01.xslt</xslt>
 					</params>
 				</item>
 			</dropdown>
@@ -104,6 +106,7 @@
 			<insert_vicav_profiles/>
 			<insert_vicav_corpus/>
 			<insert_vicav_biblio/>
+			<insert_vicav_geo/>
 		</table>
 	</staticData>
 </projectConfig>
