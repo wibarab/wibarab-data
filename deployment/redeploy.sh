@@ -167,9 +167,7 @@ find ./ -type f -and \( -name '*.js' -or -name '*.html' \) -not \( -path './node
 if [ "$CI"x == "truex" ]; then echo "CI: removing .git"; rm -rf .git; fi 
 popd
 sed -i "s~webapp/vicav-app/~${BUILD_DIR:-webapp/vicav-app}/~g" deploy-wibarab-content.bxs
-./execute-basex-batch.sh deploy-wibarab-content $1
-sed -i "s~../webapp/vicav-app/~${BUILD_DIR:-../webapp/vicav-app}/~g" refresh-project-config.xqtl
-./execute-basex-batch.sh refresh-project-config.xqtl $1 >/dev/null
+./execute-basex-batch.sh deploy-wibarab-content $1 >/dev/null
 pushd wibarab-data
 popd
 if [ "$CI"x == "truex" ]; then echo "CI: removing content repo"; rm -rf wibarab-data; rm -rf corpus-data; rm -rf featuredb; fi 
