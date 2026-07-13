@@ -1,112 +1,115 @@
 <projectConfig id="vicav_config_wibarab">
-	<title>WIBARAB</title>
-	<logo>WIBARAB</logo>
-	<icon>/wibarab/marker-icon.png</icon>
-	<map>
-		<zoom>4</zoom>
-		<center>
+  <title>WIBARAB</title>
+  <logo>WIBARAB</logo>
+  <icon>/wibarab/marker-icon.png</icon>
+  <map>
+    <zoom>4</zoom>
+    <center>
       <lat>19.064</lat>
       <lng>24.544</lng>
     </center>
-	</map>
-	<editors>
-		<editor>
-			<given>Stephan</given>
-			<family>Procházka</family>
-		</editor>
-		<editor>
-			<given>Karlheinz</given>
-			<family>Mörth</family>
-		</editor>
-	</editors>
-	<pubDate>
-		<year>2026</year>
-		<month>9</month>
-		<day>1</day>
-	</pubDate>
-	<funder>
-		<logoID>ERC</logoID>
-		<text>This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No. [101020127- WIRARAB])</text>
-		<funderLink>https://cordis.europa.eu/project/id/101020127</funderLink>
-	</funder>
-	<partner>
-		<logoID>UniVie</logoID>
-		<text>Institut für Orientalistik der Universität Wien</text>
-		<partnerLink>https://ucrisportal.univie.ac.at/de/projects/tunesiens-linguistische-terra-incognita</partnerLink>
-	</partner>
-	
-	<frontpage method="samples"/>
-	<menu>
-		<main>
-			<dropdown xml:id="dropdown01" title="About">
-				<item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
-				<item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
-				<item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">
-					Project Results
-					<params>
-						<queryString>out:WIBARAB</queryString>
+  </map>
+  <editors>
+    <editor>
+      <given>Stephan</given>
+      <family>Procházka</family>
+    </editor>
+    <editor>
+      <given>Karlheinz</given>
+      <family>Mörth</family>
+    </editor>
+  </editors>
+  <pubDate>
+    <year>2026</year>
+    <month>9</month>
+    <day>1</day>
+  </pubDate>
+  <funder>
+    <logoID>ERC</logoID>
+    <text>This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement No. [101020127- WIRARAB])</text>
+    <funderLink>https://cordis.europa.eu/project/id/101020127</funderLink>
+  </funder>
+  <partner>
+    <logoID>UniVie</logoID>
+    <text>Institut für Orientalistik der Universität Wien</text>
+    <partnerLink>https://ucrisportal.univie.ac.at/de/projects/tunesiens-linguistische-terra-incognita</partnerLink>
+  </partner>
+  
+  <frontpage method="samples"/>
+  <menu>
+    <main>
+      <dropdown xml:id="dropdown01" title="About">
+        <item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
+        <item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
+        <item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">
+          Project Results
+          <params>
+            <queryString>out:WIBARAB</queryString>
             <xslt>biblio_tei_01.xslt</xslt>
-					</params>
-				</item>
-				<item xml:id="wibarabPresentations" target="BiblNewQuery" targetType="BiblioEntries">
-					Talks and Presentations
-					<params>
-						<queryString>prs:WIBARAB</queryString>
+          </params>
+        </item>
+        <item xml:id="wibarabPresentations" target="BiblNewQuery" targetType="BiblioEntries">
+          Talks and Presentations
+          <params>
+            <queryString>prs:WIBARAB</queryString>
             <xslt>biblio_tei_01.xslt</xslt>
-					</params>
-				</item>
-			</dropdown>
-			<dropdown xml:id="dropdown02" title="Variety features">            
-				<item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
-				<item xml:id="liFeatureDetailedExplanation" target="wibarab.featuredb.odd" type="Text">Data Documentation</item>
-				<item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Variety data</item>
-			</dropdown>
-			<dropdown xml:id="dropdown03" title="Profiles">
-				<item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="Text">Explanation</item>
-				<item xml:id="liProfilesList" targetType="DataList" target="vicav_profiles">
-					List all Language Profiles
-					<params>
-						<dataTypes>
-							<_>Profile</_>
-						</dataTypes>
-					</params>
-				</item>
-			</dropdown>			
-			<dropdown xml:id="dropdown04" title="Corpus">   
-				<item xml:id="allCorpusTexts" target="vicav_corpus" type="DataList">
-					List all transcriptions
-					<params>
-						<dataTypes>
-							<_>CorpusText</_>
-						</dataTypes>
-					</params>
-				</item>
-				<!--<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
-				<item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
-			</dropdown>
-		</main>
-		<subnav/>
-	</menu>
-	<insert_list_of_corpus_characters/>
-	<styleSettings>
-		<colors>
-			<nav>#712b01</nav>
-			<subNav>#a57b64</subNav>
-			<primary>hsla(23, 98%, 22%, 1)</primary>
-			<secondary>hsla(21, 27%, 52%, 1)</secondary>
-		</colors>
-	</styleSettings>
-	<noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
-	<style/>
-	<staticData>
-		<geo><insert_variety_data/></geo>
-		<table>
-			<insert_featurelist/>
-			<insert_taxonomy/>
-			<insert_vicav_profiles/>
-			<insert_vicav_corpus/>
-			<insert_vicav_biblio/>
-			<insert_vicav_geo/>
-		</table>
-	</staticData>
+          </params>
+        </item>
+      </dropdown>
+      <dropdown xml:id="dropdown02" title="Variety features">            
+        <item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
+        <item xml:id="liFeatureDetailedExplanation" target="wibarab.featuredb.odd" type="Text">Data Documentation</item>
+        <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Variety data</item>
+      </dropdown>
+      <dropdown xml:id="dropdown03" title="Profiles">
+        <item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="Text">Explanation</item>
+        <item xml:id="liProfilesList" targetType="DataList" target="vicav_profiles">
+          List all Language Profiles
+          <params>
+            <dataTypes>
+              <_>Profile</_>
+            </dataTypes>
+          </params>
+        </item>
+      </dropdown>      
+      <dropdown xml:id="dropdown04" title="Corpus">   
+        <item xml:id="allCorpusTexts" target="vicav_corpus" type="DataList">
+          List all transcriptions
+          <params>
+            <dataTypes>
+              <_>CorpusText</_>
+            </dataTypes>
+          </params>
+        </item>
+        <!--<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
+        <item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
+      </dropdown>
+    </main>
+    <subnav/>
+  </menu>
+  <insert_list_of_corpus_characters/>
+  <styleSettings>
+    <colors>
+      <nav>#712b01</nav>
+      <subNav>#a57b64</subNav>
+      <primary>hsla(23, 98%, 22%, 1)</primary>
+      <secondary>hsla(21, 27%, 52%, 1)</secondary>
+    </colors>
+  </styleSettings>
+  <noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
+  <style/>
+  <staticData>
+    <geo>
+      <insert_variety_data/>
+      <insert_vicav_geojson/>
+    </geo>
+    <table>
+      <insert_featurelist/>
+      <insert_taxonomy/>
+      <insert_vicav_profiles/>
+      <insert_vicav_corpus/>
+      <insert_vicav_biblio/>
+      <insert_vicav_geo/>
+    </table>
+  </staticData>
 </projectConfig>
