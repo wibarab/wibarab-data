@@ -65,6 +65,22 @@ def first_pass_features(documents):
     return mentioned_places, ft_name_dict, parent_categories
 
 
+def sort_placenames(el):
+    """
+    Sort alternative place names by language and type.
+    """
+    lang = el.get("{http://www.w3.org/XML/1998/namespace}lang", "")
+    name_type = el.get("type", "")
+    if lang == "ar" and name_type == "standard":
+        return 0
+    elif lang == "ar":
+        return 1
+    elif lang == "ar-Latn":
+        return 2
+    elif name_type == "altLabel":
+        return 3
+    return 4
+
 def get_geo_info(places, geo_doc):
     """
     Get basic geographical information for each mentioned place from the geo data XML file.
@@ -94,6 +110,7 @@ def get_geo_info(places, geo_doc):
             alt_name_els = geo_doc.any_xpath(
                 f'//tei:place[@xml:id="{geo_xml_id}"]//tei:placeName[@type!="prefLabel"]'
             )
+            alt_name_els.sort(key=sort_placenames)
             alternate_names = []
             for el in alt_name_els:
                 if el.text and el.text.strip():
