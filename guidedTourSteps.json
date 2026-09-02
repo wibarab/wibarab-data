@@ -1,0 +1,167 @@
+[
+	{
+		"attachTo": { "element": "#results-table" },
+		"content": {
+			"title": "The Variety Table",
+			"description": "Every row is a documented language variety: a city, a region, or a community. This table is your starting point, and whatever you filter here is what the map beside it shows."
+		}
+	},
+	{
+		"attachTo": { "element": "#results-table tbody tr:first-child" },
+		"requireClick": true,
+		"content": {
+			"title": "Find a Variety on the Map",
+			"description": "Click anywhere in a row to select that variety. The map view centers and zooms in on its location, so table and map always talk about the same place."
+		}
+	},
+	{
+		"attachTo": {
+			"element": "#results-table tbody tr:first-child [data-onboarding=\"location-link\"]"
+		},
+		"requireClick": true,
+		"content": {
+			"title": "Open a Variety",
+			"description": "Click the name of the variety to open it in its own window, listing every feature recorded for that location together with the values attested there."
+		}
+	},
+	{
+		"attachTo": {
+			"element": "[data-window-type=\"Location\"] tr:nth-child(24) [data-onboarding=\"feature-link\"]"
+		},
+		"requireClick": true,
+		"options": {
+			"scrollToStep": { "enabled": true, "options": { "container": "nearest" } }
+		},
+		"content": {
+			"title": "From Variety to Feature",
+			"description": "In that window every feature name is a link. Click one to open its statistics: how the values of this feature are distributed across all varieties, not just this one."
+		}
+	},
+	{
+		"attachTo": {
+			"element": "[data-window-type=\"Location\"] tr:nth-child(24) [data-onboarding=\"feature-value-link\"]"
+		},
+		"requireClick": true,
+		"content": {
+			"title": "From Variety to Feature Value",
+			"description": "The values themselves are links too. Click one to open the individual observation behind it, with the people recorded, the metadata collected, and the source it came from."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"windows-menu\"]" },
+		"content": {
+			"title": "Getting Cluttered?",
+			"description": "Every view opens as its own window, so a few clicks fill the screen quickly. This menu lists all open windows and brings one back to the front; the × in a window's title bar closes it again."
+		}
+	},
+	{
+		"attachTo": {
+			"element": "[data-window-type=\"FeatureValue\"] [data-onboarding=\"feature-value-source\"]"
+		},
+		"content": {
+			"title": "Where a Value Comes From",
+			"description": "Each observation names its source, either a publication or a fieldwork campaign. Following that link is what makes a value verifiable and citable."
+		}
+	},
+	{
+		"attachTo": {
+			"element": "[data-window-type=\"FeatureValue\"] [data-onboarding=\"show-on-map\"]"
+		},
+		"requireClick": true,
+		"waitTimeout": 60000,
+		"content": {
+			"title": "Show on Map",
+			"description": "Click \"Show on map\" to turn this single observation into a query: table and map are filtered down to every variety that attests this feature value."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"feature-category-count\"]" },
+		"settleDelay": 1000,
+		"content": {
+			"title": "A (1) Appeared",
+			"description": "Look at the feature menus in the map toolbar: one of them now carries a badge. Each menu counts how many of its features are part of the current query."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"feature-category-count\"]" },
+		"requireClick": true,
+		"waitTimeout": 60000,
+		"content": {
+			"title": "Back to the Whole Feature",
+			"description": "Open that menu and click the feature with the badge. The query only holds the one value you came from, so let's look at all of them."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"feature-value-picker\"]" },
+		"requireClick": "[data-onboarding=\"save-feature-values\"]",
+		"content": {
+			"title": "Select All Values",
+			"description": "Here every attested value is listed with the number of varieties using it. Click \"Select all values\" to put the complete feature on the map, then \"Save changes\"."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"map-legend\"]" },
+		"options": { "popper": { "placement": "right" } },
+		"content": {
+			"title": "Customize Your Markers",
+			"description": "The legend lists every value now drawn on the map. Click the marker in front of a value to give it a different shape or color, or to hide it from the map entirely."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"legend-value\"]" },
+		"options": { "popper": { "placement": "right" } },
+		"content": {
+			"title": "Group Values Together",
+			"description": "Too many values to tell apart? Drag one value onto another to merge them into a group that shares a single marker. Groups can be renamed, extended by dragging more values in, and dissolved again."
+		}
+	},
+	{
+		"attachTo": { "element": "#results-table" },
+		"content": {
+			"title": "Groups Carry Over",
+			"description": "Back in the table the grouped values now appear under the group's name and marker, so the reading you built on the map is the one you get in the data."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"table-actions\"]" },
+		"content": {
+			"title": "Details and Export",
+			"description": "\"Show details\" expands the metadata behind each value directly in the table instead of opening a window per value. \"Export data\" downloads the current selection as CSV or Excel, filters included."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"filter-metadata\"]" },
+		"content": {
+			"title": "Metadata Filters",
+			"description": "These filters narrow the data by who was recorded rather than by language: source, religion, tribe, age group, gender, and first language. They apply to the features already in your query."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"feature-categories\"]" },
+		"content": {
+			"title": "Add a Second Feature",
+			"description": "Now pick a second feature from any of these categories and select a few of its values. Combining features is where querying this data gets interesting."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"query-input\"]" },
+		"content": {
+			"title": "Your Query, Assembled",
+			"description": "Everything you selected is collected here as chips, both features side by side. Click a chip to change it, or the × to drop it again."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"query-operator\"]" },
+		"content": {
+			"title": "OR or AND",
+			"description": "Features are joined with OR by default: a variety qualifies if it matches either of them. Switch this to AND to keep only the varieties that attest both."
+		}
+	},
+	{
+		"attachTo": { "element": "[data-onboarding=\"main-navigation\"]" },
+		"content": {
+			"title": "That's the Tour",
+			"description": "You have seen how table, map, and windows work together, and how filtering keeps them in sync. For query syntax, the data model, and where the material comes from, see the manual in the menu above."
+		}
+	}
+]
