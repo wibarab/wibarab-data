@@ -110,6 +110,7 @@
       <insert_vicav_corpus/>
       <insert_vicav_biblio/>
       <insert_vicav_geo/>
+      <insert_guided_tour_data/>
     </table>
   </staticData>
 </projectConfig>
