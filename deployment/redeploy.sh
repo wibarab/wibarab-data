@@ -143,8 +143,8 @@ echo "copying image files from wibarab-data to vicav-webapp"
 for d in $(ls -d vicav_*)
 do echo "Directory $d:"
    cd "$d"
-   mkdir -p $(dirname "" $(find . -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec echo ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;))
-   find . -type f -and \( -name '*.jpg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec mv -v {} ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;
+   mkdir -p $(dirname "" $(find . -type f -and \( -name '*.jpg' -or -name '*.jpeg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec echo ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;))
+   find . -type f -and \( -name '*.jpg' -or -name '*.jpeg' -or -name '*.JPG' -or -name '*.png' -or -name '*.PNG' -or -name '*.svg' \) -exec mv -v {} ${BUILD_DIR:-../../webapp/vicav-app}/images/{} \;
    if [ "$onlytags"x = 'truex' ]
    then
      find . -type f -and -name '*.xml' -exec sed -i "s~\(</teiHeader>\)~$revisionDesc\\n\1~g" {} \;
