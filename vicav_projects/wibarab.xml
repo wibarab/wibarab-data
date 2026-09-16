@@ -83,6 +83,15 @@
             </dataTypes>
           </params>
         </item>
+        <separator></separator>
+        <item xml:id="dataListAll" targetType="DataTable" target="dataListAll">
+               List all data recordings
+               <params>
+                  <dataTypes>
+                     <_>CorpusText</_>
+                  </dataTypes>
+               </params>
+            </item>
         <!--<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
         <item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
       </dropdown>
