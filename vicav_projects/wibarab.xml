@@ -114,4 +114,16 @@
       <insert_guided_tour_data/>
     </table>
   </staticData>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
 </projectConfig>
