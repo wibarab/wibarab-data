@@ -1,0 +1,95 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>ALiF 2025 – 3rd – 5th September 2025:</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.alif-2025-3rd-5th-september-2025">
+  <head>ALiF 2025 – 3rd – 5th September 2025: </head>
+  <p>From 3 to 5 September 2025, the sixth Arabic Linguistic Forum (The
+  Forum) took place at the Institute of Oriental Studies at the
+  University of Vienna. More than 100 scholars from 22 countries
+  participated, both on site and online. During the three days of the
+  conference, research projects and results in Arabic linguistics were
+  presented and discussed in three parallel sections.</p>
+  <p><figure>
+    <graphic url="alif-2025-3rd-5th-september-2025/IMG_3348-1.jpg" />
+  </figure></p>
+  <p>The lively discussions and numerous professional encounters
+  impressively demonstrated the forum’s function as a central platform
+  for international exchange in Arabic linguistics. In addition to
+  presenting new research findings, the conference offered numerous
+  opportunities to deepen scientific contacts and develop future
+  collaborations. Numerous encounters served not only as a forum for
+  professional exchange, but also as an opportunity to receive
+  constructive feedback on ongoing projects, establish new networks, and
+  gain insights beyond one’s own research horizon. In this way, the
+  forum promoted dialogue between established experts and young
+  scientists alike and contributed to a sustainable strengthening of the
+  international research community.</p>
+  <p><figure>
+    <graphic url="alif-2025-3rd-5th-september-2025/IMG_3350.jpg" />
+  </figure></p>
+  <p>The sixth Arabic Linguistic Forum was thus another significant
+  enrichment for the professional community and once again underlined
+  the high value of interdisciplinary and international dialogue in
+  Arabic linguistics.</p>
+  <p><figure>
+    <graphic url="alif-2025-3rd-5th-september-2025/4954e99b-2959-400f-b11a-50e911ed0f4b-2048x1438.jpg" />
+  </figure></p>
+  <p>It was a special honour for the WIBARAB team at the University of
+  Vienna to be responsible for organising the event, which was held in
+  Vienna for the first time.</p>
+  <p><figure>
+    <graphic url="alif-2025-3rd-5th-september-2025/7ffe35c9-9943-464c-b448-dfa10a8bd732-1-2048x1330.jpg" />
+  </figure></p>
+  <p>We would like to thank all participants who contributed
+  significantly to the success of this conference through their
+  presence, their numerous presentations and their enthusiastic
+  participation, and we hope that our paths will cross again in the
+  future.</p>
+  <p><figure>
+    <graphic url="alif-2025-3rd-5th-september-2025/IMG_3349-1.jpg" />
+  </figure></p>
+</div>
+
+      </body>
+   </text>
+</TEI>

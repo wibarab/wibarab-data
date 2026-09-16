@@ -1,0 +1,87 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Fieldwork in Lebanon</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.fieldwork-in-lebanon">
+  <head>Fieldwork in Lebanon</head>
+  <p>Last February Ana Iriarte and Claudia Laaber spent a month in
+  Lebanon carrying out their first fieldwork campaign on the Arabic
+  Bedouin dialects of the country. They were warmly welcomed by various
+  families across the country: Beirut, Khalde, Bekaa Valley and South
+  Lebanon are some of the areas where linguistic and sociolinguistic
+  data was collected. The members of these communities generously opened
+  the doors of their houses to our two researchers, sharing with them
+  many of their life stories over a cup of delicious ghawa. Claudia and
+  Ana came back to Vienna by the end of March with their recorders full
+  of useful data for the project and lessons learned, and their hearts
+  full of gratitude to all the informants and people they found along
+  the way, for without their kindness and willingness to share, the
+  campaign would not have been the success it was!</p>
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/3.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/IMG-20220309-WA0016.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/IMG-20220309-WA0021.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/IMG-20220314-WA0016.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/5.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="fieldwork-in-lebanon/IMG-20220304-WA0051.jpg" />
+  </figure></p>
+  <p>– Ana Iriarte Díez</p>
+</div>
+
+      </body>
+   </text>
+</TEI>

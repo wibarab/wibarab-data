@@ -39,6 +39,7 @@
   <menu>
     <main>
       <dropdown xml:id="dropdown01" title="About">
+        <item xml:id="wibarabWelcome" target="wibarab.paratexts.index" type="Text">Welcome</item>
         <item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
         <item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
         <item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">

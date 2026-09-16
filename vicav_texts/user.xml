@@ -1,0 +1,97 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>About: user</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.user">
+  <head>About: user</head>
+  <p><figure>
+    <graphic url="user/8b25a788ce2591533469c726cf69adad" />
+  </figure></p>
+  <p>Website</p>
+  <p><ref target="http://127.0.0.1/">http://127.0.0.1</ref></p>
+  <div type="level2">
+    <head>Posts by user :</head>
+    <p><ref target="text:wibarab.paratexts.blog">Blog</ref></p>
+    <div type="level4">
+      <head><ref target="text:wibarab.paratexts.fieldwork-in-saudi-arabia">Fieldwork
+      in Saudi Arabia</ref></head>
+      <p>Gunda Kinzl went to explore the dialects of Saudi Arabia. She
+      encountered wonderful people, an unexpectedly, breathtakingly,
+      beautiful nature and […]</p>
+      <p><ref target="text:wibarab.paratexts.fieldwork-in-saudi-arabia">Read
+      More</ref></p>
+      <p><ref target="text:wibarab.paratexts.blog">Blog</ref></p>
+    </div>
+    <div type="level4">
+      <head><ref target="text:wibarab.paratexts.fieldwork-in-lebanon">Fieldwork
+      in Lebanon</ref></head>
+      <p>Last February Ana Iriarte and Claudia Laaber spent a month in
+      Lebanon carrying out their first fieldwork campaign on the […]</p>
+      <p><ref target="text:wibarab.paratexts.fieldwork-in-lebanon">Read
+      More</ref></p>
+      <p><ref target="text:wibarab.paratexts.blog">Blog</ref></p>
+    </div>
+    <div type="level4">
+      <head><ref target="text:wibarab.paratexts.project-update-january-2022">Project
+      Update January 2022</ref></head>
+      <p>Questionnaires, ethnic approvals and fieldwork Currently, we
+      are preparing the questionnaires and the database entries. There
+      is also a lot […]</p>
+      <p><ref target="text:wibarab.paratexts.project-update-january-2022">Read
+      More</ref></p>
+      <p><ref target="text:wibarab.paratexts.blog">Blog</ref></p>
+    </div>
+    <div type="level4">
+      <head><ref target="text:wibarab.paratexts.what-is-bedouin-type-arabic">What
+      is Bedouin-Type Arabic?</ref></head>
+      <p>The linguistic and socio-historical realities behind the
+      millennia-old dichotomous concept of nomadic and sedentary people
+      in the Middle East and […]</p>
+      <p><ref target="text:wibarab.paratexts.what-is-bedouin-type-arabic">Read
+      More</ref></p>
+    </div>
+  </div>
+</div>
+
+      </body>
+   </text>
+</TEI>

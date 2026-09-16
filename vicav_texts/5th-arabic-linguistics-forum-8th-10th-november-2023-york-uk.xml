@@ -1,0 +1,63 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>5th Arabic Linguistics Forum – 8th – 10th November 2023, York / UK</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.p5th-arabic-linguistics-forum-8th-10th-november-2023-york-uk">
+  <head>5th Arabic Linguistics Forum – 8th – 10th November 2023, York /
+  UK</head>
+  <p>Ana, Antonella, and Stephan represented the WIBARAB team at the 5th
+  Arabic Linguistics Forum in York. The forum provided an invaluable
+  platform for our scholars to exchange ideas, receive and offer
+  feedback and forge contacts with experts and peers from the
+  field.<lb />Ana’s presentation on the ʕArab il-Maslax in Karantina,
+  Beirut, covered theoretical and methodological considerations for the
+  sociolinguistic analysis of superdiverse speech
+  communities.<lb />Antonella’s talk about the Bani Ṣaxar Dialect in
+  Jordan focussed on patterns of verbal morphological change in Bedouin
+  Arabic dialects.<lb />Lastly, Stephan’s contribution centered on the
+  low vowel insertion rule after gutturals aka gahawa-syndrome, its
+  geographical distribution and diachronic development.</p>
+</div>
+
+      </body>
+   </text>
+</TEI>

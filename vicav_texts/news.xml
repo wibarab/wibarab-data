@@ -1,12 +1,10 @@
-<?xml-model href="../../../vicav-content/tools/802_tei_odd/out/vicav_paratexts.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../../vicav-content/tools/802_tei_odd/out/vicav_paratexts.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>News</title>
             <author>
-            	<name ref="corpusmd:CM">Charly Mörth</name>
+                <name ref="corpusmd:CM">Charly Mörth</name>
             </author>
             <principal>
                 <name ref="corpusmd:SP">Stephan Procházka</name>
@@ -15,9 +13,9 @@
                <name>ERC</name>
             </funder>
          </titleStmt>
-	<publicationStmt>
+         <publicationStmt>
             <publisher>
-	            <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
             </publisher>
             <availability status="restricted">
                <licence target="https://creativecommons.org/licenses/by/4.0/">
@@ -31,26 +29,94 @@
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
-          <projectDesc>
+         <projectDesc>
             <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
          </projectDesc>
-         <listPrefixDef/>
       </encodingDesc>
       <revisionDesc status="draft">
-		 <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
       </revisionDesc>
    </teiHeader>
 
    <text>
       <body>
-         <div xml:id="wibarab.paratexts.news">
-            <head>News</head>
-            <div type="newsItem">
-               <head><date when="2024-02-20">20.02.2024</date>: WIBARAB prototype is online!</head>
-               <p>As of today, the first prototype of the WIBARAB application is published providing a preview to the data and functionalities developed by the project. The implementation is based on a completely rewrite of the VICAV frontend which was developed in parallel to the WIBARAB application. <ref target="texts:aboutTheProject">Here</ref> you can find a description o the project.</p>
-            </div>
-            
-         </div>
+<div type="level1" xml:id="wibarab.paratexts.news">
+  <head>News</head>
+  <div type="level2">
+    <head>Upcoming Events</head>
+    <p>The WIBARAB team will be participating in the following
+    conferences:</p>
+    <list type="unordered">
+      <item>
+        <p>We will keep you updated!</p>
+      </item>
+    </list>
+    <p>Workshops in Vienna:</p>
+    <list type="unordered">
+      <item>
+        <p>We will keep you updated!</p>
+      </item>
+    </list>
+  </div>
+  <div type="level2">
+    <head>Announcements</head>
+    <p><hi rendition="simple:bold">Terlan’s graduation:</hi> Our warmest
+    congratulations to our dear colleague, who has been with us since
+    the start of the project and who, on 28 May, successfully defended
+    her thesis and completed her PhD.</p>
+    <p><figure>
+      <graphic url="news/PHOTO-2026-05-28-22-51-16-4-e1781705703785.jpg" />
+    </figure></p>
+    <p>The WIBARAB team would like to thank you for all the wonderful
+    moments we’ve shared with you and wish you all the very best for the
+    future.</p>
+    <p><figure>
+      <graphic url="news/PHOTO-2026-05-28-22-51-16-1-e1781705659567.jpg" />
+    </figure></p>
+    <p><hi rendition="simple:bold">Terlan’s doctoral thesis:</hi> We are
+    thrilled to announce that our dear colleague Terlan, who has been
+    involved in the project from the very beginning, has completed and
+    submitted her doctoral thesis on the grammar of the Bedouin-type
+    dialects of the Zaer and Chaouia in Central Morocco. It is the first
+    dissertation to be completed as part of the project. Our warmest
+    congratulations!</p>
+    <p>We would like to express our sincere thanks to Terlan for the
+    wonderful years we spent working together on the project and wish
+    her all the best for the future!</p>
+    <p><figure>
+      <graphic url="news/Terlan001.png" />
+    </figure></p>
+    <p><hi rendition="simple:bold">Stanley’s graduation:</hi> Another
+    member of the WIBARAB team has successfully completed his studies
+    with his thesis on the Arabic dialect of the Rashayda in Sudan. The
+    team would like to congratulate Stanley on his graduation and wish
+    him all the best for the future!</p>
+    <p><figure>
+      <graphic url="news/IMG-20240801-WA0011-e1722525054633.jpg" />
+    </figure></p>
+    <p><hi rendition="simple:bold">Veronika’s graduation:</hi> We are
+    very happy and proud to announce that our dear colleague Veronika
+    Engler has graduated with her thesis on the TEI-based WIBARAB
+    database. On behalf of the entire team, we would like to extend our
+    heartfelt congratulations and wish Veronika all the very best.</p>
+    <p><figure>
+      <graphic url="news/2fe63588-1a1b-4a14-9d6f-754a8b00dc6c-edited-1.jpg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="news/400c4fc7-c943-473a-aa66-02207ad21187-edited-1.jpg" />
+    </figure></p>
+    <p><hi rendition="simple:bold">Check out our Twitter
+    Account!</hi></p>
+    <p><ref target="https://s.com/wibarab">Posts by wibarab</ref></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+    <p><figure>
+      <graphic url="news/MicrosoftTeams-image-14-edited.jpg" />
+    </figure></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+</div>
+
       </body>
    </text>
 </TEI>

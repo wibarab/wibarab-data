@@ -1,10 +1,10 @@
 <TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader>
+   <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>News</title>
+            <title>About Us</title>
             <author>
-            	<name ref="corpusmd:CM">Charly Mörth</name>
+                <name ref="corpusmd:CM">Charly Mörth</name>
             </author>
             <principal>
                 <name ref="corpusmd:SP">Stephan Procházka</name>
@@ -13,9 +13,9 @@
                <name>ERC</name>
             </funder>
          </titleStmt>
-	<publicationStmt>
+         <publicationStmt>
             <publisher>
-	            <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
             </publisher>
             <availability status="restricted">
                <licence target="https://creativecommons.org/licenses/by/4.0/">
@@ -29,21 +29,105 @@
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
-          <projectDesc>
+         <projectDesc>
             <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
          </projectDesc>
       </encodingDesc>
       <revisionDesc status="draft">
-		 <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBRARB paratexts</change>
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
       </revisionDesc>
    </teiHeader>
 
    <text>
       <body>
-         <div xml:id="wibarab.paratexts.about">
-            <head>What is Bedouin-Type Arabic?</head>
-            <p>An ERC Advanced Grant project investigating the linguistic and socio-historical realities behind the millennia-old dichotomous concept of nomadic and sedentary people in the Middle East and North Africa.</p>
-         </div>
+<div type="level1" xml:id="wibarab.paratexts.about">
+  <head>About Us</head>
+  <p><hi rendition="simple:bold">What is Bedouin-Type Arabic?</hi></p>
+  <p><figure>
+    <head>team_picture</head>
+    <graphic url="about/Khartoum_035resize-e1753185279521-2048x658.jpg" />
+  </figure></p>
+</div>
+<div type="level1">
+  <head><hi rendition="simple:bold">The linguistic and socio-historical
+  realities behind the millennia-old dichotomous concept of nomadic and
+  sedentary people in the Middle East and North Africa</hi></head>
+  <p>More than 350 million people speak Arabic in linguistic settings
+  that are for the most part characterised by a high degree of
+  diglossia. Some of the countless spoken Arabic varieties in use from
+  Iran to Mauretania will be investigated in the framework of an ERC
+  Advanced Grant by the WIBARAB project (What Is Bedouin-type
+  ARABic?).</p>
+  <p>As its name indicates, a particular concern of the WIBARAB project
+  is the language of the Bedouins which has spread with the Arab
+  expansion in the Middle East and North Africa since the 7th century.
+  In a cooperation between the Institute of Oriental Studies (University
+  of Vienna) and the Austrian Centre for Digital Humanities and Cultural
+  Heritage (Austrian Academy of Sciences), WIBARAB aims to better
+  understand the nature of the linguistic dichotomy between sedentary
+  and nomadic varieties, a fundamental concept to Arabic language
+  history, by applying innovative and interdisciplinary research
+  methods. To pursue this goal, the project will collect new data
+  through extensive fieldwork in Saudi Arabia, Kuwait, Jordan, Lebanon,
+  Sudan, Tunisia and Morocco. Along with linguistic data, WIBARAB will
+  also investigate social parameters, focusing in particular on the
+  question of whether the prevalence of tribal structures and
+  patriarchal social patterns helps to explain the linguistic
+  conservatism of Bedouin dialects.</p>
+  <p>Both newly collected and already published data will be
+  systematically stored in a database that will allow for efficient
+  cross-dialectal comparisons, particularly with regard to phonological,
+  morphological, syntactical, phraseological and lexical features. This
+  will be possible thanks to the help of the ACDH-CH team, which will
+  further develop and refine its text-technological stack and take care
+  of data modelling and corpus design, as well as of the implementation,
+  publication and long-term preservation of the project’s database.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">About the Project</hi></p>
+  <p>This project has received funding from the European Research
+  Council (ERC) under the European Union’s Horizon 2020 research and
+  innovation programme (grant agreement No. [101020127- WIRARAB]). It
+  runs from October 2021 to September 2026. WIBARAB adopts a combination
+  of methods grounded in dialectology, general linguistics,
+  sociolinguistics, and historical interpretation.</p>
+  <p>The project comprises six Work Packages (WP):</p>
+  <p><hi rendition="simple:bold">WP-1 New linguistic data from the
+  field</hi> generates fresh data by providing comprehensive grammatical
+  descriptions of three hitherto under-investigated or even unknown
+  Bedouin-type dialects: the Bani Sakhar in Jordan, the Zaer and Chaouia
+  in Morocco, and the Rashayda who are geographically dispersed in
+  Saudi-Arabia, Kuwait, and Sudan, among other places.</p>
+  <p><hi rendition="simple:bold">WP-2 Sociolinguistics</hi> investigates
+  how ‘Bedouin speech’ is perceived today and is based on six case
+  studies of speakers’ attitudes towards Bedouin Arabic in different
+  regions (Najd, Jordan, Lebanon, Egypt, Tunisia, and Morocco).</p>
+  <p><hi rendition="simple:bold">WP-3 Historical backgrounds</hi> is
+  dedicated to the history of Bedouin migrations and will show how
+  history can provide proxy data for diachronic linguistic data and vice
+  versa.</p>
+  <p><hi rendition="simple:bold">WP-4 Linguistic typology</hi> addresses
+  the topic of linguistic typology and aims at a comparative survey of
+  grammatical and lexical features of Bedouin-type Arabic.</p>
+  <p><hi rendition="simple:bold">WP-5 Language and dialect
+  contact</hi> deals with language and dialect contacts in past and
+  present by focusing on contact-induced linguistic changes that are
+  likely the outcome of Bedouin migration.</p>
+  <p><hi rendition="simple:bold">WP-6 Historical linguistics and
+  language change</hi> will draw on the findings of all other work
+  packages to present an answer to the overarching question of the
+  degree to which difference in lifestyle, i.e., nomadic versus
+  sedentary, is mirrored in the history and present of the Arabic
+  language, and which social and/or historical factors have led to
+  either the retention or the abandonment of typical linguistic features
+  related to one group or the other.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <div type="level2">
+    <head><hi rendition="simple:bold">Contact</hi></head>
+    <p>Contact us at  wibarab@oeaw.ac.at</p>
+    <p>Phone: +43(0)142779800504</p>
+  </div>
+</div>
 
       </body>
    </text>

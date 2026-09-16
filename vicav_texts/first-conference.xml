@@ -1,0 +1,734 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Past Activities</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.first-conference">
+  <head>Past Activities</head>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Dominique Caubet’s visit to Vienna –
+  28th and 29th October 2025:</hi></p>
+  <p>At the end of October, we had the great honor of welcoming
+  Professor Dominique Caubet (INALCO) to our institute for two
+  particularly informative and varied days.</p>
+  <p><figure>
+    <graphic url="first-conference/PHOTO-2025-11-05-12-27-254-e1762860365242.jpg" />
+  </figure></p>
+  <p>On the first day, Prof. Caubet gave the team detailed insights into
+  various aspects of the Casablanca dialect.</p>
+  <p><figure>
+    <graphic url="first-conference/PHOTO-2025-10-28-19-17-041-e1762860735727.jpg" />
+  </figure></p>
+  <p>She then spoke about the island of Pantelleria and the history of
+  the Arabic variety spoken there as part of the lecture series
+  “Linguistic and cultural encounters in the Central Mediterranean:
+  Tunisia – Malta – Sicily.”</p>
+  <p><figure>
+    <graphic url="first-conference/PHOTO-2025-11-05-12-27-255-1-e1762860004743.jpg" />
+  </figure></p>
+  <p>On the second day of her visit, her documentary film “Dima Punk”
+  about the punk movement in Morocco was screened at the Institute for
+  Middle Eastern Studies, which met with great interest from the
+  students and was followed by an in-depth discussion with the producer
+  herself.</p>
+  <p>We are very happy to have had the opportunity to welcome Prof.
+  Caubet and to learn about her impressive findings on linguistic and
+  cultural aspects.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">ALiF 2025 – 3rd – 5th September
+  2025:</hi> From 3 to 5 September 2025, the sixth Arabic Linguistic
+  Forum (The Forum) took place at the Institute of Oriental Studies at
+  the University of Vienna. To read more about this event, follow the
+  link
+  below:<lb /><ref target="text:wibarab.paratexts.alif-2025-3rd-5th-september-2025">https://wibarab.acdh.oeaw.ac.at/alif-2025-3rd-5th-september-2025/</ref></p>
+  <p><figure>
+    <graphic url="first-conference/IMG_3349.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Ana and Stephan in Bayreuth – 10 – 11
+  July 2025ː</hi> Ana and Stephan were invited to participate in the
+  international conference <hi rendition="simple:italic">Arabic
+  Sociolinguistics and Dialectology: Taking Stock</hi> at the University
+  of Bayreuth on July 10 and 11, 2025. The event, which was dedicated to
+  the interface between sociolinguistic case studies and overarching
+  perspectives on dialect development, provided an excellent platform
+  for scientific exchange on current developments and issues in Arabic
+  sociolinguistics and dialectology.</p>
+  <p><figure>
+    <graphic url="first-conference/0ab38b14-4db0-426c-b735-a80194605e25.jpg" />
+  </figure></p>
+  <p>As part of the diverse program, Ana and Stephan presented their
+  research on “The emergence of the šāwi and (rural) gilit dialect areas
+  in the light of historical sociolinguistics” (Stephan) and “The Role
+  of Migration and Displacement in the Life Course of an Arabic Variety:
+  A Linguistic and Ideological Analysis of Variation in the Dialect of
+  Arab al-Maslakh in Beirut (Karantina)” (Ana). Both contributions met
+  with lively interest and were followed up in lively discussions.</p>
+  <p><figure>
+    <graphic url="first-conference/3d19b210-7334-4e27-ba7f-3d087ef44b37-e1752517833175.jpg" />
+  </figure></p>
+  <p>In addition to the professional impulses, the conference was also a
+  valuable opportunity to meet up with esteemed colleagues of many
+  years’ standing, to make new contacts and to discuss current projects
+  and future collaborations in a stimulating atmosphere.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Claudia’s fieldwork in Germany – May
+  2025:</hi></p>
+  <p>In May 2025, Claudia Laaber began a period of fieldwork in Germany,
+  engaging with Lebanese communities living in the diaspora. Her
+  research focused on exploring linguistic identities and language
+  ideologies within these communities. During her time there, she
+  visited the cities of Essen, Berlin and Dresden, each of which offered
+  unique perspectives and experiences that shaped the depth and
+  direction of her work.</p>
+  <p><figure>
+    <graphic url="first-conference/photo_5936287356405532453_y.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/photo_5936287356405532452_y.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">R workshop – 21st – 23rd May
+  2025:</hi></p>
+  <p>In May 2025, we had the great opportunity to hold an intensive and
+  incredibly enriching workshop on the R programming language. Our
+  esteemed colleague Anneliese Kelterer from the University of Graz led
+  this three-day workshop with a lot of expertise, patience and
+  enthusiasm.</p>
+  <p><figure>
+    <graphic url="first-conference/R2.jpg" />
+  </figure></p>
+  <p>In this compact introduction, Ms. Kelterer not only showed us the
+  basic functions and syntax of R, but also opened our eyes to the many
+  possible applications of this statistical software – especially in the
+  field of linguistics. Among other things, we learned how R can be used
+  to analyse data and how linguistic data can be statistically processed
+  and visualized in graphical form.</p>
+  <p><figure>
+    <graphic url="first-conference/R3.jpg" />
+  </figure></p>
+  <p>We would like to thank Ms. Kelterer for this enriching workshop and
+  the practical introduction to a tool that has long since become
+  indispensable in linguistic research.</p>
+  <p><figure>
+    <graphic url="first-conference/R1.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Rebecca’s lecture in Turin – 15 April
+  2025:</hi></p>
+  <p><figure>
+    <graphic url="first-conference/presentazione-cropped.png" />
+  </figure></p>
+  <p>Maria Rebecca Zarb delivered the lecture titled “Defining Bedouin
+  Arabic: Fieldwork Insights from the Rašāyda Tribe of Saudi Arabia” at
+  the University of Turin. She discussed the role of the WIBARAB project
+  and its promising contributions to the field of Arabic dialectology,
+  as well as her own personal experiences conducting fieldwork and some
+  emerging results. Many thanks are extended to Prof.Dr. Simone Bettega
+  for the invitation.</p>
+  <p><figure>
+    <graphic url="first-conference/Rebecca-Torino.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Rebecca’s fieldwork in Saudi Arabia –
+  February 2025:</hi></p>
+  <p>In February 2025, Maria Rebecca Zarb travelled to Saudi Arabia to
+  conduct linguistic fieldwork with the Rashayda tribe. Click
+  <ref target="text:wibarab.paratexts.rebeccas-field-work-in-saudi-arabia">here</ref>
+  to read more about her experience and research.</p>
+  <p><figure>
+    <graphic url="first-conference/PHOTO-2025-04-28-13-34-37-4-e1751542100654.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">WIBARAB at the 48th Austrian
+  Linguistics Conference (ÖLT) in Innsbruck – 17th – 19th December
+  2024:</hi></p>
+  <p>From December 17 to 19, 2024, Rebecca, Stephan and Veronika from
+  the WIBARAB team took part in the 48th Austrian Linguistics Conference
+  in Innsbruck. In their contribution, they presented the project as
+  well as current research results and new findings.</p>
+  <p><figure>
+    <graphic url="first-conference/1f3c5733-9866-4cdc-b864-358257d80d14-e1736764466476.jpeg" />
+  </figure></p>
+  <p>The conference not only provided an excellent opportunity to share
+  the latest developments in the field of linguistics and network with
+  peers, but also took place in a breathtaking setting. Surrounded by
+  the impressive mountains of Innsbruck, the conference was an inspiring
+  experience – both professionally and scenically.</p>
+  <p><figure>
+    <graphic url="first-conference/20c587db-14e7-4eaf-888d-5d2df1028fb6.jpeg" />
+  </figure></p>
+  <p>We are delighted to have been part of this enriching event and
+  would like to thank the organizers and participants for the
+  stimulating discussions and valuable input!</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Symposium “The ‘Tribe’ in the WANA
+  Region” – 3rd and 4th of October 2024:</hi> At the beginning of
+  October, we had the pleasure of holding another symposium at the
+  university of Vienna. In this symposium, led by our dear colleague
+  Laura Stocker, scholars from different disciplines such as history,
+  (socio-)linguistics and social anthropology came together to discuss
+  different aspects of the concept of “tribe” and its many
+  interpretations in different academic fields.</p>
+  <p><figure>
+    <graphic url="first-conference/1IMG_0386-2048x1536.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/IMG_03911-2048x938.jpg" />
+  </figure></p>
+  <p>We would like to express our thanks to all our guests for their
+  valuable contributions and look forward to continuing to work with
+  them in the future:</p>
+  <p>Dawn <hi rendition="simple:bold">Chatty</hi> (University of
+  Oxford)<lb />Yazid <hi rendition="simple:bold">Ben Hounet</hi>
+  (CNRS/Collège de France/EHESS/Comenius University
+  Bratislava)<lb />Wolfgang <hi rendition="simple:bold">Kraus</hi>
+  (University of Vienna)<lb />Katharina
+  <hi rendition="simple:bold">Lange</hi> (Zentrum Moderner Orient,
+  Berlin)<lb />Safiah <hi rendition="simple:bold">Al-Salameen</hi>
+  (University of Jordan)<lb />Mohammed
+  <hi rendition="simple:bold">Shunnaq</hi> (Yarmuk
+  University)<lb />Tariq <hi rendition="simple:bold">Tell</hi> (American
+  University Beirut)<lb />Andre
+  <hi rendition="simple:bold">Gingrich</hi> (Austrian Academy of
+  Sciences)<lb />David <hi rendition="simple:bold">Jordan</hi>
+  (Ruhr-University Bochum)<lb />Alexander
+  <hi rendition="simple:bold">Weissenbruger</hi> (Austrian Academy of
+  Sciences)<lb />William <hi rendition="simple:bold">Young</hi>
+  (Independent)</p>
+  <p><figure>
+    <graphic url="first-conference/PHOTO-2024-10-04-20-24-54.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Dina El Zarka’s and Stephan Reichmuth’s
+  visit to Vienna – 11th – 13th June 2024:</hi></p>
+  <p>The Wibarab team had some exciting and highly informative days in
+  mid-June. Both our colleague Dina from the University of Graz and
+  Stephan Reichmuth, Professor of Arabic Studies at the University of
+  Bochum, visited us to talk about their respective areas of
+  expertise.</p>
+  <p><figure>
+    <graphic url="first-conference/Reichmuth-Rebe-Stanley.jpeg" />
+  </figure></p>
+  <p>Dina El Zarka organized a workshop on prosody, where field
+  researchers from the WIBARAB team were able to apply their newly
+  acquired knowledge directly to PRAAT. Stephan Reichmuth’s presentation
+  was about his field research in Sudan and his subsequent prosodic
+  analysis of the Shukriyya dialect in Eastern Sudan.</p>
+  <p>Our sincere thanks go to both of them for the instructive and
+  enlightening days!</p>
+  <p><figure>
+    <graphic url="first-conference/WhatsApp-Image-2024-06-13-at-17.43.14-Kopie.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/WhatsApp-Image-2024-06-13-at-17.43.12-1.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Stephan’s visit to Paris – 7th – 9th
+  June 2024:</hi> Stephan spent a few sunny days in Paris at the
+  beginning of June, where he worked on an article at INALCO together
+  with the now long-time colleague from the WIBARAB team Stefano
+  Manfredi.</p>
+  <p><figure>
+    <graphic url="first-conference/WhatsApp-Image-2024-06-11-at-10.55.54.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">15. AIDA Conference – 21st – 24th May
+  2024, Valletta (Malta):</hi> The WIBARAB team was represented at this
+  year’s AIDA conference in Valetta, Malta, and had the honor of
+  presenting their research to an audience of Arabists from around the
+  world. The titles of their talks are listed under “publications”.
+  <ref target="text:wibarab.paratexts.publications">Click
+  here</ref> to jump there!</p>
+  <p>Here are some impressions from the conference days:</p>
+  <p><figure>
+    <graphic url="first-conference/team.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/grazzi-hafna-e1716803549975.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Antonella_Aida24.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Rebecca.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Vienna City Marathon – 21st of April
+  2024:</hi> Four arabists from the Institute of Oriental Studies showed
+  their sporty side on Sunday 21 April. Laura, Miriam, Stephan and
+  Rebecca ran the distance of 42.195 kilometres as a team with the
+  camel-inspired name <hi rendition="simple:italic">Riyah</hi> in
+  staggered fashion and delivered their personal best time of 3:59
+  hours, for which the team congratulates them warmly!</p>
+  <p><figure>
+    <graphic url="first-conference/2024-April-Marathon-2.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Rebecca’s fieldwork in Jordan – April
+  2024:</hi> In April 2024, Maria Rebecca Zarb traveled to Jordan for
+  three weeks to collect linguistic data on the Rašāyda community in the
+  region. Her research took her to various cities across the country,
+  from the bustling capital of Amman to the stunning landscapes of Wadi
+  Feynan. Heartfelt gratitude goes to the gracious Rašāyda families who
+  warmly embraced Rebecca, making her feel like part of their own, as
+  well as to the other collaborators whose support was essential to the
+  success of the fieldwork.</p>
+  <p><figure>
+    <graphic url="first-conference/WhatsApp-Image-2024-09-30-at-10.16.28-5-e1727780527875.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Stefano Manfredi’s workshop – 4th – 6th
+  of March 2024:</hi> Stefano Manfredi from CNRS in Paris paid us a
+  visit from 4th to 6th of March 2024. During these days held a workshop
+  for the Arabic Studies team at the Institute of Oriental Studies in
+  which talked about the many facets of contact linguistics. Although
+  the focus was on Arabic dialectology, Stefano brought a wealth of
+  examples of different phenomena from different languages, which was
+  not only highly interesting, but also useful for understanding the
+  different aspects of contact linguistics.</p>
+  <p><figure>
+    <graphic url="first-conference/Stefano_workshop-2048x1378.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Stefano-workshop2-2048x1059.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Symposium at University of Texas at
+  Austin – 23rd and 24th of February 2024:</hi> Stephan was invited to
+  the University of Texas at Austin, US, to give a lecture on
+  Bedouin-type Arabic as part of the symposium entitled “Redefining
+  Arabic: New Approaches to the Study of Arabic’s Past and Present”. In
+  his presentation, Stephan explored the question of how useful modern
+  and pre-modern corpora are in answering the question at the centre of
+  our research project: What is Bedouin-type Arabic?</p>
+  <p>We would like to express our sincere thanks to the organisers for
+  the invitation!</p>
+  <p><figure>
+    <graphic url="first-conference/austin.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Study Trip to Sharjah – 10th – 20th
+  February 2024:</hi> Four members of the team (Antonella, Philipp,
+  Rebecca and Stanley) joined a delegation of students from various
+  Austrian universities for a study trip to the Emirate of Sharja. The
+  study trip was organized by the Hammer-Purgstall Gesellschaft in
+  cooperation with the Arab Language Academy in Sharjah together with
+  the Austro-Arab Chamber of Commerce. On the 12th of February the
+  delegation was received by his highness the Emir Sultan Al-Qasimi.
+  During the trip the team members discussed some questions concerning
+  Bedouin dialects in the Gulf and promoted the research carried out in
+  the project.</p>
+  <p><figure>
+    <graphic url="first-conference/Group-2.png" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/reception-2b.png" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/reception-1b.png" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Austrian Linguistics Conference (ÖLT) –
+  7th – 9th December 2023:</hi> Scholars from the Institute of Oriental
+  Studies, including representatives of the WIBARAB project, took part
+  in the ÖLT from December 7 to 9, where they presented their research
+  to an international audience of over 300 linguists.</p>
+  <p>The participants were invited by the City of Graz to a reception in
+  the City Hall, where they were told about the history of the famous
+  City Council Chamber and were able to take in the view of Graz’s main
+  Christmas square from the balcony.</p>
+  <p><figure>
+    <graphic url="first-conference/Market-e1702393796777-edited.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/ace4188d-8bec-4735-9c8f-038ae9578ce6-edited-1.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/aa60cd9e-ab7d-4316-a3be-0b45ea674711-2-edited-1.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/e9c028e7-f7e9-4534-92e5-59d64d2f59ab-1-edited.jpg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/0a6cbba9-e01c-4b0d-9919-9665fcd34eb9-1-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Laurent Romary’s visit to Vienna – 30th
+  November – 1st December 2023:</hi> Laurent Romary, research director
+  at INRIA and TEI-expert, has payed us a visit in Vienna for a workshop
+  about corpus digitalization at the Austrian Academy of Sciences. His
+  expertise and passion for the topic inspired the participants and
+  stimulated innovative discussions.<lb />Many thanks!</p>
+  <p><figure>
+    <graphic url="first-conference/3b7b65c5-6b58-4db8-b196-18a1625a6564-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Maria Ángeles Vicente and Christophe
+  Pereira in Vienna – 23rd – 25th November 2023:</hi> It was a great
+  pleasure for us to host two renowned experts in Maghrebi Arabic, Maria
+  Ángeles Vicente from the University of Zaragoza and Christophe Pereira
+  from INALCO. During these days, Maria and Christophe supported us with
+  their expertise and gave us in-depth reflections on our research. We
+  would like to express our sincere thanks for their support.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">WIBARAB Lunch – 21th November
+  2023:</hi> At our monthly lunch meeting at the WIBARAB office, we had
+  the pleasure of welcoming two guests: Fabio Gasparini from Freie
+  Universität Berlin and Katharina Tyran from the Department of Slavonic
+  Studies at the University of Vienna, who both told us about their
+  current projects. Thanks for coming and sharing insights into your
+  research!</p>
+  <p><figure>
+    <graphic url="first-conference/Lunch-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">5th Arabic Linguistics Forum – 8th –
+  10th November 2023, York / UK:</hi> Ana, Antonella, and Stephan
+  represented the WIBARAB team at the 5th Arabic Linguistics Forum in
+  York. The forum provided an invaluable platform for our scholars to
+  exchange ideas, receive and offer feedback and forge contacts with
+  experts and peers from the field.<lb />Ana’s presentation on the ʕArab
+  il-Maslax in Karantina, Beirut, covered theoretical and methodological
+  considerations for the sociolinguistic analysis of superdiverse speech
+  communities.<lb />Antonella’s talk about the Bani Ṣaxar Dialect in
+  Jordan focussed on patterns of verbal morphological change in Bedouin
+  Arabic dialects.<lb />Lastly, Stephan’s contribution centered on the
+  low vowel insertion rule after gutturals aka gahawa-syndrome, its
+  geographical distribution and diachronic development.</p>
+  <p><figure>
+    <graphic url="first-conference/AnaAntonellaStephan-edited.png" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Ana_York-1-edited.png" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Antonella_York-1-edited.png" />
+  </figure></p>
+  <p><figure>
+    <graphic url="first-conference/Stephan_York-1-edited.png" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Kristen Brustad &amp; Mahmoud Al-Batal
+  in Vienna, 16th – 19th October 2023</hi> We had the extraordinary
+  honor to welcome two renowned figures in Arabic Studies, Kristen
+  Brustad and Mahmoud Al-Batal, to the Department of Oriental Studies in
+  Vienna These days were marked by their presence and their captivating
+  lectures, which offered a deeper insight into various aspects of
+  Arabic language and linguistics.</p>
+  <p>Kristen Brustad, an expert in the field of Arabic syntax, wowed
+  students and facutly members with her presentation on syntactic
+  structures in Arabic. Her clear presentation and thorough explanations
+  provided the audience with a rich insight into this complex linguistic
+  topic.</p>
+  <p><figure>
+    <graphic url="first-conference/a6994dd8-151d-4dfc-be0b-669fdfee58a0-edited.jpg" />
+  </figure></p>
+  <p>Mahmoud Al-Batal, a renowned pioneer in Arabic didactics, shared
+  his extensive knowledge and innovative approach to teaching the Arabic
+  language. His presentation offered valuable insights and innovative
+  methods that were appreciated by teachers and students alike.</p>
+  <p><figure>
+    <graphic url="first-conference/e3925cb6-fab6-4527-9540-794082f699db-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-conference/Escuela_1-edited.png" />
+  </figure></p>
+  <p><hi rendition="simple:bold">Terlan’s trip to Granada – 1st – 11th
+  November:</hi> Terlan visited Prof. Montserrat Benítez Fernández,
+  renowned expert in Moroccan Arabic, at the Escuela de Estudios Árabes,
+  who assisted her in the transcription process.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Terlan’s trip to Paris – 2nd – 9th
+  October:</hi> Our collegue Terlan spend one week in Paris and visited
+  Prof. Pereira and Prof. Herin at INALCO where she presented her
+  current findings on the Hilali category in the study of rural dialects
+  of Morocco.</p>
+  <p><figure>
+    <graphic url="first-conference/IMG_7848-edited.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">First WIBARAB Symposium – 7th – 9th
+  June 2023, University of Vienna</hi>: From 7 to 9 June, the first
+  WIBARAB Symposium titled <hi rendition="simple:italic">WIBARAB: New
+  Data and Fresh Perspectives</hi> took place on the campus of the
+  University of Vienna. We had the honour to discuss both ongoing work
+  (mainly from the project’s three PhD theses) as well as further steps
+  and methodological and theoretical considerations with our renowned
+  guests who evaluated and commented on our preliminary results that
+  were presented in lectures.</p>
+  <p>We would like to thank our guests for their constructive
+  contributions and look forward to working with them in the future:</p>
+  <p>Adam <hi rendition="simple:bold">Benkato</hi> (University of
+  California, Berkeley)<lb />Maria Ángeles
+  <hi rendition="simple:bold">Vicente</hi> (University of
+  Zaragoza)<lb />Aziza <hi rendition="simple:bold">Al-Essa</hi> (King
+  Abdulaziz University, Jeddah)<lb />Bruno
+  <hi rendition="simple:bold">Herin</hi> (INALCO)<lb />Catherine
+  <hi rendition="simple:bold">Taine-Cheikh</hi> (LACITO)<lb />Clive
+  <hi rendition="simple:bold">Holes</hi> (University of
+  Oxford)<lb />Enam <hi rendition="simple:bold">Al Wer</hi> (University
+  of Essex)<lb />Felipe Benjamin
+  <hi rendition="simple:bold">Francisco</hi> (Freie Universität
+  Berlin)<lb />Issam <hi rendition="simple:bold">Marjani</hi>
+  (University of Pisa)<lb />Janet
+  <hi rendition="simple:bold">Watson</hi> (University of
+  Leeds)<lb />Jonathan <hi rendition="simple:bold">Owens</hi>
+  (University of Bayreuth)<lb />Munira
+  <hi rendition="simple:bold">Al-Azraqi</hi> (Imam Abdulrahman Bin
+  Faisal University, Dammam)<lb />Simone
+  <hi rendition="simple:bold">Bettega</hi> (University of
+  Turin)<lb />Stefano <hi rendition="simple:bold">Manfredi</hi>
+  (CNRS)<lb />Fabio <hi rendition="simple:bold">Gasparini</hi>
+  (University of Turin)</p>
+  <p><figure>
+    <graphic url="first-conference/1symp.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Field work in Sudan – February/March
+  2023:</hi> Master student Stanley went on his first field trip to
+  Sudan to study the dialect of the Rashayda tribe. He was welcomed and
+  hosted by the University of Shendi and had the chance to not only
+  collect precious data about the Rashaydas’ dialect but also to dive
+  into the local culture of Sudan.</p>
+  <p><figure>
+    <graphic url="first-conference/1Sudan.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Visit of Inas Mahfouz – March
+  2023:</hi> We had the honor of welcoming Prof. Inas Mahfouz from the
+  American University of Kuwait at our department. After enjoying her
+  presentation about the Azmi Dialect in Kuwait, our team presented to
+  her the project and its recent progress. We are happy to announce that
+  Inas Mahfouz will join our team as a local associate in Kuwait!</p>
+  <p><figure>
+    <graphic url="first-conference/1Visit-Inas.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Field work in Jordan – February
+  2023:</hi> Claudia went on another field trip to the South of Jordan
+  this February. As always in Jordan, she received a very warm welcome
+  and was able to spend an exciting and memorable time with the Bdoul
+  Bedouins. Thanks to their hospitality Claudia was not only able to
+  conduct interviews but also got the chance to accompany them and
+  therefore get deep insights into the community’s daily life.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Visit of the Dean</hi>
+  <hi rendition="simple:bold">– 30th January 2023:</hi> On the 30th of
+  January 2023, the WIBARAB team had the honor of welcoming the dean of
+  the faculty of Philology and Cultural Studies (Universität Wien) Prof.
+  Dr. Stephan Müller in our project room. The team introduced their
+  roles and contributions within the project, and presented to him the
+  WIBARAB Database, with a focus on the current technological
+  advancements that the team has developed during the last year and a
+  half in close cooperation with the ACDH-CH. </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">PRAAT Seminar</hi> –
+  <hi rendition="simple:bold">13th – 14th October 2022</hi>: Phonology
+  expert Dr. Fabio Gasparini delivers a 2-day seminar for all the
+  members of WIBARAB and other members of the Department of Near Eastern
+  Studies on how to use PRAAT to resolve phonetic problems in the
+  recordings accumulated during fieldwork. Many thanks!</p>
+  <p><figure>
+    <graphic url="first-conference/1PRAAT.jpeg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">New Members</hi> –
+  <hi rendition="simple:bold">1st October 2022</hi>: Master students
+  Stanley Kochem and Philipp Hessabi join the WIBARAB project. Stanley
+  will work on the database and on data collection and Philipp will deal
+  with administrative issues and the maintenance of the website.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Claudia Laaber’s talk at Charles
+  University</hi> – <hi rendition="simple:bold">29th September –
+  1st October 2022</hi>: PhD student Claudia Laaber gives a presentation
+  titled “Theoretical and Methodological Considerations for the Study of
+  “Language Attitudes” by the example of Bedouin Arabic Dialects” at the
+  Linguistics conference hosted by Charles University in Prague.  </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Meeting with Dr. Johann Heiss</hi> –
+  <hi rendition="simple:bold">1st September 2022</hi>: Social
+  anthropologist and Arabist Dr. Johann Heiss is invited to the WIBARAB
+  office to deliver a talk on complex tribal structures with a focus on
+  Yemeni bedouins. Dr. Heiss also addresses some problematic questions
+  that the PhD students came up with during the course of their
+  research.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">ACDH-CH Tutorials</hi> –
+  <hi rendition="simple:bold">6th July 2022</hi>: The ACDH-CH team
+  visits the PhD and Master students and delivers a tutorial on Visual
+  Studio Code, GitHub repositories and TEI.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Introducción a los dialectos beduinos
+  de Jordania</hi> – <hi rendition="simple:bold">5th July 2022</hi>: PhD
+  student Antonella Torzullo delivers the
+  lecture <hi rendition="simple:italic">Introducción a los dialectos
+  beduinos de Jordania</hi> at the University of Malaga. </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">AIDA Conference</hi> –
+  <hi rendition="simple:bold">28th – 4th July 2022</hi>: The WIBARAB
+  team goes to Granada to participate in the AIDA conference. The
+  following members gave presentations over a period of four days: </p>
+  <list type="unordered">
+    <item>
+      <p><hi rendition="simple:bold">Stephan Procházka</hi>: How solid
+      is the linguistic basis for the Bedouin-sedentary split used in
+      the classification of Arabic dialects? </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Stephan Procházka (with Simone
+      Bettega &amp; Erik Anonby)</hi>: The Distinctive Singular
+      Demonstratives of Musandam Arabic and the Historical Linguistic
+      Geography of Arabia. </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Claudia Laaber &amp; Karlheinz
+      Mörth</hi>: Repurposing encyclopaedic data for lexicographic
+      research: the special case of the Egyptian Arabic Wikipedia. </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Ana Iriarte Díez</hi>: Discursive
+      tools in highly affective communicative contexts: Lebanese Arabic
+      as a case study. </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Gisela Kitzler</hi>: “Bi-luġit
+      il-ġalāba hanġanni yāḅa!”[1] “Man, we’re gonna sing in the
+      language of the poor people!” Class, language ideology and
+      Egyptian mahraganāt music. </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Veronika Engler</hi>: Navigating
+      Arabic Varieties: Code Switching, Code Mixing and Hybridity in
+      Omani Radio Programs.</p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Gunda Kinzl</hi>: Ramallāwi to the
+      Bones. Local and Global Linguistic Strategies in Palestinian Rap:
+      Haykal as Case Study. </p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">Antonella Torzullo</hi>: Recent
+      developments in the phonology and morphology of the Arabic Dialect
+      of the Bani Ṣaxar Tribe. </p>
+    </item>
+  </list>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Vienna University Campus Activities –
+  8th-10th June 2022:</hi> The Department of Near Eastern Studies
+  organises the 3-day event “Nomads and Sedentary people from Central
+  Asia to Morocco, from the Ancient Near East to the Present” which
+  celebrates nomadic identity and culture. Talks about different aspects
+  of the Bedouin society are given by members of staff and students
+  alike. The WIBARAB team delivers a talk on the challenges and rewards
+  of fieldwork, as well as helps set up an authentic bedouin camp in the
+  middle of the campus.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Levantine Arabic dialects: state of the
+  art and perspectives</hi> – <hi rendition="simple:bold">22nd-23rd May
+  2022</hi>: PhD students Antonella Torzullo, Miriam Al Tawil
+  (University of Vienna), Nina Van Kampen (Inalco/Ifpo) and Natalie
+  Smrekat (Université Grenoble Alpes/Ifpo) organize the
+  conference <hi rendition="simple:italic">Levantine Arabic dialects:
+  state of the art and perspectives,</hi> sponsored by Ifpo, and held at
+  the University of Jordan (Amman) and at the Yarmouk University
+  (Irbid). Antonella and Miriam give a presentation titled: </p>
+  <p>دراسات عن اللهجات البدويىة في محافظتي عمان و المفرق </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Meeting with Laurent Romary</hi> –
+  <hi rendition="simple:bold">20th May 2022</hi>: The Director of
+  Scientific Culture and Information and TEI expert Laurent Romary is
+  invited to Vienna to meet up with the WIBARAB members involved in the
+  creation of the database, namely all the members of the ACDH-CH,
+  the PI Stephan Prochazka and post-doc Ana Iriarte Diez accompanied by
+  the master students. He advises the team on how to proceed with the
+  buildup of the database using TEI and how to overcome conceptual and
+  technical obstacles.  </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Gunda Kinzl’s talk at G****UST</hi>
+  <hi rendition="simple:bold">Kuwait</hi> –
+  <hi rendition="simple:bold">16th May 2022</hi>: The Global Studies
+  center of GUST hosts Gunda Kinzl’s talk about her research, attended
+  by his excellency Mag. Marian Wrba, Austrian ambassador in Kuwait. Dr.
+  David Wilmsen (American University of Sharja) kindly acts as a
+  discussant. </p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Talk by Dr. Simone Bettega</hi> –
+  <hi rendition="simple:bold">26th April 2022</hi>: Dr. Simone Bettega
+  from the University of Turin visits the Near Eastern Department at the
+  University of Vienna and delivers a talk titled “Agreement and the
+  city: what the history of gender marking in Arabic can tell us about
+  the nature of urban dialects.”</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Gunda Kinzl’s talk in Saudi Arabia</hi>
+  – <hi rendition="simple:bold">6th April 2022</hi>: A talk about her
+  fieldwork and preliminary findings is given by Gunda Kinzl for her
+  colleagues at the King Faisal Center for Research and Islamic Studies
+  in Riyadh, who kindly host her as a visiting fellow.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Nuove prospettive sui dialetti beduini
+  della Giordania</hi> – <hi rendition="simple:bold">15th March
+  2022</hi>: PhD student Antonella Torzullo delivers the
+  lecture <hi rendition="simple:italic">Nuove prospettive sui dialetti
+  beduini della Giordania</hi> at the University of Torino in the
+  framework of the seminar <hi rendition="simple:italic">Tra deserti e
+  città: due prospettivi sui dialetti arabi nel 21° secolo</hi>.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">Initiating Fieldwork</hi> –
+  <hi rendition="simple:bold">January 2022 – May 2022</hi>: PhD students
+  Antonella Torzullo, Gunda Kinzl, Terlan Djavadova, Claudia Laaber and
+  post-doc. Dr. Ana Iriarte Díez begin their first fieldwork in the
+  framework of the project. They conduct linguistic investigations in
+  Jordan, Saudi Arabia, Morocco and Lebanon. More information on their
+  experiences can be found in the ‘blog’ section of our website.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><hi rendition="simple:bold">WIBARAB commences</hi> –
+  <hi rendition="simple:bold">1st October 2021</hi>: The project WIBARAB
+  (What is Bedouin-Type Arabic) commences at the University of Vienna.
+  All of the factions involved meet up in person for the first time to
+  make introductions, discuss initial steps and goals and define roles
+  and responsibilities. </p>
+</div>
+
+      </body>
+   </text>
+</TEI>
