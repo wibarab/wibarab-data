@@ -1,0 +1,373 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Publications</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.publications">
+  <head>Publications</head>
+  <div type="level2">
+    <head>Talks</head>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">The Functions
+    of the Discourse Particles mar, mār ~ mēr and yār in the Dialect of
+    the Bani Ṣaxar (Jordan)</hi>. The 16th Conference of AIDA
+    (Association Internationale de Dialectologie Arabe), 26 June 2026,
+    Catania.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Perceiving
+    Dialect, Constructing Tribe: Language Ideologies among the Rašāyda
+    Bedouins.</hi> The 16th Conference of AIDA (Association
+    Internationale de Dialectologie Arabe), 25 June 2026, Catania.</p>
+    <p>Prochazka, Stephan &amp; Hussien Aozan:
+    <hi rendition="simple:italic">The Multifunctional Auxiliary Verb gām
+    / ygūm in Shāwi Arabic</hi>. The 16th Conference of AIDA
+    (Association Internationale de Dialectologie Arabe), 25 June 2026,
+    Catania.</p>
+    <p>Sramó, Kinga / Mörth, Karlheinz / Prochazka, Stephan:
+    <hi rendition="simple:italic">Mapping Arabic Dialects: Digital
+    Linguistic Profiles in the VICAV Framework.</hi> The 16th Conference
+    of AIDA (Association Internationale de Dialectologie Arabe), 24 June
+    2026, Catania.</p>
+    <p>Prochazka, Stephan &amp; Iriarte Díez, Ana:
+    <hi rendition="simple:italic">Phonological, Morphological and
+    Lexical Features of the Traditional Dialect Spoken by the
+    Townspeople (ˁAlāwna) of the Al-ʿUlā Oasis</hi>. The 16th Conference
+    of AIDA (Association Internationale de Dialectologie Arabe), 24 June
+    2026, Catania.</p>
+    <p>Gasparini, Fabio / Manfredi, Stefano / Prochazka, Stephan:
+    <hi rendition="simple:italic">Ecolinguistic Insights into Date Palm
+    and Camel Herding Terminology in Al-ʿUlā</hi>. The 16th Conference
+    of AIDA (Association Internationale de Dialectologie Arabe), 24 June
+    2026, Catania.</p>
+    <p>Iriarte Díez, Ana &amp; Prochazka, Stephan:
+    <hi rendition="simple:italic">Contact in Bedouin Minority Settings:
+    Arab al-Maslakh (Beirut) and the Arabs in the Plain of Harran
+    (Turkey) as a comparative case study</hi>. 6th Arabic Linguistics
+    Forum, 3rd September 2025, University of Vienna.</p>
+    <p>Zarb, Maria Rebecca / Djavadova, Terlan / Torzullo, Antonella:
+    <hi rendition="simple:italic">From Marked to Mainstream? Tracking
+    Recent Dialectal Changes across Bedouin-type Dialects.</hi> 6th
+    Arabic Linguistics Forum, 3rd September 2025, University of
+    Vienna.</p>
+    <p>Laaber, Claudia &amp; Zarb, Maria Rebecca:
+    <hi rendition="simple:italic">Voices of Belonging: Language and
+    Identity among the Rašāyda across borders</hi>. 6th Arabic
+    Linguistics Forum, 3rd September 2025, University of Vienna.</p>
+    <p>Iriarte Díez, Ana &amp; Procházka, Stephan:
+    <hi rendition="simple:italic">From Fieldwork to Feature Bundles:
+    Revisiting “Bedouin-type” Arabic.</hi> The 6th Arabic Linguistics
+    Forum, 3rd September 2025, University of Vienna.</p>
+    <p>Iriarte Díez, Ana &amp; Procházka, Stephan:
+    <hi rendition="simple:italic">Contact in Bedouin Minority Settings:
+    Arab al-Maslakh (Beirut) and the Arabs in the Plain of Harran
+    (Turkey) as a comparative case study</hi>. The 6th Arabic
+    Linguistics Forum, 3rd September 2025, University of Vienna.</p>
+    <p>Iriarte Díez, Ana &amp; Prochazka, Stephan (organisers):
+    <hi rendition="simple:italic">The 6th Arabic Linguistics Forum</hi>.
+    3-5 September 2025, Vienna.</p>
+    <p>Iriarte Díez, Ana: <hi rendition="simple:italic">The Role of
+    Migration and Displacement in the Life Course of an Arabic Variety:
+    A Linguistic and Ideological Analysis of Variation in the Dialect of
+    Arab al-Maslakh in Beirut (Karantina).</hi> Arabic sociolinguistics
+    and dialectology: Taking stock, 10-11 July 2025, University of
+    Bayreuth.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">The emergence
+    of the šāwi and (rural) gilit dialect areas in the light of
+    historical sociolinguistics.</hi> Arabic sociolinguistics and
+    dialectology: Taking stock, 10-11 July 2025, University of
+    Bayreuth.</p>
+    <p>Iriarte Díez, Ana: <hi rendition="simple:italic">Independent
+    Pronouns as Participant Relevance Topics: An Informational Approach
+    to Personal and Discourse Deixis.</hi> Spanish National Research
+    Council (CSIC), June 2025, Madrid.</p>
+    <p>Stocker, Laura / Laaber, Claudia / Iriarte Díez, Ana:
+    <hi rendition="simple:italic">Exploring ‘Tribal’ Identity in
+    Lebanon: Dimensions of Belonging among the ʕArab (Bedouin)
+    Communities</hi>. Symposium on Interdisciplinary Perspectives on the
+    ‘Tribe’ in the WANA region, 3rd October 2024, Vienna.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Defining
+    Bedouin Arabic. Fieldwork insights from the Rašāyida Tribe of Saudi
+    Arabia</hi>. 15 April 2025, University of Turin.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Intra-Tribal
+    Dialectal Preservation and Loss as Social Markers: The case of the
+    Rashayda Tribe</hi>. 48. Österreichische Linguistiktagung, 16th –
+    19th December 2024, Innsbruck.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Exploring the
+    Nexus of Language and Migration: Insights from the Rašāyida
+    Tribe</hi>. Symposium on Interdisciplinary Perspectives on the
+    “tribe” in the WANA Region, 2nd – 3rd October 2024, Vienna.</p>
+    <p>Stocker, Laura / Laaber, Claudia / Iriarte Díez, Ana:
+    <hi rendition="simple:italic">Exploring ‘Tribal’ Identity in
+    Lebanon: Dimensions of Belonging among the ʕArab (Bedouin)
+    Communities</hi>. Symposium on Interdisciplinary Perspectives on the
+    “tribe” in the WANA Region, 3 October 2024, Vienna.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">Functions and
+    frequency of the adnominal linker /-in/ aka dialectal tanwīn</hi>.
+    7th June 2024, invited lecture, INALCO, Paris.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Echoes of the
+    desert: delving into the lexicon of a Bedouin Tribe in Jordan</hi>.
+    15th Conference of the International Association of Arabic
+    Dialectology (AIDA), 22nd May 2024, L’Università ta’ Malta,
+    Valletta.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">The raising of
+    medial short /*a/ to /i/: Types, distribution and implications for
+    the classification of Arabic dialects</hi>. 15th Conference of the
+    International Association of Arabic Dialectology (AIDA), 22nd May
+    2024, L’Università ta’ Malta, Valletta.</p>
+    <p>Laaber, Claudia: <hi rendition="simple:italic">Bedouins in
+    Beirut: Language ideologies among the ʕArab ilMaslax community</hi>.
+    15th Conference of the International Association of Arabic
+    Dialectology (AIDA), 22nd May 2024, L’Università ta’ Malta,
+    Valletta.</p>
+    <p>Iriarte Díez, Ana: <hi rendition="simple:italic">A
+    Sociolinguistic study of the Arabic spoken by ʕArab il-Maslax in
+    Karantina (Beirut)</hi>. 15th Conference of the International
+    Association of Arabic Dialectology (AIDA), 22nd May 2024,
+    L’Università ta’ Malta, Valletta.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Common
+    genealogy and linguistic unity? The case of the Rašāyda tribe in
+    Saudi Arabia and Kuwait</hi>. 15th Conference of the International
+    Association of Arabic Dialectology (AIDA), 22nd May 2024,
+    L’Università ta’ Malta, Valletta.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Dos casos de
+    estudio en el terreno de la dialectología: Bani ʕAbbād y Bani
+    Ṣaxar</hi>. 19th April 2024, invited lecture, University of Granada,
+    Granada.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Introducción a
+    la dialectologia árabe: Enfoques sobre dialectos beduinos en
+    Jordania.</hi> 18th April 2024, invited lecture, University of
+    Granada, Granada.</p>
+    <p>Prochazka, Stephan: <hi rendition="simple:italic">What is
+    Bedouin-type Arabic? – How useful are modern and pre-modern corpora
+    to answer this question?</hi> Redefining Arabic: New Approaches to
+    the Study of Arabic’s Past and Present, 24 February 2024, invited
+    lecture, Austin.</p>
+    <p>Mörth, Karlheinz &amp; Prochazka, Stephan:
+    <hi rendition="simple:italic">The Marvels of TEI-ology: Modelling
+    linguistic features of spoken Arabic</hi>. Recent Advances in
+    Digital Philology, 15 December 2023, Vienna.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Affricative
+    Tendencies in etymological *q and *k in the dialect(s) of the
+    Rašāyda (Saudi Arabia and Kuwait).</hi> 47. Österreichische
+    Linguistiktagung, 7th – 8th December 2023, Graz.</p>
+    <p>Djavadova, Terlan: <hi rendition="simple:italic">The Dialect of
+    the Zʕir in the Atlantic plains of Morocco: What has changed in the
+    last hundred years?</hi> 47. Österreichische Linguistiktagung, 7th –
+    8th December 2023, Graz.</p>
+    <p>Prochazka, Stephan: <hi rendition="simple:italic">From body parts
+    to prepositions: On a common grammaticalization pathway in spoken
+    Arabic varieties</hi>. 47. Österreichische Linguistiktagung, 7th –
+    8th December 2023, Graz.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Patterns of
+    Verbal Morphological Change in Bedouin Arabic Dialect: A Case Study
+    of the Bani Ṣaxar Dialect in Jordan</hi>. ALiF (Arabic Linguistics
+    Forum) Conference, 8th – 10th November 2023, York, UK.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">The low vowel
+    insertion rule after gutturals aka gahawa-syndrome: Geographical
+    distribution and diachronic development.</hi> ALiF (Arabic
+    Linguistics Forum) Conference, 8th – 10th November 2023, York,
+    UK.</p>
+    <p>Iriarte Diez, Ana: <hi rendition="simple:italic">Theoretical and
+    methodological considerations for the sociolinguistic analysis of
+    superdiverse speech communities: The case of Arab il-Maslax in
+    Karantina (Beirut).</hi> ALiF (Arabic Linguistics Forum) Conference,
+    8th – 10th November 2023, York.</p>
+    <p>Djavadova, Terlan: <hi rendition="simple:italic">Rural Varities
+    in Morocco. Rural or Bedouin? Aroubi Varities in Morocco</hi>.
+    Institut National des Langues et Civilisations Orientales, 5 October
+    2023, Paris.</p>
+    <p>Zarb, Maria Rebecca &amp; Kochem, Stanley:
+    <hi rendition="simple:italic">First results from fieldwork on the
+    Arabic dialect(s) of the Rashayda in Saudi Arabia, Kuwait and
+    Sudan.</hi> The 1st WIBARAB Symposium: New Data and Fresh
+    Perspectives, 9 June 2023, University of Vienna.</p>
+    <p>Prochazka, Stephan: <hi rendition="simple:italic">Linguistic
+    conservatism and Bedouin-type Arabic: Between myth and reality</hi>.
+    The 1st WIBARAB Symposium: New Data and Fresh Perspectives, 9 June
+    2023, University of Vienna.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">The Bani Ṣaxar
+    dialect in a macro-regional perspective: its position on the
+    crossroads of North and Northwest Arabian Bedouin dialects</hi>. The
+    1st WIBARAB Symposium: New Data and Fresh Perspectives, 7 June 2023,
+    University of Vienna.</p>
+    <p>Laaber, Claudia: <hi rendition="simple:italic">Ideologies on
+    Linguistic Purity among the Bdūl Bedouins in the South of
+    Jordan</hi>. The 1st WIBARAB Symposium: New Data and Fresh
+    Perspectives, 7 June 2023, University of Vienna.</p>
+    <p>Iriarte Díez, Ana: <hi rendition="simple:italic">Bedouins in
+    Beirut: Preliminary Remarks on the Arabic varieties spoken by Arab
+    il-Maslax in Karantina (Beirut)</hi>. The 1st WIBARAB Symposium: New
+    Data and Fresh Perspectives, 8 Juni 2023, Vienna.</p>
+    <p>Iriarte Díez, Ana &amp; Prochazka, Stephan (organisers):
+    <hi rendition="simple:italic">The 1st WIBARAB Symposium: New Data
+    and Fresh Perspectives</hi>. 7-9 June 2023, Vienna.</p>
+    <p>Laaber, Claudia: <hi rendition="simple:italic">Theoretical and
+    Methodological Considerations for the Study of “Language Attitudes”
+    by the example of Bedouin Arabic Dialects</hi>. 1st October 2022,
+    Linguistics Conference, Charles University, Prague.
+    <ref target="https://ucris.univie.ac.at/portal/de/activities/theoretical-and-methodological-considerations-for-the-study-of-language-attitudes-by-the-example-of-bedouin-arabic-dialects(cdb1bd1e-d104-4cde-b9aa-e2e8fc2f955c).html">https://ucris.univie.ac.at/portal/de/activities/theoretical-and-methodological-considerations-for-the-study-of-language-attitudes-by-the-example-of-bedouin-arabic-dialects(cdb1bd1e-d104-4cde-b9aa-e2e8fc2f955c).html</ref></p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Introducción a
+    los dialectos beduinos de Jordania</hi>. 5th July 2022, invited
+    lecture, University of Malaga, Malaga.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Recent
+    developments in the phonology and morphology of the Arabic Dialect
+    of the Bani Saxar Tribe</hi>. 1st July 2022, 14th Conference of
+    Association Internationale de Dialectologie Arabe (AIDA),
+    Granada.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">How solid is
+    the linguistic basis for the “Bedouin-Sedentary split” used in the
+    classification of Arabic dialects?</hi> 14th Conference of
+    Association Internationale de Dialectologie Arabe (AIDA), 30th June
+    2022, Granada.
+    <ref target="https://uscholar.univie.ac.at/detail/o:2070766">https://uscholar.univie.ac.at/detail/o:2070766</ref></p>
+    <p>Iriarte Díez, Ana: <hi rendition="simple:italic">Bedouins in
+    Beirut: Preliminary Remarks on the Arabic varieties spoken by Arab
+    il-Maslax in Karantina (Beirut).</hi> The 1st WIBARAB Symposium: New
+    Data and Fresh Perspectives, 8th June 2023, Vienna.</p>
+    <p>Zarb, Maria Rebecca: <hi rendition="simple:italic">Preliminary
+    data on the dialect of Testour (Northwest Tunisia)</hi>. Revisiting
+    traditional isoglosses in the Maghreb: Methodology | Terminology |
+    Classification | Algeria | Tunisia | Libya, 2nd October 2022,
+    Vienna.</p>
+    <p>Torzullo, Antonella/Altawil
+    Miriam: <hi rendition="simple:italic">دراسات عن اللهجات البدوية في
+    محافظتي عمان والمفرق</hi>. May 23rd 2022, invited lecture, Yarmouk
+    University, Irbid.</p>
+    <p>Torzullo, Antonella: <hi rendition="simple:italic">Nuove
+    prospettive sui dialetti beduini della Giordania</hi>. 15th March
+    2022, invited lecture, Università degli Studi di Torino, Torino.</p>
+    <p>Procházka, Stephan: <hi rendition="simple:italic">How useful is
+    the dichotomy “Bedouin versus Sedentary” for Arabic
+    dialectology?</hi> 3rd March 2022, invited lecture, Institut
+    National des Langues et Civilisations Orientales (INALCO),
+    Paris.</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Papers</head>
+    <p>Iriarte Díez, Ana/Procházka, Stephan (eds.) (2025) “What is
+    Bedouin-type Arabic? Fresh Perspectives and New Data.”, in:
+    <hi rendition="simple:italic">Wiener Zeitschrift für die Kunde des
+    Morgenlandes.</hi> Special Issue, 115.</p>
+    <p>Iriarte Díez, Ana/Procházka, Stephan (2025) “Foreword.”, in:
+    <hi rendition="simple:italic">Wiener Zeitschrift für die Kunde des
+    Morgenlandes.</hi> 115, 1-4.
+    <ref target="https://doi.org/10.25365/phaidra.684_00">https://doi.org/10.25365/phaidra.684_00</ref></p>
+    <p>Engler, Veronika / Schopper, Daniel (2025) “The WIBARAB Database.
+    Data model and analytic fuctions”, in:
+    <hi rendition="simple:italic">Wiener Zeitschrift für die Kunde des
+    Morgenlandes.</hi> 115, 77-102.
+    <ref target="https://doi.org/10.25365/phaidra.684_04">https://doi.org/10.25365/phaidra.684_04</ref></p>
+    <p>Iriarte Díez, Ana (2025) “‘Bedouins’ in Beirut (and
+    surroundings): Arab Khalde. Intergenerational linguistic variation
+    in a traditionally seminomadic community 12 km south of Beirut.”,
+    in: <hi rendition="simple:italic">Wiener Zeitschrift für die Kunde
+    des Morgenlandes.</hi> 115, 104-143.
+    <ref target="https://doi.org/10.25365/phaidra.684_05">https://doi.org/10.25365/phaidra.684_05</ref></p>
+    <p>Laaber, Claudia (2025) “Language ideologies and Bedouinity.
+    Bedouin Arabic as an identity marker among the Bdul community in
+    Southern Jordan.”, in: <hi rendition="simple:italic">Wiener
+    Zeitschrift für die Kunde des Morgenlandes.</hi> 115, 186-203.
+    <ref target="https://doi.org/10.25365/phaidra.684_08">https://doi.org/10.25365/phaidra.684_08</ref></p>
+    <p>Manfredi, Stefano/Procházka, Stephan (2025) “‘Nomadic’,
+    ‘Sedentary’, and ‘Sedentarised’ as comparative ecolinguistic
+    concepts: Evidence from Arabic historical dialectology and contact
+    linguistics.”, in: <hi rendition="simple:italic">Wiener Zeitschrift
+    für die Kunde des Morgenlandes.</hi> 115, 206-263.
+    <ref target="https://doi.org/10.25365/phaidra.684_09">https://doi.org/10.25365/phaidra.684_09</ref></p>
+    <p>Djavadova, Terlan (2025) “On a peculiar phonological phenomenon
+    in the Arabic dialect of Beni Mesnawi in the Šawiya region of
+    Central Morocco. Fortition of glides.”, in:
+    <hi rendition="simple:italic">Wiener Zeitschrift für die Kunde des
+    Morgenlandes.</hi> 115, 336-348.
+    <ref target="https://doi.org/10.25365/phaidra.684_12">https://doi.org/10.25365/phaidra.684_12</ref></p>
+    <p>Iriarte Díez, Ana (2025) “Intra-speaker variation and identity
+    performance through stylistic bricolage. Two texts in the Arabic of
+    Arab Khalde (Lebanon).”, in: <hi rendition="simple:italic">Wiener
+    Zeitschrift für die Kunde des Morgenlandes.</hi> 115, 383-404.
+    <ref target="https://doi.org/10.25365/phaidra.684_14">https://doi.org/10.25365/phaidra.684_14</ref></p>
+    <p>Kochem, Stanley (2025) “The phonology of the Arabic dialect of
+    the Rašāyda in Sudan.”, in: <hi rendition="simple:italic">Wiener
+    Zeitschrift für die Kunde des Morgenlandes.</hi> 115, 405-436.
+    <ref target="https://doi.org/10.25365/phaidra.684_15">https://doi.org/10.25365/phaidra.684_15</ref></p>
+    <p>Torzullo, Antonella (2025) “Language and culture of the Bani
+    ʕAbbād (Jordan). Grammatical peculiarities, Bedouin traditions, and
+    popular stories.”, in: <hi rendition="simple:italic">Wiener
+    Zeitschrift für die Kunde des Morgenlandes.</hi> 115, 457-486.
+    <ref target="https://doi.org/10.25365/phaidra.684_17">https://doi.org/10.25365/phaidra.684_17</ref></p>
+    <p>Zarb, Maria Rebecca (2025) “Historical observations and a
+    grammatical sketch of the dialect(s) of the Rašāyda in Saudi Arabia
+    and Kuwait.”, in: <hi rendition="simple:italic">Wiener Zeitschrift
+    für die Kunde des Morgenlandes.</hi> 115, 487-521.
+    <ref target="https://doi.org/10.25365/phaidra.684_18">https://doi.org/10.25365/phaidra.684_18</ref></p>
+    <p>Stocker, Laura (2025) “‘Bordering’ the Shammar Jarbā: The Case of
+    the Shaykh Dahhām al-Hādī in the Post-Ottoman Jazira.”, in:
+    <hi rendition="simple:italic">Die Welt des Islams</hi>.
+    International Journal for the Study of Modern Islam. (published
+    online ahead of print
+    2025). <ref target="https://uscholar.univie.ac.at/detail/o:2124177">https://uscholar.univie.ac.at/detail/o:2124177</ref></p>
+    <p>Torzullo, Antonella (2024) “The Arabic Dialect of a Jordanian
+    Camel-Breeder Tribe A Comparative Analysis of Selected Phonological
+    and Morphological Features of the Bani Ṣaxar Variety. Proceedings of
+    the 14_th_ AIDA conference_. Estudios de Dialectologia Arabe_.”
+    Prensas de la Universidad de Zaragoza. Zaragoza. (under publication)
+    <ref target="https://uscholar.univie.ac.at/detail/o:2108301">https://uscholar.univie.ac.at/detail/o:2108301</ref></p>
+    <p>Procházka, Stephan (2024) “How solid is the linguistic basis for
+    the “Bedouin-Sedentary split” used in the classification of Arabic
+    dialects?”, in: Berlinches Ramos, Carmen/Guerrero, Jairo/ Benítez
+    Fernández, Montserrat (eds.)
+    (2024) <hi rendition="simple:italic">AIDA Granada : a pomegranate of
+    Arabic varieties</hi>. Zaragoza: Prensas de la Universidad de
+    Zaragoza.
+    <ref target="https://uscholar.univie.ac.at/detail/o:2070766">https://uscholar.univie.ac.at/detail/o:2070766</ref></p>
+    <p>Torzullo, Antonella (2022) “New considerations on the Arabic
+    Dialect of the Bani Ṣaḫar Tribe”, <hi rendition="simple:italic">Les
+    Carnets de l’Ifpo. La recherche en train de se faire à l’Institut
+    français du Proche-Orient</hi>,
+    <ref target="https://ifpo.hypotheses.org/11959">https://ifpo.hypotheses.org/11959</ref></p>
+    <p>Torzullo, Antonella (2022) “The Emergence of a Mixed Type
+    Dialect: The Example of the Dialect of the Bani ˁAbbād Tribe
+    (Jordan)” Languages 7, no. 1: 9.
+    <ref target="https://doi.org/10.3390/languages7010009">https://doi.org/10.3390/languages7010009</ref></p>
+  </div>
+</div>
+
+      </body>
+   </text>
+</TEI>

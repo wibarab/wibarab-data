@@ -1,0 +1,211 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Blog</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.blog">
+  <head>Blog</head>
+  <p><figure>
+    <graphic url="blog/csm_ACDH-CH_Projects_wibarab_390ef96b51-e1664454411381.jpeg" />
+  </figure></p>
+  <list type="unordered">
+    <item>
+      <p><ref target="text:wibarab.paratexts.alif-2025-3rd-5th-september-2025">ALiF
+      2025 – 3rd – 5th September 2025:</ref>  </p>
+      <p>From 3 to 5 September 2025, the sixth Arabic Linguistic Forum
+      (The Forum) took place at the Institute of Oriental Studies at the
+      University of Vienna. More than 100 scholars from 22 countries
+      participated, both on site and online. During the three days of
+      the conference, research projects and results in Arabic
+      linguistics were presented and discussed in three parallel
+      sections. The lively discussions and numerous professional
+      encounters impressively demonstrated the forum’s function as a
+      central platform for international exchange in Arabic linguistics.
+      In addition to presenting new research findings, the conference
+      offered numerous opportunities to deepen scientific contacts and…
+      <ref target="text:wibarab.paratexts.alif-2025-3rd-5th-september-2025">Read
+      more: ALiF 2025 – 3rd – 5th September 2025:</ref>  </p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.rebeccas-field-work-in-saudi-arabia">Rebecca’s
+      field work in Saudi Arabia</ref></p>
+      <p>In February 2025, Maria Rebecca Zarb travelled to Saudi Arabia
+      to conduct linguistic fieldwork with the Rashayda tribe. Her
+      travels spanned a wide variety of landscapes across the kingdom,
+      where she encountered Rashayda in the urban hubs of Riyadh and
+      Jeddah, as well as on the striking volcanic terrain of Khaybar and
+      the vast, desert plains of Hāʔil. Throughout her time in Saudi
+      Arabia, Rebecca was met with a warm and gracious reception by the
+      Rashayda people. Not only were they eager to share their unique
+      dialect with her, but they also welcomed her into their
+      communities, offering insightful glimpses…
+      <ref target="text:wibarab.paratexts.rebeccas-field-work-in-saudi-arabia">Read
+      more: Rebecca’s field work in Saudi Arabia</ref></p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.rebeccas-fieldwork-in-jordan-april-2024">Rebecca’s
+      fieldwork in Jordan – April 2024</ref></p>
+      <p>In April 2024, Maria Rebecca Zarb traveled to Jordan for three
+      weeks to collect linguistic data on the Rašāyda community in the
+      region. Her research took her to various cities across the
+      country, from the bustling capital of Amman to the stunning
+      landscapes of Wadi Feynan. Heartfelt gratitude goes to the
+      gracious Rašāyda families who warmly embraced Rebecca, making her
+      feel like part of their own, as well as to the other collaborators
+      whose support was essential to the success of the fieldwork. Here
+      are some more impressions of the trip:</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.symposium-the-tribe-in-the-wana-region-3rd-4th-of-october-2024">Symposium
+      the ‘Tribe’ in the WANA Region, 3rd &amp; 4th of October
+      2024</ref></p>
+      <p>On the 3rd and 4th of October 2024, an interdisciplinary
+      symposium, led by our colleague Laura Stocker, will be held at the
+      University of Vienna. Scholars from different disciplines,
+      including history, (socio-)linguistics, and social anthropology,
+      will critically examine the concept of ‘tribe’ and its various
+      interpretations in different academic fields. The symposium will
+      be held in the lecture room of the Institute of Near Eastern
+      Studies:University of Vienna, Institute for Near Eastern
+      StudiesSpitalgasse 2, Hof 4.1, A-1090 Vienna For more information,
+      please contact Laura Stocker via laura.stocker@univie.ac.at.
+      Participation is free of charge, but we kindly ask you to register
+      in…
+      <ref target="text:wibarab.paratexts.symposium-the-tribe-in-the-wana-region-3rd-4th-of-october-2024">Read
+      more: Symposium the ‘Tribe’ in the WANA Region, 3rd &amp; 4th of
+      October 2024</ref></p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.stefan-reichmuths-visit-to-the-wibarab-team">Stefan
+      Reichmuth’s visit to the WIBARAB team</ref></p>
+      <p>Professor Stefan Reichmuth from Ruhr University Bochum agreed
+      to pay us a visit in mid-June for a presentation about his field
+      work in Sudan during the 70s. We are very much looking forward to
+      his reports about his experiences!</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.dina-el-zarkas-visit-to-vienna">Dina
+      El Zarka’s visit to Vienna</ref></p>
+      <p>Prosody expert Dina El Zarka from the University of Graz will
+      be giving a workshop on her special field on June 12th and 13th.
+      We are very much looking forward to two instructive days!</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.first-wibarab-symposium-june-2023">First
+      WIBARAB Symposium – June 2023</ref></p>
+      <p>From 7 to 9 June, the first WIBARAB Symposium took place on the
+      campus of the University of Vienna. We had the honour to welcome
+      15 renowned experts. During the symposium, our PhD candidates and
+      MA students gave presentations on our preliminary results which
+      were that commented by our guests. We had the opportunity to
+      discuss ongoing work, methodological and theoretical
+      considerations as well as further steps. Here are some impressions
+      of the event:</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.fieldwork-in-lebanon-february-2023">Fieldwork
+      in Lebanon – May 2023</ref></p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.705-2">Fieldwork
+      in Sudan – February/March 2023</ref></p>
+      <p>Master student Stanley went on his first field trip to Sudan to
+      study the dialect of the Rashayda tribe. He was welcomed and
+      hosted by the University of Shendi and had the chance to not only
+      collect precious data about the Rashaydas’ dialect but also to
+      dive into the local culture of Sudan.</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.fieldwork-in-saudi-arabia">Fieldwork
+      in Saudi Arabia</ref></p>
+      <p>Gunda Kinzl went to explore the dialects of Saudi Arabia. She
+      encountered wonderful people, an unexpectedly, breathtakingly,
+      beautiful nature and many interesting linguistic features.</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.fieldwork-in-lebanon">Fieldwork
+      in Lebanon</ref></p>
+      <p>Last February Ana Iriarte and Claudia Laaber spent a month in
+      Lebanon carrying out their first fieldwork campaign on the Arabic
+      Bedouin dialects of the country. They were warmly welcomed by
+      various families across the country: Beirut, Khalde, Bekaa Valley
+      and South Lebanon are some of the areas where linguistic and
+      sociolinguistic data was collected. The members of these
+      communities generously opened the doors of their houses to our two
+      researchers, sharing with them many of their life stories over a
+      cup of delicious ghawa. Claudia and Ana came back to Vienna by the
+      end of March with their recorders…
+      <ref target="text:wibarab.paratexts.fieldwork-in-lebanon">Read
+      more: Fieldwork in Lebanon</ref></p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.project-update-january-2022">Project
+      Update January 2022</ref></p>
+      <p>Questionnaires, ethnic approvals and fieldwork Currently, we
+      are preparing the questionnaires and the database entries. There
+      is also a lot of administrative work to do, particularly our
+      endeavours to obtain ethic approvals from all the countries where
+      fieldwork is planned. In April, two members of the team will for
+      the first time present preliminary results of our research at a
+      conference in Madrid. -Stephan Procházka</p>
+    </item>
+    <item>
+      <p><ref target="text:wibarab.paratexts.what-is-bedouin-type-arabic">What
+      is Bedouin-Type Arabic?</ref></p>
+      <p>The linguistic and socio-historical realities behind the
+      millennia-old dichotomous concept of nomadic and sedentary people
+      in the Middle East and North Africa. More than 350 million people
+      speak Arabic in linguistic settings that are for the most part
+      characterised by a high degree of diglossia. From Iran to
+      Mauretania, countless spoken varieties are in use, which will be
+      investigated in the ERC project WIBARAB. A particular concern of
+      the project is the language of the Bedouins which has spread with
+      the Arab expansion in the Middle East and North Africa since the
+      7th century. In a cooperation between the Institute…
+      <ref target="text:wibarab.paratexts.what-is-bedouin-type-arabic">Read
+      more: What is Bedouin-Type Arabic?</ref></p>
+    </item>
+  </list>
+</div>
+
+      </body>
+   </text>
+</TEI>

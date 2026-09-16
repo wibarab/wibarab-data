@@ -1,0 +1,374 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Team</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.team">
+  <head>Team</head>
+  <p><figure>
+    <graphic url="team/Team-E-1-2048x1027.jpg" />
+  </figure></p>
+  <div type="level2">
+    <head>Arabic linguists and Digital humanists</head>
+    <p>The project’s core team is composed of six specialists in Arabic
+    linguistics: the principal investigator (PI), two postdoctoral
+    researchers specialized in linguistics and social anthropology, and
+    four PhD candidates. An expert specialized in the history of the
+    Bedouins will be taken on board after the first year. WIBARAB also
+    benefits from the knowledge and work of Digital Humanities
+    specialists from the Austrian Academy of Sciences. Four MA students
+    mainly feed the database. The Vienna-based team is supported by
+    research partners in the Arab countries.</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Principal Investigator</head>
+    <p><figure>
+      <graphic url="team/Stephan_NEW_50-1.jpeg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Stephan Procházka</head>
+    <p>Principal investigator, holds the chair for Arabic Studies at the
+    University of Vienna since 2006. Works on comparative and syntactic
+    aspects as well as on historical linguistics. He is mainly
+    responsible for WP-5 and WP-6, but also acts as a supervisor of the
+    PhD theses (WP-1 and WP-2).</p>
+    <p>stephan.prochazka@univie.ac.at</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Postdoctoral Researchers</head>
+    <p></p>
+  </div>
+  <div type="level2">
+    <head>Ana Iriarte Díez</head>
+    <p>Postdoctoral Researcher in Linguistics. Ana works on language and
+    dialect contact and historical linguistics and language change (WP5,
+    WP6 – University of Vienna). She supervises the design and feeding
+    of the WIBARAB database and conducts research on Bedouin Arabic
+    dialects in Lebanon.  </p>
+    <p>ana.iriarte.diez@univie.ac.at</p>
+    <p><figure>
+      <graphic url="team/Ana-e1664788812101.jpeg" />
+    </figure></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>PhD Candidates</head>
+    <p><figure>
+      <graphic url="team/Website-picture_Antonella1.jpeg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Antonella Torzullo</head>
+    <p>Prae-doc researcher, works on the description and analysis of the
+    Arabic dialect of the Bani Ṣaxar tribe in Jordan (WP1 – University
+    of Vienna)</p>
+    <p>antonella.torzullo@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Maria Rebecca Zarb</head>
+    <p>Prae-doc researcher, deals with the dialect of the Rašāyda
+    bedouins namely in Saudi Arabia and Kuwait (WP1 – University of
+    Vienna).</p>
+    <p>maria.rebecca.zarb@univie.ac.at</p>
+    <p><figure>
+      <graphic url="team/Rebecca.jpg" />
+    </figure></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Master Students</head>
+    <p><figure>
+      <graphic url="team/philippWIBARAB1.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Philipp Marc Hessabi</head>
+    <p>MA-student of Arab World Studies, project assistant, responsible
+    for general administrative tasks as well as working on
+    the collection of features of Bedouin-type Arabic from already
+    published sources.</p>
+    <p>philipp.marc.hessabi@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Sara Fatihi</head>
+    <p>MA-student of general linguistics (University of Vienna),
+    research assistant in the Bedouin dialects of the Chouia and Zaer
+    (Morocco).</p>
+    <p><figure>
+      <graphic url="team/Sara1-2.jpg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/kadir-e1778675349541.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Kadir Mustafaoğlu</head>
+    <p>MA-student of Arabic linguistics (University of Vienna), working
+    on the collection of features of Bedouin-type Arabic from already
+    published sources (WP4 – University of Vienna).</p>
+    <p>kadir.mustafaoglu@univie.ac.at</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Digital Humanities Specialists (ACDH-CH)</head>
+    <p></p>
+  </div>
+  <div type="level2">
+    <head>Karlheinz Mörth</head>
+    <p>Project cooperation partner &amp; head of the ACDH-CH unit,
+    expert in the interface between linguistics and digital language
+    resources doing research in the fields of virtual research
+    environments and language-related standards (Austrian Academy of
+    Sciences, ACDH-CH).</p>
+    <p>karlheinz.moerth@oeaw.ac.at</p>
+    <p><figure>
+      <graphic url="team/Vero-2-e1710856598700.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Veronika Engler</head>
+    <p>Researcher and DH-specialist, responsible for the Digital
+    Humanities part of the project including coding and linguistic
+    modelling of the data (Austrian Academy of Sciences, ACDH-CH).</p>
+    <p>Veronika.engler@oeaw.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Daniel Schopper</head>
+    <p>Senior advisor and head of working group Data; MS Teams and
+    sharepoint admin (Austrian Academy of Sciences, ACDH-CH).</p>
+    <p>Daniel.Schopper@oeaw.ac.at</p>
+    <p><figure>
+      <graphic url="team/Web_Photo_Editor_2-2048x2030.jpeg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Omar Siam</head>
+    <p>Senior advisor and system administrator at ACDH-CH, works as a
+    technical supervisor for the VICAV infrastructure (Austrian Academy
+    of Sciences, ACDH-CH).</p>
+    <p>Omar.Siam@oeaw.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Kinga Sramó</head>
+    <p>DH specialist, responsible for the Digital Humanities part of the
+    project, including coding, transforming linguistic data into visual
+    representations, and considering data formats and standards
+    application (Austrian Academy of Sciences, ACDH-CH).</p>
+    <p>Kinga.Sramo@oeaw.ac.at</p>
+    <p><figure>
+      <graphic url="team/KS1.jpg" />
+    </figure></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>International Collaboration Partners</head>
+    <p><figure>
+      <graphic url="team/Enam-1.png" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Enam Al-Wer</head>
+    <p>Professor of Linguistics at the University of Essex, focussing on
+    linguistic variation and change, dialect contact and new-dialect
+    formation.</p>
+    <p>enama@essex.ac.uk</p>
+  </div>
+  <div type="level2">
+    <head>Kristen Brustad</head>
+    <p>Retired associate professor, Department of Middle Eastern
+    Studies, University of Texas at Austin. Research interests include
+    Arabic dialects, syntax, language ideology and Arabic literary and
+    linguistic history.</p>
+    <p>kristenbrustad@gmail.com</p>
+    <p><figure>
+      <graphic url="team/11_KristenBrustad-2-2048x2048.jpg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/Bildschirmfoto-2023-04-24-um-14.21.46.png" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Inas Mahfouz</head>
+    <p>Associate professor of English at the American University of
+    Kuwait, local associate of WIBARAB.</p>
+    <p>imahfouz@auk.edu.kw</p>
+  </div>
+  <div type="level2">
+    <head>Stefano Manfredi</head>
+    <p>Researcher at CNRS, assistant director at SeDyL, focussing on
+    contact linguistics, Creole languages, typological dialectology,
+    Dadjo languages, language ideologies and politics in Sudan, and
+    languages and social movements.</p>
+    <p><ref target="javascript:;">stefano.manfredi@cnrs.fr</ref></p>
+    <p><figure>
+      <graphic url="team/Manfredi-300x300-1.jpg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/FabGasp.png" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Fabio Gasparini</head>
+    <p>Researcher at the Department of Semitic Studies at FU Berlin,
+    focussing on Modern South Arabian and Semitic languages in general
+    from a comparative and typological perspective.</p>
+    <p>fabio.gasparini@fu-berlin.de</p>
+  </div>
+  <div type="level2">
+    <head>Thomas Leddy-Cecere</head>
+    <p>Scholar of language variation and language change at Bennington
+    College, Vermont, focussing on interaction between speakers of
+    related language varieties, ongoing studies of New England English
+    and multiple dialects of modern Arabic.</p>
+    <p>thomasleddycecere@bennington.edu</p>
+    <p><figure>
+      <graphic url="team/thomas-leddy-cecere-2.png" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/awadelkarim.png" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Prof. Awad el Karim</head>
+    <p>Professor at Shendi University, Sudan, local associate of
+    WIBARAB.</p>
+    <p>awadbakhit@yahoo.com</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2">
+    <head>Former Members</head>
+    <p><figure>
+      <graphic url="team/clau.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Claudia Laaber</head>
+    <p>Prae-doc researcher, works on perceptions of Bedouin Arabic (WP2
+    – University of Vienna).</p>
+    <p>claudia.laaber@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Laura Stocker</head>
+    <p>Pre-doc researcher, specializing in Bedouin tribal communities in
+    the modern Middle East, with a primary focus on post-Ottoman Syria,
+    contributes to the project by addressing general questions about
+    Bedouin history (WP3 – University of Vienna).</p>
+    <p>laura.stocker@univie.ac.at</p>
+    <p><figure>
+      <graphic url="team/Foto-account-edited-1.jpg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/Terlan_50-e1666503845733.jpeg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Terlan Djavadova</head>
+    <p>Prae-doc researcher, deals with the Bedouin dialects of the Zaer
+    and Chouia in Morocco and their influence on the Moroccan Koiné (WP1
+    – University of Vienna).</p>
+    <p>terlan.djavadova@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Gisela Kitzler</head>
+    <p>Postdoctoral Researcher and Research Coordinator, works on
+    language attitudes in Egypt (WP2, University of Vienna).</p>
+    <p>gisela.kitzler@univie.ac.at</p>
+    <p><figure>
+      <graphic url="team/Gunda-2-scaled-e1666875776541.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Gunda Kinzl</head>
+    <p>Prae-doc researcher and team member from October 2021-November
+    2022, did fieldwork with Rašāyda communities in Saudi Arabia and
+    Kuwait. (WP1 – University of Vienna).</p>
+    <p>gunda.kinzl@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Shada Bokir</head>
+    <p>Postdoctoral researcher, works on the History and Anthropology of
+    tribes in the Middle East and North Africa. (WP3 – University of
+    Vienna). </p>
+    <p>shada.bokir@univie.ac.at (Shada.Bokir@Univie.ac.at)  </p>
+    <p><figure>
+      <graphic url="team/shada-1-889x1024.jpeg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/johanna_pic_website_50-e1666504064674.jpeg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Johanna Doppelbauer</head>
+    <p>Prae-MA researcher, works on the conceptualization and
+    implementation of the database as well as the collection of features
+    of Bedouin-type Arabic from already published sources (WP4 –
+    University of Vienna). </p>
+    <p>johanna.doppelbauer@univie.ac.at</p>
+  </div>
+  <div type="level2">
+    <head>Stanley Kochem</head>
+    <p>Prae-MA researcher, works on the conceptualization and
+    implementation of the database as well as the collection of features
+    of Bedouin-type Arabic from already published sources (WP4 –
+    University of Vienna). </p>
+    <p><figure>
+      <graphic url="team/Stanley_50.jpeg" />
+    </figure></p>
+    <p><figure>
+      <graphic url="team/csm_Hechtl_Angelika-318A2992_161010_3f48b777cf.jpg" />
+    </figure></p>
+  </div>
+  <div type="level2">
+    <head>Angelika Hechtl</head>
+    <p>Researcher and IT-specialist, responsible for the Digital
+    Humanities part of the project including coding and linguistic
+    modeling of the data (Austrian Academy of Sciences, ACDH-CH).</p>
+    <p>angelika.hechtl@oeaw.ac.at</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+</div>
+
+      </body>
+   </text>
+</TEI>

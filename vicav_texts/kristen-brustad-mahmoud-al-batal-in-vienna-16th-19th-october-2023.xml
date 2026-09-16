@@ -1,0 +1,65 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Kristen Brustad &amp; Mahmoud Al-Batal in Vienna, 16th-19th October 2023</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.kristen-brustad-mahmoud-al-batal-in-vienna-16th-19th-october-2023">
+  <head>Kristen Brustad &amp; Mahmoud Al-Batal in Vienna, 16th-19th
+  October 2023</head>
+  <p>We had the extraordinary honor to welcome two renowned figures in
+  Arabic Studies, Kristen Brustad and Mahmoud Al-Batal, to the
+  Department of Oriental Studies in Vienna These days were marked by
+  their presence and their captivating lectures, which offered a deeper
+  insight into various aspects of Arabic language and linguistics.
+  Kristen Brustad, an expert in the field of Arabic syntax, wowed
+  students and facutly members with her presentation on syntactic
+  structures in Arabic. Her clear presentation and thorough explanations
+  provided the audience with a rich insight into this complex linguistic
+  topic. Mahmoud Al-Batal, a renowned pioneer in Arabic didactics,
+  shared his extensive knowledge and innovative approach to teaching the
+  Arabic language. His presentation offered valuable insights and
+  innovative methods that were appreciated by teachers and students
+  alike.</p>
+</div>
+
+      </body>
+   </text>
+</TEI>

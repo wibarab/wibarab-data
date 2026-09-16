@@ -1,0 +1,58 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Project Update January 2022</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.project-update-january-2022">
+  <head>Project Update January 2022</head>
+  <p>Questionnaires, ethnic approvals and fieldwork</p>
+  <p>Currently, we are preparing the questionnaires and the database
+  entries. There is also a lot of administrative work to do,
+  particularly our endeavours to obtain ethic approvals from all the
+  countries where fieldwork is planned. In April, two members of the
+  team will for the first time present preliminary results of our
+  research at a conference in Madrid.</p>
+  <p>-Stephan Procházka</p>
+</div>
+
+      </body>
+   </text>
+</TEI>

@@ -41,6 +41,7 @@
   <menu>
     <main>
       <dropdown xml:id="dropdown01" title="About">
+        <item xml:id="wibarabWelcome" target="wibarab.paratexts.index" type="Text">Welcome</item>
         <item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
         <item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
         <item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">
@@ -124,4 +125,16 @@
       <insert_guided_tour_data/>
     </table>
   </staticData>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
 </projectConfig>

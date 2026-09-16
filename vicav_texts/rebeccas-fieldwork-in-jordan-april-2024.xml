@@ -1,0 +1,75 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Rebecca’s fieldwork in Jordan – April 2024</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.rebeccas-fieldwork-in-jordan-april-2024">
+  <head>Rebecca’s fieldwork in Jordan – April 2024</head>
+  <p><figure>
+    <graphic url="rebeccas-fieldwork-in-jordan-april-2024/WhatsApp-Image-2024-09-30-at-10.16.28-5-e1727780527875.jpeg" />
+  </figure></p>
+  <p>In April 2024, Maria Rebecca Zarb traveled to Jordan for three
+  weeks to collect linguistic data on the Rašāyda community in the
+  region. Her research took her to various cities across the country,
+  from the bustling capital of Amman to the stunning landscapes of Wadi
+  Feynan.</p>
+  <p><figure>
+    <graphic url="rebeccas-fieldwork-in-jordan-april-2024/WhatsApp-Image-2024-09-30-at-10.16.28-6-e1727780994801.jpeg" />
+  </figure></p>
+  <p>Heartfelt gratitude goes to the gracious Rašāyda families who
+  warmly embraced Rebecca, making her feel like part of their own, as
+  well as to the other collaborators whose support was essential to the
+  success of the fieldwork.</p>
+  <p>Here are some more impressions of the trip:</p>
+  <p><figure>
+    <graphic url="rebeccas-fieldwork-in-jordan-april-2024/WhatsApp-Image-2024-10-01-at-13.05.01-e1727781673918.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="rebeccas-fieldwork-in-jordan-april-2024/WhatsApp-Image-2024-09-30-at-10.16.28-7-e1727781037526.jpeg" />
+  </figure></p>
+  <p><figure>
+    <graphic url="rebeccas-fieldwork-in-jordan-april-2024/WhatsApp-Image-2024-10-01-at-13.06.22.jpeg" />
+  </figure></p>
+</div>
+
+      </body>
+   </text>
+</TEI>

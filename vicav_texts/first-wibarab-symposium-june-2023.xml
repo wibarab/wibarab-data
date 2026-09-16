@@ -1,0 +1,85 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>First WIBARAB Symposium – June 2023</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.first-wibarab-symposium-june-2023">
+  <head>First WIBARAB Symposium – June 2023</head>
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/1symp.jpg" />
+  </figure></p>
+  <p>From 7 to 9 June, the first WIBARAB Symposium took place on the
+  campus of the University of Vienna. We had the honour to welcome 15
+  renowned experts. During the symposium, our PhD candidates and MA
+  students gave presentations on our preliminary results which were that
+  commented by our guests. We had the opportunity to discuss ongoing
+  work, methodological and theoretical considerations as well as further
+  steps.</p>
+  <p>Here are some impressions of the event:</p>
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/e0c01e4d-ec5f-44cb-a4ce-62d85092aaca-edited-1.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/Symposium2-2048x797.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/Team1.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/PHOTO-2023-07-03-13-06-49_1-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/Symposium3-2048x1034.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <graphic url="first-wibarab-symposium-june-2023/PHOTO-2023-07-03-13-06-58-1-edited.jpg" />
+  </figure></p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+
+      </body>
+   </text>
+</TEI>
