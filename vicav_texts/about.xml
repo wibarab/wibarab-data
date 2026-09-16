@@ -32,7 +32,6 @@
           <projectDesc>
             <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
          </projectDesc>
-         <listPrefixDef/>
       </encodingDesc>
       <revisionDesc status="draft">
 		 <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBRARB paratexts</change>
