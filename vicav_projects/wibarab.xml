@@ -36,6 +36,7 @@
   </partner>
   
   <frontpage>
+    <item xml:id="wibarab.paratexts.index" target="wibarab.paratexts.index" type="Text">Welcome</item>
     <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Map</item>
   </frontpage>
   <menu>
