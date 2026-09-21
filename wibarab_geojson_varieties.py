@@ -156,26 +156,28 @@ def get_bibl_data(bibl_doc):
     for source in bibl_doc.any_xpath("//tei:biblStruct"):
         source_id = source.get("{http://www.w3.org/XML/1998/namespace}id")
         short_cit = source.get("n")
-        decade_dc = source.xpath(
-            ".//tei:note[@type='dataCollection']/tei:date/text()", namespaces=nsmap
-        )
-        if len(decade_dc) > 1:
-            print("Multiple data collection dates found for source", source_id)
-        cert = source.xpath(
-            ".//tei:note[@type='dataCollection']/tei:date/@cert", namespaces=nsmap
-        )
+        # Commented out for now, decade of data collection will be shown only when displaying the full source information, through a query
+        # decade_dc = source.xpath(
+        #     ".//tei:note[@type='dataCollection']/tei:date/text()", namespaces=nsmap
+        # )
+        # if len(decade_dc) > 1:
+        #     print("Multiple data collection dates found for source", source_id)
+        # cert = source.xpath(
+        #     ".//tei:note[@type='dataCollection']/tei:date/@cert", namespaces=nsmap
+        # )
         link = source.get("corresp")
         bibl_data[source_id] = {
+            "bibl_id": source_id,
             "short_cit": short_cit,
             "link": link,
-            "decade_dc": (
-                {
-                    decade: cert if cert else "N/A"
-                    for decade, cert in zip(decade_dc, cert)
-                }
-                if decade_dc
-                else {"N/A": "N/A"}
-            ),
+            # "decade_dc": (
+            #     {
+            #         decade: cert if cert else "N/A"
+            #         for decade, cert in zip(decade_dc, cert)
+            #     }
+            #     if decade_dc
+            #     else {"N/A": "N/A"}
+            # ),
         }
     return bibl_data
 
@@ -293,7 +295,7 @@ def get_feature_data(
                                 bibl_id = ref.replace("zot:", "")
                                 if bibl_id:
                                     if bibl_id in bibl_data:
-                                        # WATCHME maybe iclude the biblid, but we don't need it rn
+                                       
                                         fv_entry["source"] = bibl_data[bibl_id]
                                     else:
                                         print(
@@ -307,7 +309,7 @@ def get_feature_data(
                                 fv_entry["source"] = {
                                     "short_cit": bibl_id,
                                     "link": "",
-                                    "decade_dc": {"2020s": "high"},
+                                    # "decade_dc": {"2020s": "high"},
                                 }
                             else:
                                 print("Unknown source reference format:", ref)
@@ -436,7 +438,7 @@ def write_geojson(output_file, geojson_data):
 
 def main():
     # Path to the featuredb, adjust if necessary
-    data_home = os.path.join(".", "featuredb")
+    data_home = os.path.join("..", "featuredb")
     # Paths to feature xml files and geo xml file
     features_path = os.path.join(data_home, "010_manannot", "features")
     profiles_path = os.path.join(data_home, "010_manannot", "profiles")
