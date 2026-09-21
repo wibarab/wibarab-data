@@ -1,0 +1,70 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Sample Page</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.sample-page">
+  <head>Sample Page</head>
+  <p>This is an example page. It’s different from a blog post because it
+  will stay in one place and will show up in your site navigation (in
+  most themes). Most people start with an About page that introduces
+  them to potential site visitors. It might say something like this:</p>
+  <quote>
+    <p>Hi there! I’m a bike messenger by day, aspiring actor by night,
+    and this is my website. I live in Los Angeles, have a great dog
+    named Jack, and I like piña coladas. (And gettin’ caught in the
+    rain.)</p>
+  </quote>
+  <p>…or something like this:</p>
+  <quote>
+    <p>The XYZ Doohickey Company was founded in 1971, and has been
+    providing quality doohickeys to the public ever since. Located in
+    Gotham City, XYZ employs over 2,000 people and does all kinds of
+    awesome things for the Gotham community.</p>
+  </quote>
+  <p>As a new WordPress user, you should go to
+  <ref target="http://127.0.0.1/wp-admin/">your dashboard</ref> to
+  delete this page and create new pages for your content. Have fun!</p>
+</div>
+
+      </body>
+   </text>
+</TEI>

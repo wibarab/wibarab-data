@@ -35,10 +35,14 @@
     <partnerLink>https://ucrisportal.univie.ac.at/de/projects/what-is-bedouin-type-arabic-the-linguistic-and-socio-historical-r</partnerLink>
   </partner>
   
-  <frontpage method="samples"/>
+  <frontpage>
+    <item xml:id="wibarab.paratexts.index" target="wibarab.paratexts.index" type="Text">Welcome</item>
+    <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Map</item>
+  </frontpage>
   <menu>
     <main>
       <dropdown xml:id="dropdown01" title="About">
+        <item xml:id="wibarabWelcome" target="wibarab.paratexts.index" type="Text">Welcome</item>
         <item xml:id="wibarabAbout" target="wibarab.paratexts.about" type="Text">About</item>
         <item xml:id="wibarabNews" target="wibarab.paratexts.news" type="Text">News</item>
         <item xml:id="wibarabResults" target="BiblNewQuery" targetType="BiblioEntries">
@@ -56,10 +60,10 @@
           </params>
         </item>
       </dropdown>
-      <dropdown xml:id="dropdown02" title="Variety features">            
+      <dropdown xml:id="dropdown02" title="Features">       
+        <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Map</item>     
         <item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
         <item xml:id="liFeatureDetailedExplanation" target="wibarab.featuredb.odd" type="Text">Data Documentation</item>
-        <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Variety data</item>
       </dropdown>
       <dropdown xml:id="dropdown03" title="Profiles">
         <item xml:id="liProfilesExplanation" target="wibarab.paratexts.profiles.explanation" type="Text">Explanation</item>
@@ -81,8 +85,17 @@
             </dataTypes>
           </params>
         </item>
-        <!--<item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
-        <item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
+        <item xml:id="dataListAll" targetType="DataTable" target="dataListAll">
+            List all data recordings
+            <params>
+              <dataTypes>
+                  <_>CorpusText</_>
+              </dataTypes>
+            </params>
+        </item>
+        <separator></separator>
+        <item xml:id="corpusQuery" type="CorpusQuery">Search the corpus</item>
+        <!--<item xml:id="corpusText" type="CorpusText">Read corpus texts</item>-->
       </dropdown>
     </main>
     <subnav/>
@@ -113,4 +126,16 @@
       <insert_guided_tour_data/>
     </table>
   </staticData>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
+  <version>
+    <backend>v3.1.15-12-gc04eed6</backend>
+    <data>2026-07-31-14-g346b0c0b,2026-07-31-51-g8e6b606a3,2026-07-31-6-gec4e28b</data>
+  </version>
 </projectConfig>

@@ -1,10 +1,10 @@
 <TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader>
+   <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>News</title>
+            <title>Dina El Zarka’s visit to Vienna</title>
             <author>
-            	<name ref="corpusmd:CM">Charly Mörth</name>
+                <name ref="corpusmd:CM">Charly Mörth</name>
             </author>
             <principal>
                 <name ref="corpusmd:SP">Stephan Procházka</name>
@@ -13,9 +13,9 @@
                <name>ERC</name>
             </funder>
          </titleStmt>
-	<publicationStmt>
+         <publicationStmt>
             <publisher>
-	            <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
             </publisher>
             <availability status="restricted">
                <licence target="https://creativecommons.org/licenses/by/4.0/">
@@ -29,22 +29,24 @@
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
-          <projectDesc>
+         <projectDesc>
             <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
          </projectDesc>
-         <listPrefixDef/>
       </encodingDesc>
       <revisionDesc status="draft">
-		 <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBRARB paratexts</change>
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
       </revisionDesc>
    </teiHeader>
 
    <text>
       <body>
-         <div xml:id="wibarab.paratexts.about">
-            <head>What is Bedouin-Type Arabic?</head>
-            <p>An ERC Advanced Grant project investigating the linguistic and socio-historical realities behind the millennia-old dichotomous concept of nomadic and sedentary people in the Middle East and North Africa.</p>
-         </div>
+<div type="level1" xml:id="wibarab.paratexts.dina-el-zarkas-visit-to-vienna">
+  <head>Dina El Zarka’s visit to Vienna</head>
+  <p>Prosody expert Dina El Zarka from the University of Graz will be
+  giving a workshop on her special field on June 12th and 13th. We are
+  very much looking forward to two instructive days!</p>
+</div>
 
       </body>
    </text>

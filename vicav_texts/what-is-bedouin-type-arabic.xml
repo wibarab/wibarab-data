@@ -1,0 +1,82 @@
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>What is Bedouin-Type Arabic?</title>
+            <author>
+                <name ref="corpusmd:CM">Charly Mörth</name>
+            </author>
+            <principal>
+                <name ref="corpusmd:SP">Stephan Procházka</name>
+            </principal>
+            <funder>
+               <name>ERC</name>
+            </funder>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>
+                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
+            </publisher>
+            <availability status="restricted">
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                  <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
+               </licence>
+            </availability>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>This is a born digital document</p>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <projectDesc>
+            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
+         </projectDesc>
+      </encodingDesc>
+      <revisionDesc status="draft">
+         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+      </revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+<div type="level1" xml:id="wibarab.paratexts.what-is-bedouin-type-arabic">
+  <head>What is Bedouin-Type Arabic?</head>
+  <p>The linguistic and socio-historical realities behind the
+  millennia-old dichotomous concept of nomadic and sedentary people in
+  the Middle East and North Africa.</p>
+  <p><figure>
+    <graphic url="https://wibarab.acdh-dev.oeaw.ac.at/wp-content/uploads/2022/09/csm_ACDH-CH_Projects_wibarab_390ef96b51.jpeg" />
+  </figure></p>
+  <p>More than 350 million people speak Arabic in linguistic settings
+  that are for the most part characterised by a high degree of
+  diglossia. From Iran to Mauretania, countless spoken varieties are in
+  use, which will be investigated in the ERC project WIBARAB. A
+  particular concern of the project is the language of the Bedouins
+  which has spread with the Arab expansion in the Middle East and North
+  Africa since the 7th century. In a cooperation between the Institute
+  of Oriental Studies (University of Vienna) and the Austrian Centre for
+  Digital Humanities and Cultural Heritage (Austrian Academy of
+  Sciences), an attempt is being made to better understand the nature of
+  the linguistic dichotomy between sedentary and nomadic varieties and
+  this concept, which is so fundamental to Arabic language history, by
+  applying innovative and interdisciplinary methods. The project will
+  collect new data through fieldwork in Saudi Arabia, Jordan, Sudan and
+  Morocco, among other countries. It will also include social parameters
+  in the investigation, in particular the question of whether the
+  prevalence of tribal structures and patriarchal social patterns helps
+  to explain the linguistic conservatism of Bedouin dialects.</p>
+  <p>As part of the project, the ACDH-CH will further develop and refine
+  its text-technological stack and take care of data modelling, corpus
+  design, the implementation of the database, the publication platform
+  and long-term preservation. The database will allow for efficient
+  cross-dialectal comparisons, particularly with regard to phonological,
+  morphological, syntactical, phraseological and lexical features.</p>
+  <p>-Angelika Hechtl, Karlheinz Mörth, Stephan Procházka, Daniel
+  Schopper</p>
+</div>
+
+      </body>
+   </text>
+</TEI>
