@@ -110,6 +110,10 @@
     </colors>
   </styleSettings>
   <noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
+  <cqlIgnoreAttributes>
+    <text>wid</text>
+    <text>decomp</text>
+  </cqlIgnoreAttributes>
   <style/>
   <staticData>
     <geo>
