@@ -111,8 +111,8 @@
   </styleSettings>
   <noskeHost>https://wibarab-corpus-noske.acdh-dev.oeaw.ac.at</noskeHost>
   <cqlIgnoreAttributes>
-    <text>wid</text>
-    <text>decomp</text>
+    <_>wid</_>
+    <_>decomp</_>
   </cqlIgnoreAttributes>
   <style/>
   <staticData>
