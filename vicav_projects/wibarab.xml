@@ -62,6 +62,7 @@
       </dropdown>
       <dropdown xml:id="dropdown02" title="Features">       
         <item xml:id="liFeatureMapTable" target="wibarabFeatures" type="ListMap">Map</item>     
+        <item xml:id="liFeatureOverview" target="wibarabFeatures" targetType="FeatureDescriptionList">List all features</item>     
         <item xml:id="liFeatureExplanation" target="wibarab.paratexts.features.explanation" type="Text">Explanation</item>
         <item xml:id="liFeatureDetailedExplanation" target="wibarab.featuredb.odd" type="Text">Data Documentation</item>
       </dropdown>
