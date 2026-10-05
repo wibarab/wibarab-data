@@ -2,40 +2,55 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>Symposium the ‘Tribe’ in the WANA Region, 3rd &amp; 4th of October 2024</title>
-            <author>
-                <name ref="corpusmd:CM">Charly Mörth</name>
-            </author>
-            <principal>
-                <name ref="corpusmd:SP">Stephan Procházka</name>
-            </principal>
-            <funder>
-               <name>ERC</name>
-            </funder>
+            <title level="a">Symposium the ‘Tribe’ in the WANA Region, 3rd &amp; 4th of October 2024</title>
+            <title level="s">WIBARAB Dataset</title>
+            <respStmt>
+               <persName ref="dmp:SP">Stephan Procházka</persName>
+               <resp>principal</resp>
+            </respStmt>
+            <respStmt>
+               <persName ref="dmp:RZ">Maria Rebecca Zarb</persName>
+               <resp>author</resp>
+            </respStmt>
+            <funder>Funded by the <orgName ref="https://ror.org/0472cxd90">European Research Council</orgName> under the Grant Agreement <idno type="projectNumber">101020127</idno></funder>
          </titleStmt>
          <publicationStmt>
-            <publisher>
-                <name ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities and Cultural Heritage</name>
-            </publisher>
+            <publisher ref="https://ror.org/03anc3s24">Austrian Academy of Sciences</publisher>
+            <publisher ref="https://ror.org/03prydq77">University of Vienna</publisher>
+            <distributor ref="https://ror.org/028bsh698">Austrian Centre for Digital Humanities</distributor>
+            <date when="2026">2026</date>
+            <pubPlace>Vienna</pubPlace>
+            <address>
+               <addrLine>Bäckerstraße 13</addrLine>
+               <addrLine>1010 Vienna</addrLine>
+               <addrLine>Austria</addrLine>
+            </address>
             <availability status="restricted">
                <licence target="https://creativecommons.org/licenses/by/4.0/">
                   <p>The Creative Commons Attribution 4.0 International (CC BY 4.0) licence applies to this document.</p>
                </licence>
             </availability>
-            <date>2023</date>
+            <idno type="teiSource">https://github.com/wibarab/wibarab-data/blob/main/vicav_texts/symposium-the-tribe-in-the-wana-region-3rd-4th-of-october-2024.xml</idno>
          </publicationStmt>
          <sourceDesc>
             <p>This is a born digital document</p>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
-         <projectDesc>
-            <p>This document was created and is made available in the framework of the project "WIBARAB". This project is an ERC funded project.</p>
-         </projectDesc>
+         <listPrefixDef xml:id="listPrefixDef">
+            <prefixDef ident="dmp" matchPattern="^(.+)$" replacementPattern="https://raw.githubusercontent.com/wibarab/featuredb/main/010_manannot/wibarab_dmp.xml#$1" />
+            <prefixDef ident="vtc" matchPattern="^(.+)$" replacementPattern="https://raw.githubusercontent.com/acdh-oeaw/vicav-library/main/vicav_textClasses.xml#$1" />
+         </listPrefixDef>
       </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <catRef scheme="vtc:datatypes.vicav" target="vtc:datatypes.vicav.pt" />
+         </textClass>
+      </profileDesc>
       <revisionDesc status="draft">
-         <change when="2024-02-20" who="corpusmd:DS">set up templates for WIBARAB paratexts</change>
+         <change when="2024-02-20" who="dmp:DS">set up templates for WIBARAB paratexts</change>
          <change when="2026-09-16">converted from old-site markdown via pandoc</change>
+         <change when="2026-10-05" who="dmp:KS">adjusted header</change>
       </revisionDesc>
    </teiHeader>
 
