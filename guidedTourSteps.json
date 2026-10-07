@@ -3,7 +3,7 @@
 		"attachTo": { "element": "#results-table" },
 		"content": {
 			"title": "The Variety Table",
-			"description": "Every row is a documented language variety: a city, a region, or a community. This table is your starting point, and whatever you filter here is what the map beside it shows."
+			"description": "Every row is a documented location: a city, a region, or a community. This table is your starting point, and whatever you filter here is what the map beside it shows."
 		}
 	},
 	{
@@ -26,7 +26,7 @@
 	},
 	{
 		"attachTo": {
-			"element": "[data-window-type=\"Location\"] tr:nth-child(24) [data-onboarding=\"feature-link\"]"
+			"element": "[data-window-type=\"Location\"] tr:nth-child(25) [data-onboarding=\"feature-link\"]"
 		},
 		"requireClick": true,
 		"options": {
