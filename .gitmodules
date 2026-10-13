@@ -1,0 +1,6 @@
+[submodule "corpus-data"]
+	path = corpus-data
+	url = https://github.com/wibarab/corpus-data.git
+[submodule "featuredb"]
+	path = featuredb
+	url = https://github.com/wibarab/featuredb.git
