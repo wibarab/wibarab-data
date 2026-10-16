@@ -77,7 +77,7 @@ $message
 EOF
 )
 git submodule update --init --recursive
-alldataversions=$alldataversions,$dataversion
+alldataversions=$dataversion
 #------ Update corpus data from GitHub repository 
 echo updating corpus-data
 pushd corpus-data
@@ -105,8 +105,8 @@ $message
 </revisionDesc>
 EOF
 )
+alldataversions=$alldataversions,$dataversion
 popd
-alldataversions=$dataversion
 #------ Update feature DB from GitHub repository
 echo updating featuredb
 pushd featuredb
