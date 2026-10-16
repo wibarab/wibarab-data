@@ -80,7 +80,7 @@ git submodule update --init --recursive
 alldataversions=$alldataversions,$dataversion
 #------ Update corpus data from GitHub repository 
 echo updating corpus-data
-pushd wibarab-data/corpus-data
+pushd corpus-data
 ret=$?
 if [ $ret != "0" ]; then exit $ret; fi
 if [ "$onlytags"x = 'truex' ]
@@ -109,7 +109,7 @@ popd
 alldataversions=$dataversion
 #------ Update feature DB from GitHub repository
 echo updating featuredb
-pushd wibarab-data/featuredb
+pushd featuredb
 ret=$?
 if [ $ret != "0" ]; then exit $ret; fi
 if [ "$onlytags"x = 'truex' ]
