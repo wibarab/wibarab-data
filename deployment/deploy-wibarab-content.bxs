@@ -5,7 +5,7 @@
         <optimize-all/>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'/>
-        <add path="/wibarab">../featuredb/010_manannot/profiles</add>
+        <add path="/wibarab">../wibarab-data/featuredb/010_manannot/profiles</add>
         <optimize-all/>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
         <add path="/wibarab/featuredb.odd">../wibarab-data/featuredb/802_tei_odd/featuredb.odd</add>
