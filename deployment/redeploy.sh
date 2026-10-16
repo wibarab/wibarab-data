@@ -76,6 +76,7 @@ $message
 </revisionDesc>
 EOF
 )
+git submodule update --init --recursive
 alldataversions=$alldataversions,$dataversion
 #------ Update corpus data from GitHub repository 
 echo updating corpus-data
@@ -122,7 +123,6 @@ dataversion=$(git describe --tags --always)
 fi
 echo checking out data ${dataversion}
 git -c advice.detachedHead=false checkout ${dataversion}
-git submodule update --init
 who=$(git show -s --format='%cN')
 when=$(git show -s --format='%as')
 message=$(git show -s --format='%B')
