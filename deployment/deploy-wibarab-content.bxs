@@ -1,24 +1,24 @@
 <commands>
         <set option='CHOP'>false</set>
         <create-db name='vicav_corpus'/>
-        <add path="/wibarab">../corpus-data/103_tei_w</add>
+        <add path="/wibarab">../wibarab-data/corpus-data/103_tei_w</add>
         <optimize-all/>
         <create-db name='vicav_projects'>../wibarab-data/vicav_projects</create-db>
         <create-db name='vicav_profiles'/>
         <add path="/wibarab">../featuredb/010_manannot/profiles</add>
         <optimize-all/>
         <create-db name='vicav_texts'>../wibarab-data/vicav_texts</create-db>
-        <add path="/wibarab/featuredb.odd">../featuredb/802_tei_odd/featuredb.odd</add>
-        <add path="/wibarab/featuredb.html">../featuredb/802_tei_odd/featuredb.html</add>
+        <add path="/wibarab/featuredb.odd">../wibarab-data/featuredb/802_tei_odd/featuredb.odd</add>
+        <add path="/wibarab/featuredb.html">../wibarab-data/featuredb/802_tei_odd/featuredb.html</add>
         <xquery>delete node collection('vicav_texts')//*:schemaSpec//(*:desc, *:remarks, *:gloss, *:exemplum)[not(@xml:lang = ('en'))]</xquery>
         <create-db name='vicav_biblio'/>
-        <add path="/wibarab">../featuredb/vicav-library/vicav_biblio/vicav_biblio_tei_zotero.xml</add>
+        <add path="/wibarab">../wibarab-data/featuredb/vicav-library/vicav_biblio/vicav_biblio_tei_zotero.xml</add>
         <optimize-all/>        
         <create-db name='vicav_geo'/>
-        <add path="/">../featuredb/vicav-library/vicav_geo/vicav_geodata.xml</add>
+        <add path="/">../wibarab-data/featuredb/vicav-library/vicav_geo/vicav_geodata.xml</add>
         <optimize-all/>
         <create-db name='vicav_vocabs'/>
-        <add path="/">../featuredb/vicav-library/vicav_vocabs/vocabs.xml</add>
+        <add path="/">../wibarab-data/featuredb/vicav-library/vicav_vocabs/vocabs.xml</add>
         <optimize-all/>
         <!-- set option='ftindex'>true</set>
         <set option='attrinclude'>age,sex</set>
@@ -30,7 +30,7 @@
         <set option="BINDINGS">colls=dc_shawi_eng</set>
         <run file="webapp/vicav-app/create_autocomplete_index.xq"/ -->
         <set option='skipcorrupt'>true</set>
-        <create-db name="wibarab_features">../featuredb/010_manannot</create-db>
+        <create-db name="wibarab_features">../wibarab-data/featuredb/010_manannot</create-db>
         <open name="wibarab_features"/>
         <delete path="/profiles"/>
         <delete path="/trial ordner for global replace"/>

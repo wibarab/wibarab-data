@@ -48,67 +48,6 @@ then
 fi
 #-------------------------------------
 
-#------ Update corpus data from GitHub repository 
-echo updating corpus-data
-if [ ! -d corpus-data/.git ]; then git clone https://github.com/wibarab/corpus-data.git; fi
-pushd corpus-data
-ret=$?
-if [ $ret != "0" ]; then exit $ret; fi
-if [ "$onlytags"x = 'truex' ]
-then
-git reset --hard
-git pull
-dataversion=$(git describe --tags --abbrev=0)
-else
-git pull
-dataversion=$(git describe --tags --always)
-fi
-echo checking out data ${dataversion}
-git -c advice.detachedHead=false checkout ${dataversion}
-who=$(git show -s --format='%cN')
-when=$(git show -s --format='%as')
-message=$(git show -s --format='%B')
-revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
-<revisionDesc>
-  <change n="$dataversion" who="$who" when="$when">
-$message
-   </change>
-</revisionDesc>
-EOF
-)
-popd
-alldataversions=$dataversion
-#------ Update feature DB from GitHub repository
-echo updating featuredb
-if [ ! -d featuredb/.git ]; then git clone https://github.com/wibarab/featuredb.git; fi
-pushd featuredb
-ret=$?
-if [ $ret != "0" ]; then exit $ret; fi
-if [ "$onlytags"x = 'truex' ]
-then
-git reset --hard
-git pull
-dataversion=$(git describe --tags --abbrev=0)
-else
-git pull
-dataversion=$(git describe --tags --always)
-fi
-echo checking out data ${dataversion}
-git -c advice.detachedHead=false checkout ${dataversion}
-git submodule update --init
-who=$(git show -s --format='%cN')
-when=$(git show -s --format='%as')
-message=$(git show -s --format='%B')
-revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
-<revisionDesc>
-  <change n="$dataversion" who="$who" when="$when">
-$message
-   </change>
-</revisionDesc>
-EOF
-)
-popd
-alldataversions=$alldataversions,$dataversion
 #------ Update wibarab data from GitHub repository 
 echo updating wibarab-data
 if [ ! -d wibarab-data/.git ]; then echo "wibarab-data does not exist or is not a git repository"; fi
@@ -137,6 +76,65 @@ $message
 </revisionDesc>
 EOF
 )
+alldataversions=$alldataversions,$dataversion
+#------ Update corpus data from GitHub repository 
+echo updating corpus-data
+pushd wibarab-data/corpus-data
+ret=$?
+if [ $ret != "0" ]; then exit $ret; fi
+if [ "$onlytags"x = 'truex' ]
+then
+git reset --hard
+git pull
+dataversion=$(git describe --tags --abbrev=0)
+else
+git pull
+dataversion=$(git describe --tags --always)
+fi
+echo checking out data ${dataversion}
+git -c advice.detachedHead=false checkout ${dataversion}
+who=$(git show -s --format='%cN')
+when=$(git show -s --format='%as')
+message=$(git show -s --format='%B')
+revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+<revisionDesc>
+  <change n="$dataversion" who="$who" when="$when">
+$message
+   </change>
+</revisionDesc>
+EOF
+)
+popd
+alldataversions=$dataversion
+#------ Update feature DB from GitHub repository
+echo updating featuredb
+pushd wibarab-data/featuredb
+ret=$?
+if [ $ret != "0" ]; then exit $ret; fi
+if [ "$onlytags"x = 'truex' ]
+then
+git reset --hard
+git pull
+dataversion=$(git describe --tags --abbrev=0)
+else
+git pull
+dataversion=$(git describe --tags --always)
+fi
+echo checking out data ${dataversion}
+git -c advice.detachedHead=false checkout ${dataversion}
+git submodule update --init
+who=$(git show -s --format='%cN')
+when=$(git show -s --format='%as')
+message=$(git show -s --format='%B')
+revisionDesc=$(sed ':a;N;$!ba;s/\n/\\n/g' <<EOF
+<revisionDesc>
+  <change n="$dataversion" who="$who" when="$when">
+$message
+   </change>
+</revisionDesc>
+EOF
+)
+popd
 alldataversions=$alldataversions,$dataversion
 #------- copy all images into the "images" directory in the web application directory
 echo "copying image files from wibarab-data to vicav-webapp"
